@@ -1,7 +1,7 @@
 {
-  "name": "default-ekrz",
-  "version": "0.1.7",
-  "description": "Default package.json",
+  "name": "init-ekrz",
+  "version": "0.1.8",
+  "description": "Initialize a new working environnement",
   "main": "index.js",
   "author": {
     "name": "Emmanuel K. Retzepter",
