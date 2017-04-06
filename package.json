@@ -1,0 +1,32 @@
+{
+  "name": "default-ekrz",
+  "version": "0.1.7",
+  "description": "Default package.json",
+  "main": "index.js",
+  "author": {
+    "name": "Emmanuel K. Retzepter",
+    "email": "hello@retzepter.com",
+    "url": "http://retzepter.com/"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-cache": "^0.4.6",
+    "gulp-changed": "^2.0.0",
+    "gulp-clean-css": "^3.0.4",
+    "gulp-csscomb": "^3.0.8",
+    "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-jsbeautifier": "^2.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-rigger": "^0.5.8",
+    "gulp-uglify": "^2.1.0",
+    "gulp-useref": "^3.1.2",
+    "gulp-util": "^3.0.8",
+    "gulp-watch": "^4.3.11",
+    "imagemin-pngquant": "^5.0.0",
+    "rimraf": "^2.6.1"
+  }
+}

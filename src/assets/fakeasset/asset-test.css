@@ -1,0 +1,17 @@
+body
+{
+	background: #0f0f0f;
+	color: #fff;
+	font-family: Roboto, sans-serif;
+	text-align: center;
+}
+
+h1
+{
+	font-size: 244px;
+	margin: 0 auto;
+}
+
+img{
+	max-width: 400px;
+}
