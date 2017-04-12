@@ -3,20 +3,30 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>now life is perfect</title>
+        <title>Project Title</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
+        <!-- mobile toolbar theming -->
+        <meta name="theme-color" content="#000000">
+        <meta name="msapplication-navbutton-color" content="#000000">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <!-- normalize and modernizr -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 
+        <!-- definition for the favicon -->
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="shortcut icon" type="image/png" href="/images/favicon.png"/>
+
 
         <!-- build:css styles/bundle.min.css -->
-        <link rel="stylesheet" href="styles/test.css">
-        <link rel="stylesheet" href="assets/fakeasset/asset-test.css">
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="assets/fontawesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/slick/slick.css">
+        <link rel="stylesheet" href="assets/slick/slick-theme.css">
+        <link rel="stylesheet" href="styles/styles.css">
         <!-- endbuild -->
 
     </head>
@@ -25,24 +35,108 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- replace that and build something. -->
-        <main class="delete me please">
-            <h1>cool</h1>
-            <br>
-            <h4>think</h4><br>
-            <p>Otters are an illusion.</p>
-            <br>
+        <nav class="navbar navbar-color navbar-offcanvas navbar-fixed-top">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button aria-expanded="false" class="navbar-toggle collapsed pull-right" data-target="#main-nav" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+              <a class="navbar-brand" href="#"><img alt="" src="http://placehold.it/150x50">
+                <!-- Dobiquity -->
+              </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="main-nav">
+              <ul class="nav navbar-nav navbar-right">
+                <li class="active">
+                  <a href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li>
+                  <a href="#">How it works</a>
+                </li>
+                <li>
+                  <a href="#">Pricing</a>
+                </li>
+                <li>
+                  <a href="#">Blog</a>
+                </li>
+                <li>
+                  <a href="#">Help</a>
+                </li>
+                <li>
+                  <a href="#">About us</a>
+                </li>
+                <li>
+                  <a href="#">Log in</a>
+                </li>
+                <li>
+                  <a class="" data-remodal-target="modal">Sign up</a>
+                </li>
+                <!--                <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                              </ul>
+                            </li> -->
+              </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+          </div>
+          <!-- /.container-fluid -->
+        </nav>
 
-            <img src="images/otters/otter.jpg" alt="">
-            <br>
-            <h3>scroll to free an otter</h3>
-            <br>
-            <br>
-            <h1>Otter</h1>
-            <p>You just freed an otter.</p>
-            <img src="contentFiles/otters/otter.jpg" alt="">
-            <h2>but it was a malicious one.</h2>
+        <main>
+            <section class="landing-area">
+                <div class="landing slider">
+                    <div class="item">
+                        <h1>un</h1>
+                    </div>
+                    <div class="item">
+                        <h1>deux</h1>
+                    </div>
+                    <div class="item">
+                        <h1>trois</h1>
+                    </div>
+                </div>
+            </section>
+            <div class="first-section">
+                <h1>Heading 1</h1>
+                <p>Common Text</p>
+                <p><b>Bold Text</b></p>
+                <p><i>Italic Text</i></p>
+
+                <h2>Heading 2</h2>
+                <p>Common Text</p>
+                <p><b>Bold Text</b></p>
+                <p><i>Italic Text</i></p>
+
+                <h3>Heading 3</h3>
+                <p>Common Text</p>
+                <p><b>Bold Text</b></p>
+                <p><i>Italic Text</i></p>
+
+                <h4>Heading 4</h4>
+                <p>Common Text</p>
+                <p><b>Bold Text</b></p>
+                <p><i>Italic Text</i></p>
+
+                <h5>Heading 5</h5>
+                <p>Common Text</p>
+                <p><b>Bold Text</b></p>
+                <p><i>Italic Text</i></p>
+
+                <h6>Heading 6</h6>
+                <p>Common Text</p>
+                <p><b>Bold Text</b></p>
+                <p><i>Italic Text</i></p>
+            </div>
         </main>
+        <footer class="row">
+            <div class="col-xs-12 col-sm-4">Foot Uno</div>
+            <div class="col-xs-12 col-sm-4">Foot Dos</div>
+            <div class="col-xs-12 col-sm-4">Foot Tres</div>
+        </footer>
+
 
         <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.4.min.js"><\/script>')</script>
@@ -50,8 +144,9 @@
 
 
         <!-- build:js scripts/bundle.min.js -->
-        <script src="scripts/test.js"></script>
-        <script src="assets/fakeasset/asset-test.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/slick/slick.min.js"></script>
+        <script src="scripts/script.js"></script>
         <!-- endbuild -->
 
     </body>
