@@ -1,14 +1,13 @@
-//default gulp ekrzzz 0.0.6
-
-/* 
+//default gulp ekrzzz 0.0.7
+/*
 
 Activity log :
 
+0.0.7 : added gulp-sourcemaps to maps correctly the CSS after autoprefixing
 0.0.6 : added cssComb and Prettify to clean HTML, CSS and JS
 0.0.5 : splited production and dev mode (more comfortable)
 0.0.4 : added gulp-useref + removed image-pngquant
 0.0.3 : added gulpif and compression of assets
-
 
   .-"""-.
  /      o\
@@ -21,7 +20,6 @@ Activity log :
        '._        -'    /
           ``""--`------`
 */
-
 
 // tl;dr => 'gulp' to launch dev mode (browser-sync, compress images but do not strike .CSS and .JS rendering)
 //       => 'gulp bravo' to launch prod (dev mode + rigger, minify, uglify...)
@@ -36,7 +34,7 @@ var gulp = require('gulp'),
     watch = require('gulp-watch'),
     cache = require('gulp-cache'),
     rename = require('gulp-rename'),
-    prefixer = require('gulp-autoprefixer'),
+    autoprefixer = require('gulp-autoprefixer'),
     uglify = require('gulp-uglify'),
     prettify = require('gulp-jsbeautifier'),
     useref = require('gulp-useref'),
@@ -49,14 +47,12 @@ var gulp = require('gulp'),
     gulpif = require('gulp-if'),
     gutil = require('gulp-util'),
     browserSync = require("browser-sync"),    
+    changed = require('gulp-changed'),
     
     /* REMOVED */
     // pngquant = require('imagemin-pngquant'),
     // minifyCss = require('gulp-minify-css'),
     reload = browserSync.reload;
-
-const changed = require('gulp-changed');
-
 
 //definition of our paths, we store them in a var.
 // => Reusable and editable in only one place
@@ -129,20 +125,22 @@ gulp.task('html:build', function () {
 });
 gulp.task('scripts:build', function () {
     gulp.src(path.src.scripts) 
-        .pipe(changed(path.build.scripts))
-        .pipe(rigger()) 
-        .pipe(prettify())
         .pipe(sourcemaps.init()) 
+            .pipe(changed(path.build.scripts))
+            .pipe(rigger()) 
+            .pipe(prettify())
         .pipe(sourcemaps.write()) 
         .pipe(gulp.dest(path.build.scripts))
         .pipe(reload({stream: true}));
 });
 gulp.task('styles:build', function () {
     gulp.src(path.src.styles) 
-        .pipe(changed(path.build.styles))
-        .pipe(prefixer())
-        .pipe(csscomb())
+        .pipe(sourcemaps.init())
+            .pipe(changed(path.build.styles))
+            .pipe(autoprefixer())
+            .pipe(csscomb())
         .pipe(gulp.dest(path.build.styles))
+        .pipe(sourcemaps.write()) 
         .pipe(reload({stream: true}));
 });
 gulp.task('images:build', function () {
@@ -155,7 +153,7 @@ gulp.task('images:build', function () {
 gulp.task('contentFiles:build', function () {
     gulp.src(path.src.contentFiles) 
         .pipe(changed(path.build.contentFiles))
-        .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
+        .pipe(cache(imagemin({ optimizationLevel: 4, progressive: true, interlaced: true })))
         .pipe(gulp.dest(path.build.contentFiles))
         .pipe(reload({stream: true}));
 });
@@ -224,10 +222,12 @@ gulp.task('watch', function(){
 gulp.task('production:build', function () {
     gulp.src(path.src.html)
     .pipe(changed(path.build.html))
-        .pipe(useref())
-        .pipe(rigger())
-        .pipe(gulpif('*.js', uglify()))
-        .pipe(gulpif('*.css', cleanCSS()))
+        .pipe(sourcemaps.init())
+            .pipe(useref())
+            .pipe(rigger())
+            .pipe(gulpif('*.js', uglify()))
+            .pipe(gulpif('*.css', autoprefixer(), cleanCSS()))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.html))
         .on('end', function(){ gutil.log('Production complete.'); })
         .pipe(reload({stream: true}));

@@ -1,269 +1,372 @@
-/***********************\
- a. GENERAL STYLES
-\**********************/
+/* --------------------------------------------------------
+Style Sheet for {{ init-ekrz }}
 
-/***********************\
- b. NAVBAR
-\**********************/
+version: 0.0.1
+last modified: 04.19.2017
+
+author: Emmanuel K. Retzepter
+email: hello@retzepter.com
+website: http://retzepter.com
+----------------------------------------------------------*/
+
+/* -----------------------------------------------------------
+CONTENTS:
+=Resets & General
+=Navbar
+=Header
+=Slider
+=Main Content
+=Lists
+=Navigation
+=Comments
+=Aside
+=Footer
+------------------------------------------------------------*/
 
 
-body
-{
-	padding-top: 75px;
-}
-.navbar-offcanvas .navbar-toggle .icon-bar {
-  margin-right: auto;
-  margin-left: auto;
-  transition: transform 300ms cubic-bezier(.55, 0, .1, 1), opacity 300ms cubic-bezier(.55, 0, .1, 1);
-  background-color: #fff;
-  will-change: transform, opacity;
-}
+/* ----------------------------------*/
+/* --------->>> =NAVBAR <<<----------*/
+/* ----------------------------------*/
 
-.navbar-offcanvas .navbar-toggle .icon-bar:nth-child(2) {
-  transform: rotate(45deg) translateY(5px) translateX(4px);
-}
-
-.navbar-offcanvas .navbar-toggle .icon-bar:nth-child(3) {
-  opacity: 0;
-}
-
-.navbar-offcanvas .navbar-toggle .icon-bar:nth-child(4) {
-  transform: rotate(-45deg) translateY(-5px) translateX(3px);
-}
-
-.navbar-offcanvas .navbar-toggle.collapsed .icon-bar {
-  transform: rotate(0) translateY(0) translateX(0);
-  opacity: 1;
-}
-
-.navbar-offcanvas .navbar-collapse {
-  position: fixed;
-  z-index: 100;
-  top: 75px;
-  display: block !important;
-  width: 80%;
-  max-width: 350px;
-  min-height: calc(100vh - 75px) !important;
-  transition: transform 300ms cubic-bezier(.55, 0, .1, 1);
-  transform: translate(0, 0);
-  border: none;
-  background: #fff;
-  will-change: transform;
-  overflow-y: hidden;
-}
-
-.navbar-offcanvas .navbar-collapse.in:before {
-  position: absolute;
-  width: 275px;
-  height: 620px;
-  content: '';
-  top: 0;
-  left: 0;
-  background: url('../contentFiles/poulpo-l.png') no-repeat;
-  background-size: cover;
-}
-
-.navbar-nav {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  transform: translateY(-50%);
-}
-
-.navbar-offcanvas .navbar-collapse,
-.navbar-offcanvas .navbar-collapse[aria-expanded='false'] {
-  transform: translate(-100%, 0);
-}
-
-.navbar-offcanvas .navbar-collapse[aria-expanded='true'] {
-  transform: translate(0, 0);
-  box-shadow: 3px 0 15px 10px rgba(0, 0, 0, .1);
-}
-
-.navbar-color {
-  color: #fff;
-  border: none;
-  border-radius: 0;
-  background: #2a343a;
-}
-
-.navbar-color .navbar-brand {
-  color: #fff;
-}
-
-.navbar-color .navbar-nav a {
-  color: #333;
-}
-
-.navbar-collapse[aria-expanded='true'] .navbar-nav a {
-  font-size: 18px;
-  font-weight: 600;
-  padding: 10px 0;
-  text-transform: uppercase;
-  color: #637988;
-}
-
-.navbar {
-  min-height: 75px;
-  margin-bottom: 0;
-  border-bottom: 3px solid #00c7fc;
-}
-
-.navbar-brand {
-  margin: 0;
-  margin-top: -2px;
-  margin-left: 5px;
-  padding: 0;
-  padding: 15px;
-}
-
-.navbar-brand img {
-  max-width: 175px;
-}
-
-.navbar-toggle {
-  position: relative;
-  margin: 0;
-  margin-top: 30px;
-  margin-right: 15px;
-  padding: 0;
-}
-.nav > li
-{
-	text-align: center;
-}
-@media (min-width: 768px) {
-  body {
-    padding-top: 0;
+  body
+  {
+      padding-top: 75px;
   }
-  .navbar-nav {
-    position: static;
-    top: auto;
-    width: auto;
-    transform: translateY(0);
-  }
-  .navbar-offcanvas .navbar-collapse {
-    position: static;
-    width: auto;
-    max-width: none;
-    height: auto !important;
-    min-height: auto !important;
-    transform: translate(0, 0) !important;
-    background: transparent;
-  }
-  .navbar {
-    min-height: 50px;
-    border-bottom: 0;
-    background: transparent;
-  }
-  .navbar-color .navbar-nav > li > a {
-    color: #fff;
-  }
-  .navbar-color .navbar-nav > li.open > a,
-  .navbar-color .navbar-nav > li > a:hover {
-    color: #333;
-  }
-  .navbar-color .navbar-nav > li.active > a {
-    background: rgba(255, 255, 255, .33);
-  }
-  .navbar-color.colored {
-    /* border-bottom: 3px solid #00c7fc; */
-    background: #2a343a;
-  }
-  .navbar-header {
-    float: none;
-  }
-}
+  .navbar-offcanvas .navbar-toggle .icon-bar
+  {
+      margin-right: auto;
+      margin-left: auto;
 
-@media all and (min-width: 768px) and (max-width: 991px) {
-  .landing-area {
-    padding-top: 125px;
-  }
-  .navbar > .container .navbar-brand,
-  .navbar > .container-fluid .navbar-brand {
-    margin-left: 0;
-  }
-  .navbar-header,
-  .navbar-brand {
-    position: relative;
-    width: 100%;
-  }
-  .navbar-brand img {
-    margin: 0 auto;
-  }
-  .navbar-nav {
-    float: none!important;
-  }
-  .navbar-nav li {
-    display: inline-block;
-    float: none;
-  }
-  .navbar-offcanvas .navbar-collapse {
-    position: relative;
-    top: 0;
-    margin-top: 25px;
-  }
-}
+      transition: transform 300ms cubic-bezier(.55, 0, .1, 1), opacity 300ms cubic-bezier(.55, 0, .1, 1);
 
-@media all and (min-width: 992px) {
-  .navbar-header {
-    float: left;
-  }
-  .navbar-offcanvas .navbar-collapse {
-    margin-top: 15px;
-    margin-bottom: 15px;
-  }
-  nav .container-fluid {
-    padding: 0 5%;
-  }
-  .navbar {
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-  }
-}
+      background-color: #fff;
 
-@media all and (min-width: 1200px) {
-  nav .container-fluid {
-    padding: 0 10%;
+      will-change: transform, opacity;
   }
-  .navbar-nav > li > a {
-    padding-right: 20px;
-    padding-left: 20px;
+
+  .navbar-offcanvas .navbar-toggle .icon-bar:nth-child(2)
+  {
+      transform: rotate(45deg) translateY(5px) translateX(4px);
   }
-}
 
-@media all and (min-width: 1440px) {
-  nav .container-fluid {
-    padding: 0 15%;
+  .navbar-offcanvas .navbar-toggle .icon-bar:nth-child(3)
+  {
+      opacity: 0;
   }
-  .navbar-nav > li > a {
-    padding-right: 25px;
-    padding-left: 25px;
+
+  .navbar-offcanvas .navbar-toggle .icon-bar:nth-child(4)
+  {
+      transform: rotate(-45deg) translateY(-5px) translateX(3px);
   }
-}
 
-/*******************\
-    end of navbar
-\*******************/
-.slider h1
-{
-	margin-bottom: 20px;
-}
+  .navbar-offcanvas .navbar-toggle.collapsed .icon-bar
+  {
+      transform: rotate(0) translateY(0) translateX(0);
 
-.slider .item
-{
-	display: flex;
-	align-items: center;
-	justify-content: center;
+      opacity: 1;
+  }
 
-	background: #333;
-	color: #fff;
-	text-align: center;
-	min-height: 250px;
-}
+  .navbar-offcanvas .navbar-collapse
+  {
+      position: fixed;
+      z-index: 100;
+      top: 75px;
 
-footer
-{
-	background: #f0f0f0;
-}
+      display: block !important;
+      overflow-y: hidden;
+
+      width: 80%;
+      max-width: 350px;
+      min-height: calc(100vh - 75px) !important;
+
+      transition: transform 300ms cubic-bezier(.55, 0, .1, 1);
+      transform: translate(0, 0);
+
+      border: none;
+      background: #fff;
+
+      will-change: transform;
+  }
+
+  .navbar-offcanvas .navbar-collapse.in:before
+  {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 275px;
+      height: 620px;
+
+      content: '';
+
+      background: url('../contentFiles/poulpo-l.png') no-repeat;
+      background-size: cover;
+  }
+
+  .navbar-nav
+  {
+      position: absolute;
+      top: 50%;
+
+      width: 100%;
+
+      transform: translateY(-50%);
+  }
+
+  .navbar-offcanvas .navbar-collapse,
+  .navbar-offcanvas .navbar-collapse[aria-expanded='false']
+  {
+      transform: translate(-100%, 0);
+  }
+
+  .navbar-offcanvas .navbar-collapse[aria-expanded='true']
+  {
+      transform: translate(0, 0);
+
+      box-shadow: 3px 0 15px 10px rgba(0, 0, 0, .1);
+  }
+
+  .navbar-color
+  {
+      color: #fff;
+      border: none;
+      border-radius: 0;
+      background: #2a343a;
+  }
+
+  .navbar-color .navbar-brand
+  {
+      color: #fff;
+  }
+
+  .navbar-color .navbar-nav a
+  {
+      color: #333;
+  }
+
+  .navbar-collapse[aria-expanded='true'] .navbar-nav a
+  {
+      font-size: 18px;
+      font-weight: 600;
+
+      padding: 10px 0;
+
+      text-transform: uppercase;
+
+      color: #637988;
+  }
+
+  .navbar
+  {
+      min-height: 75px;
+      margin-bottom: 0;
+
+      border-bottom: 3px solid #00c7fc;
+  }
+
+  .navbar-brand
+  {
+      margin: 0;
+      margin-top: -2px;
+      margin-left: 5px;
+      padding: 0;
+      padding: 15px;
+  }
+
+  .navbar-brand img
+  {
+      max-width: 175px;
+  }
+
+  .navbar-toggle
+  {
+      position: relative;
+
+      margin: 0;
+      margin-top: 30px;
+      margin-right: 15px;
+      padding: 0;
+  }
+  .nav > li
+  {
+      text-align: center;
+  }
+  @media (min-width: 768px)
+  {
+      body
+      {
+          padding-top: 0;
+      }
+      .navbar-nav
+      {
+          position: static;
+          top: auto;
+
+          width: auto;
+
+          transform: translateY(0);
+      }
+      .navbar-offcanvas .navbar-collapse
+      {
+          position: static;
+
+          width: auto;
+          max-width: none;
+          height: auto !important;
+          min-height: auto !important;
+
+          transform: translate(0, 0) !important;
+
+          background: transparent;
+      }
+      .navbar
+      {
+          min-height: 50px;
+
+          border-bottom: 0;
+          background: transparent;
+      }
+      .navbar-color .navbar-nav > li > a
+      {
+          color: #fff;
+      }
+      .navbar-color .navbar-nav > li.open > a,
+      .navbar-color .navbar-nav > li > a:hover
+      {
+          color: #333;
+      }
+      .navbar-color .navbar-nav > li.active > a
+      {
+          background: rgba(255, 255, 255, .33);
+      }
+      .navbar-color.colored
+      {
+          /* border-bottom: 3px solid #00c7fc; */
+          background: #2a343a;
+      }
+      .navbar-header
+      {
+          float: none;
+      }
+  }
+
+  @media all and (min-width: 768px) and (max-width: 991px)
+  {
+      .landing-area
+      {
+          padding-top: 125px;
+      }
+      .navbar > .container .navbar-brand,
+      .navbar > .container-fluid .navbar-brand
+      {
+          margin-left: 0;
+      }
+      .navbar-header,
+      .navbar-brand
+      {
+          position: relative;
+
+          width: 100%;
+      }
+      .navbar-brand img
+      {
+          margin: 0 auto;
+      }
+      .navbar-nav
+      {
+          float: none!important;
+      }
+      .navbar-nav li
+      {
+          display: inline-block;
+          float: none;
+      }
+      .navbar-offcanvas .navbar-collapse
+      {
+          position: relative;
+          top: 0;
+
+          margin-top: 25px;
+      }
+  }
+
+  @media all and (min-width: 992px)
+  {
+      .navbar-header
+      {
+          float: left;
+      }
+      .navbar-offcanvas .navbar-collapse
+      {
+          margin-top: 15px;
+          margin-bottom: 15px;
+      }
+      nav .container-fluid
+      {
+          padding: 0 5%;
+      }
+      .navbar
+      {
+          font-size: 12px;
+          font-weight: 600;
+
+          text-transform: uppercase;
+      }
+  }
+
+  @media all and (min-width: 1200px)
+  {
+      nav .container-fluid
+      {
+          padding: 0 10%;
+      }
+      .navbar-nav > li > a
+      {
+          padding-right: 20px;
+          padding-left: 20px;
+      }
+  }
+
+  @media all and (min-width: 1440px)
+  {
+      nav .container-fluid
+      {
+          padding: 0 15%;
+      }
+      .navbar-nav > li > a
+      {
+          padding-right: 25px;
+          padding-left: 25px;
+      }
+  }
+
+/* ----------------------------------*/
+/* --------->>> =SLIDER <<<----------*/
+/* ----------------------------------*/
+  .slider h1
+  {
+      margin-bottom: 20px;
+  }
+
+  .slider .item
+  {
+      display: flex;
+
+      min-height: 250px;
+
+      text-align: center;
+
+      color: #fff;
+      background: #333;
+
+      align-items: center;
+      justify-content: center;
+  }
+
+/* ----------------------------------*/
+/* --------->>> =FOOTER <<<----------*/
+/* ----------------------------------*/
+  footer
+  {
+      background: #f0f0f0;
+  }
