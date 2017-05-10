@@ -1,33 +1,65 @@
-/* --------------------------------------------------------
+/* -------------------------------------------------------
+----------------------------------------------------------
 Style Sheet for {{ init-ekrz }}
 
 version: 0.0.1
-last modified: 04.19.2017
+last modified: 05.10.2017
 
 author: Emmanuel K. Retzepter
 email: hello@retzepter.com
 website: http://retzepter.com
+
+----------------------------------------------------------
 ----------------------------------------------------------*/
 
-/* -----------------------------------------------------------
-CONTENTS:
-=Resets & General
-=Navbar
-=Header
-=Slider
-=Main Content
-=Lists
-=Navigation
-=Comments
-=Aside
-=Footer
-------------------------------------------------------------*/
+/* NoScript Styling
+******************/
+
+.no-script.modal-backdrop.fade.in {
+    opacity: .5;
+    z-index: 1100;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000
+}
+
+.modal.fade.in.no-js {
+    background: #222;
+    bottom: auto;
+    display: block;
+    left: 0;
+    padding: 30px;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    top: 0;
+    z-index: 1109
+}
+
+.modal.fade.in.no-js .noscriptmsg {
+    font-size: 1.25em;
+    color: #fff;
+    margin-bottom: 20px
+}
+
+input.modal-closing-trick {
+    visibility: hidden;
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    z-index: 1110
+}
+
+input.modal-closing-trick:checked~div {
+    display: none!important
+}
 
 
-/* ----------------------------------*/
-/* --------->>> =NAVBAR <<<----------*/
-/* ----------------------------------*/
-
+/* Navbar Styling
+*****************/
   body
   {
       padding-top: 75px;
@@ -340,9 +372,8 @@ CONTENTS:
       }
   }
 
-/* ----------------------------------*/
-/* --------->>> =SLIDER <<<----------*/
-/* ----------------------------------*/
+/* Slider Default
+*****************/
   .slider h1
   {
       margin-bottom: 20px;
@@ -363,9 +394,8 @@ CONTENTS:
       justify-content: center;
   }
 
-/* ----------------------------------*/
-/* --------->>> =FOOTER <<<----------*/
-/* ----------------------------------*/
+/* Footer Styling
+*****************/
   footer
   {
       background: #f0f0f0;
