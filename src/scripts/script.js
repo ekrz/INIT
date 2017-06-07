@@ -3,10 +3,6 @@ console.log('Built by Granite.');
 $( document ).ready(function() {
 
 
-	$('.landing.slider').slick({
-		arrows:false
-	});
-	
 	// adapt the coloration of the navbar while scroll
 	$( window ).scroll(function() {
 		var scroll = getCurrentScroll();
@@ -17,9 +13,15 @@ $( document ).ready(function() {
 			$('nav').removeClass('colored');
 		}
 	});
-	
-	function getCurrentScroll() {
-		return window.pageYOffset;
-	}
+	$('.navbar-toggle').on('click', function(e){
+		e.preventDefault();
+		$('body').toggleClass('js-menu-open');
+	});
+
 
 });
+
+
+function getCurrentScroll() {
+	return window.pageYOffset;
+}
