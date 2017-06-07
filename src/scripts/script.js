@@ -13,10 +13,17 @@ $( document ).ready(function() {
 			$('nav').removeClass('colored');
 		}
 	});
-	$('.navbar-toggle').on('click', function(e){
-		e.preventDefault();
-		$('body').toggleClass('js-menu-open');
-	});
+	// $('.navbar-toggle').on('click', function(e){
+	// 	e.preventDefault();
+	// 	$('body').toggleClass('js-menu-open');
+	// });
+
+	// if ( $('body').hasClass('.js-menu-open') )
+	// {
+	// 	$('.navbar-toggle').on('click', function(e){
+	// 		$('.navbar-nav').css({"transform": "translate3d(-100%, 0px, 0px)"})
+	// 	});
+	// }
 
 
 });

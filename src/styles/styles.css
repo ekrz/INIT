@@ -19,7 +19,8 @@ body
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: 300;
-    color: #000000;
+
+    color: #000;
 }
 .thin
 {
@@ -79,108 +80,93 @@ h6
 }
 
 
-/* Default buttons
-*****************/
-.btn {
-
-}
-
-/* NoScript Styling
-******************/
-
-.no-script.modal-backdrop.fade.in
-{
-    opacity: .5;
-    z-index: 1100;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #000000;
-}
-
-.modal.fade.in.no-js
-{
-    background: #222222;
-    bottom: auto;
-    display: block;
-    left: 0;
-    padding: 30px;
-    position: fixed;
-    right: 0;
-    text-align: center;
-    top: 0;
-    z-index: 1109;
-}
-
-.modal.fade.in.no-js .noscriptmsg
-{
-    font-size: 1.25em;
-    color: #ffffff;
-    margin-bottom: 20px;
-}
-.modal.fade.in.no-js .btn
-{
-  display: block;
-  padding: 10px;
-}
-.modal.fade.in.no-js a.btn
-{
-  margin-bottom: 10px;
-}
-.modal.fade.in.no-js h6
-{
-  text-transform: uppercase;
-  color: #ffffff;
-  line-height: 1.4em;
-  font-size: .8em;
-  font-weight: 600;
-  margin-top: 10px;
-}
-input.modal-closing-trick
-{
-    visibility: hidden;
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-    z-index: 1110;
-}
-
-input.modal-closing-trick:checked ~ div
-{
-    display: none!important;
-}
-
-
 /* Navbar Styling
 *****************/
-body
-{
-    padding-top: 75px;
-    background: yellow
-}
-body.js-menu-open
-{
-  position: fixed;
-}
+
+
+/*
+Bootstrap reset
+**************/
 .nav > li > a:hover,
 .nav > li > a:focus
 {
     background: transparent;
 }
+
+
+/*
+    NAVIGATION - MENU
+*/
+
+/* body */
+
+body
+{
+    padding-top: 75px;
+
+    background: #fafafa;
+}
+body.js-menu-open
+{
+    position: fixed;
+}
+@media (min-width: 768px)
+{
+    body
+    {
+        padding-top: 0;
+    }
+}
+
+.navbar-nav
+{
+    position: relative;
+    top: 25px;
+
+    width: 100%;
+    margin-bottom: 0;
+    padding: 0 40px;
+
+    transition: 300ms all 250ms;
+    transform: translate3d(100%, 0, 0);
+
+    opacity: 0;
+
+    will-change: transform, opacity;
+}
+
+.navbar-offcanvas .navbar-collapse[aria-expanded='true'] .navbar-nav
+{
+    transform: translate3d(0, 0, 0);
+
+    opacity: 1;
+}
+
+/* hamburger */
+.navbar-toggle
+{
+    position: relative;
+
+    margin: 0;
+    margin-top: 17px;
+    margin-right: 15px;
+    padding: 0;
+}
 .navbar-offcanvas .navbar-toggle .icon-bar
 {
     margin-right: auto;
     margin-left: auto;
+
     transition: transform 300ms cubic-bezier(.55, 0, .1, 1), opacity 300ms cubic-bezier(.55, 0, .1, 1);
-    background-color: #ffffff;
+
+    background-color: #fff;
+
     will-change: transform, opacity;
 }
 
 .navbar-offcanvas .navbar-toggle .icon-bar:nth-child(2)
 {
-    transform: rotate(45deg) translateY(5px) translateX(4px);
+    transform: rotate(45deg) translate3d(4px, 5px, 0);
 }
 
 .navbar-offcanvas .navbar-toggle .icon-bar:nth-child(3)
@@ -190,23 +176,31 @@ body.js-menu-open
 
 .navbar-offcanvas .navbar-toggle .icon-bar:nth-child(4)
 {
-    transform: rotate(-45deg) translateY(-5px) translateX(3px);
+    transform: rotate(-45deg) translate3d(3px, -5px, 0);
 }
 
 .navbar-offcanvas .navbar-toggle.collapsed .icon-bar
 {
-    transform: rotate(0) translateY(0) translateX(0);
+    transform: rotate(0) translate3d(0, 0, 0);
+
     opacity: 1;
 }
-.navbar-offcanvas .navbar-collapse:before
+
+/* end of hamburger */
+
+.navbar-collapse::before
 {
     position: absolute;
-    opacity: .05;
+    z-index: 0;
     top: 0;
     left: 0;
+
     width: 100%;
     height: 100%;
+
     content: '';
+
+    opacity: .05;
     background: url('/images/menu/watermark.svg') no-repeat;
     background-size: cover;
 }
@@ -214,82 +208,64 @@ body.js-menu-open
 {
     position: fixed;
     z-index: 100;
-    height: 100%;
     top: 51px;
+
     display: block;
+    overflow-x: hidden;
+
     width: 100%;
+    height: 100%;
     min-height: calc(100vh - 50px) !important;
-    transition: transform 300ms cubic-bezier(.1, 0, .1, 1);
-    transform: translate(0, 0);
+
+    transition: transform 200ms cubic-bezier(.1, 0, .1, 1);
+    transform: translate3d(0, 0, 0);
+
     border: none;
-    background: #ffffff;
+    background: #fff;
+
     will-change: transform;
 
-    /*overflow-y: hidden;*/
-}
-
-.navbar-nav
-{
-    position: relative;
-    top: 25px;
-    width: 100%;
-    margin-bottom: 0;
-    padding: 0 40px;
-    opacity: 0;
-
-    transform: translateX(100%);
-
-    transition: all ease .3s;
 }
 
 .navbar-offcanvas .navbar-collapse,
 .navbar-offcanvas .navbar-collapse[aria-expanded='false']
 {
-    transform: translate(-100%, 0);
+    transform: translate3d(-100%, 0, 0);
 }
 
 .navbar-offcanvas .navbar-collapse[aria-expanded='true']
 {
-    visibility: visible;
-    transform: translate(0, 0);
-}
-.navbar-offcanvas .navbar-collapse[aria-expanded='true'] .navbar-nav
-{
-  opacity: 1;
-  transform: translateY(0)
+    transform: translate3d(0, 0, 0);
 }
 
 .navbar--custom
 {
-    color: #ffffff;
+    color: #fff;
     background: #ff0048;
+}
 
-    transition: .2s;
-}
-.js-menu-open .navbar--custom
-{
-  background: rgba(255, 0, 72, 0.75);
-}
 .navbar--custom .navbar-nav a
 {
-    color: #000;
     font-size: 1.4em;
-    padding: 8px 0;
     font-weight: 600;
 
-    transition: all .2s ease;
+    padding: 8px 0;
+
+    transition: all 200ms ease;
+
+    color: #000;
 }
-.navbar--custom .navbar-nav a:hover
+.navbar--custom .navbar-nav a:hover,
+.navbar--custom .navbar-nav a:focus
 {
-  color: #ff0048;
-  letter-spacing: .01em;
+    color: #ff0048;
 }
 
 .navbar-brand
 {
+    height: 50px;
     margin: 0 0 0 20px;
     padding: 0;
-    height: 50px;
 }
 
 .navbar-brand img
@@ -298,78 +274,78 @@ body.js-menu-open
     height: 100%;
 }
 
-.navbar-toggle
-{
-    position: relative;
-    margin: 0;
-    margin-top: 17px;
-    margin-right: 15px;
-    padding: 0;
-}
+
+
+
 @media (min-width: 768px)
 {
-    body
-    {
-        padding-top: 0;
-    }
     .navbar--custom .navbar-nav a
     {
-      font-size: 1.2em;
-      position: relative;
+        font-size: 1.2em;
+
+        position: relative;
     }
     .navbar--custom .navbar-nav a:hover
     {
-      letter-spacing: 0;
+        letter-spacing: 0;
     }
     .navbar-nav
     {
-        opacity: 1;
         position: static;
         top: auto;
+
         width: auto;
+
         transform: translateY(0);
+
+        opacity: 1;
     }
     .navbar-nav li
     {
-      padding: 0 10px;
+        padding: 0 10px;
     }
     .navbar-nav a::after
     {
-      height: 0;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
-      content: '';
-      bottom: 3px;
-      position: absolute;
-      background: #fff;
-      width: 0;
-      transition: ease 300ms;
+        position: absolute;
+        right: 0;
+        bottom: 3px;
+        left: 0;
+
+        width: 0;
+        height: 0;
+        margin: 0 auto;
+
+        content: '';
+        transition: ease 300ms;
+
+        background: #fff;
     }
     .navbar-nav a:hover::after
     {
-      width: 100%;
-      height: 3px;
-
+        width: 100%;
+        height: 3px;
     }
     .navbar-offcanvas .navbar-collapse
     {
         position: static;
+
         width: auto;
         max-width: none;
         height: auto !important;
         min-height: auto !important;
+
         transform: translate(0, 0) !important;
+
         background: transparent;
     }
     .navbar--custom .navbar-nav > li > a
     {
-        color: #ffffff;
+        color: #fff;
     }
     .navbar--custom .navbar-nav > li.open > a,
     .navbar--custom .navbar-nav > li > a:hover
     {
-        color: #333333;
+        color: #333;
     }
     .navbar--custom .navbar-nav > li.active > a
     {
@@ -388,10 +364,6 @@ body.js-menu-open
 
 @media all and (min-width: 768px) and (max-width: 991px)
 {
-    .landing-area
-    {
-        padding-top: 125px;
-    }
     .navbar > .container .navbar-brand,
     .navbar > .container-fluid .navbar-brand
     {
@@ -401,6 +373,7 @@ body.js-menu-open
     .navbar-brand
     {
         position: relative;
+
         width: 100%;
     }
     .navbar-brand img
@@ -409,7 +382,7 @@ body.js-menu-open
     }
     .navbar-nav
     {
-        float: none!important;
+        float: none !important;
     }
     .navbar-nav li
     {
@@ -420,6 +393,7 @@ body.js-menu-open
     {
         position: relative;
         top: 0;
+
         margin-top: 25px;
     }
 }
@@ -478,6 +452,10 @@ body.js-menu-open
 {
     padding: 10px;
 }
+.regular-section--center
+{
+    text-align: center;
+}
 @media all and (min-width: 768px)
 {
     .regular-section
@@ -511,4 +489,91 @@ body.js-menu-open
 footer
 {
     background: #f0f0f0;
+}
+
+
+
+/*        -        *\
+\    Miscellaneous  /
+ \*       -       */
+
+
+
+/* NoScript Styling
+******************/
+
+.no-script.modal-backdrop.fade.in
+{
+    position: fixed;
+    z-index: 1100;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    opacity: .5;
+    background: #000;
+}
+
+.modal.fade.in.no-js
+{
+    position: fixed;
+    z-index: 1109;
+    top: 0;
+    right: 0;
+    bottom: auto;
+    left: 0;
+
+    display: block;
+
+    padding: 30px;
+
+    text-align: center;
+
+    background: #222;
+}
+
+.modal.fade.in.no-js .noscriptmsg
+{
+    font-size: 1.25em;
+
+    margin-bottom: 20px;
+
+    color: #fff;
+}
+.modal.fade.in.no-js .btn
+{
+    display: block;
+
+    padding: 10px;
+}
+.modal.fade.in.no-js a.btn
+{
+    margin-bottom: 10px;
+}
+.modal.fade.in.no-js h6
+{
+    font-size: .8em;
+    font-weight: 600;
+    line-height: 1.4em;
+
+    margin-top: 10px;
+
+    text-transform: uppercase;
+
+    color: #fff;
+}
+input.modal-closing-trick
+{
+    position: absolute;
+    z-index: 1110;
+    top: -9999px;
+    left: -9999px;
+
+    visibility: hidden;
+}
+
+input.modal-closing-trick:checked ~ div
+{
+    display: none!important;
 }
