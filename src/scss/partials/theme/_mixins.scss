@@ -1,0 +1,82 @@
+// component
+
+@mixin background {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+@mixin middle-align {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	padding: 0 15px;
+    transform: translateY(-50%);
+	max-width: $container-lg;
+	text-align: center;
+}
+
+// typography
+
+@mixin fontawesome {
+	font-family: FontAwesome;
+	font-style: normal;
+	font-size: inherit;
+}
+
+@mixin regular-font {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+}
+
+@mixin bold-font {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+}
+
+@mixin alt-heading {
+	font-family: 'Yellowtail', sans-serif;
+}
+
+// spacing modifiers
+
+@mixin padding-vert-sm {
+	padding-top: 60px;
+	padding-bottom: 60px;
+}
+
+@mixin padding-top-sm {
+	padding-top: 60px;
+}
+
+@mixin padding-btm-sm {
+	padding-bottom: 60px;
+}
+
+@mixin spacer-pad-lg {
+	padding-bottom: 60px;	
+}
+
+@mixin spacer-pad-xl {
+	padding-bottom: 120px;	
+}
+
+@mixin spacer-pos-sm {
+	bottom: 15px;
+}
+
+@mixin spacer-pos-md {
+	bottom: 30px;
+}
+
+@mixin spacer-pos-lg {
+	bottom: 60px;	
+}
+
+@mixin spacer-pos-xl {
+	bottom: 120px;	
+}

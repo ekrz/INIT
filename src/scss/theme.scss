@@ -1,0 +1,26 @@
+// 	Theme Variables
+//@import "partials/theme-variables";
+
+// 	Bootstrap Variables
+// 	--------------------------------------------------
+@import "partials/bootstrap-variables";
+
+// 	Bootstrap Styles
+// 	--------------------------------------------------
+//	These are NOT to be edited - styles should be placed into theme-layout
+@import "partials/bootstrap";
+@import "partials/bootstrap-sprockets";
+
+//	Theme Assets
+@import "partials/theme-assets";
+
+// Import datepicker component
+@import "partials/theme/_bootstrap-datetimepicker";
+
+@import "partials/theme/minicart";
+
+// 	Social share
+@import "partials/theme-social";
+
+// 	Theme Styling
+@import "partials/theme-layout";

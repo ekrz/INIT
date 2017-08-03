@@ -1,8 +1,9 @@
-//default gulp ekrzzz 0.0.7
+//default gulp ekrzzz 0.0.8
 /*
 
 Activity log :
 
+0.0.8 : added sass support (build only)
 0.0.7 : added gulp-sourcemaps to maps correctly the CSS after autoprefixing
 0.0.6 : added cssComb and Prettify to clean HTML, CSS and JS
 0.0.5 : splited production and dev mode (more comfortable)
@@ -30,7 +31,7 @@ Activity log :
 
 console.log('');
 
-var gulp = require('gulp'),    
+var gulp = require('gulp'),
     watch = require('gulp-watch'),
     cache = require('gulp-cache'),
     rename = require('gulp-rename'),
@@ -44,11 +45,13 @@ var gulp = require('gulp'),
     csscomb = require('gulp-csscomb'),
     imagemin = require('gulp-imagemin'),
     rimraf = require('rimraf'),
+    notify= require("gulp-notify"),
+    sass = require('gulp-sass'),
     gulpif = require('gulp-if'),
     gutil = require('gulp-util'),
-    browserSync = require("browser-sync"),    
+    browserSync = require("browser-sync"),
     changed = require('gulp-changed'),
-    
+
     /* REMOVED */
     // pngquant = require('imagemin-pngquant'),
     // minifyCss = require('gulp-minify-css'),
@@ -65,7 +68,8 @@ var path = {
         images: 'build/images/',
         assets: 'build/assets/',
         contentFiles: 'build/contentFiles/',
-        fonts: 'build/fonts/'
+        fonts: 'build/fonts/',
+        sass: 'build/sass/'
         // sounds: 'build/sounds/'
     },
     src: {
@@ -75,13 +79,15 @@ var path = {
         images: 'src/images/**/*.+(png|jpg|gif|svg|ico)',
         assets: 'src/assets/**/*.*',
         contentFiles: 'src/contentFiles/**/*.+(png|jpg|gif|svg|ico)',
-        fonts: 'src/fonts/**/*.*'
+        fonts: 'src/fonts/**/*.*',
+        sass: 'src/scss/**/*.scss'
         // sounds: 'src/sounds/**/*.*'
     },
     watch: {
         html: 'src/**/*.html',
         scripts: 'src/scripts/**/*.js',
         styles: 'src/styles/**/*.css',
+        sass: 'src/scss/**/*.scss',
         images: 'src/images/**/*.+(png|jpg|gif|svg|ico)',
         assets: 'src/assets/**/*.*',
         contentFiles: 'src/contentFiles/**/*.+(png|jpg|gif|svg|ico)',
@@ -124,34 +130,59 @@ gulp.task('html:build', function () {
         .pipe(reload({stream: true}));
 });
 gulp.task('scripts:build', function () {
-    gulp.src(path.src.scripts) 
-        .pipe(sourcemaps.init()) 
+    gulp.src(path.src.scripts)
+        .pipe(sourcemaps.init())
             .pipe(changed(path.build.scripts))
-            .pipe(rigger()) 
+            .pipe(rigger())
             .pipe(prettify())
-        .pipe(sourcemaps.write()) 
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.scripts))
         .pipe(reload({stream: true}));
 });
 gulp.task('styles:build', function () {
-    gulp.src(path.src.styles) 
+    gulp.src(path.src.styles)
         .pipe(sourcemaps.init())
             .pipe(changed(path.build.styles))
             .pipe(autoprefixer())
             .pipe(csscomb())
         .pipe(gulp.dest(path.build.styles))
-        .pipe(sourcemaps.write()) 
+        .pipe(sourcemaps.write())
         .pipe(reload({stream: true}));
 });
+
+gulp.task('sass:build', function() {
+  return gulp.src(path.src.sass)
+  .pipe(sourcemaps.init())
+  .pipe(sass())
+  .on("error", notify.onError(function (error) {
+    return "Errored at: " + error.message;
+  }))
+  .pipe(autoprefixer(
+    [
+    "Android 2.3",
+    "Android >= 4",
+    "Chrome >= 20",
+    "Firefox >= 24",
+    "Explorer >= 8",
+    "iOS >= 6",
+    "Opera >= 12",
+    "Safari >= 6"
+    ])
+  )
+  .pipe(cleanCSS())
+  .pipe(sourcemaps.write('.'))
+  .pipe(gulp.dest(path.build.sass))
+
+});
 gulp.task('images:build', function () {
-    gulp.src(path.src.images) 
+    gulp.src(path.src.images)
         .pipe(changed(path.build.images))
         .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
         .pipe(gulp.dest(path.build.images))
         .pipe(reload({stream: true}));
 });
 gulp.task('contentFiles:build', function () {
-    gulp.src(path.src.contentFiles) 
+    gulp.src(path.src.contentFiles)
         .pipe(changed(path.build.contentFiles))
         .pipe(cache(imagemin({ optimizationLevel: 4, progressive: true, interlaced: true })))
         .pipe(gulp.dest(path.build.contentFiles))
@@ -176,6 +207,7 @@ gulp.task('assets:build', function() {
 
 gulp.task('build', [
     'styles:build',
+    'sass:build',
     'scripts:build',
     'html:build',
     'images:build',
@@ -191,6 +223,9 @@ gulp.task('watch', function(){
     });
     watch([path.watch.styles], function(event, cb) {
         gulp.start('styles:build');
+    });
+    watch([path.watch.sass], function(event, cb) {
+        gulp.start('sass:build');
     });
     watch([path.watch.scripts], function(event, cb) {
         gulp.start('scripts:build');
