@@ -1,0 +1,26 @@
+.OurClients {
+	display: block;
+	position: relative;
+	overflow: hidden;
+	padding: 50px 0;
+	h2 {
+		text-align: center;
+		text-transform: uppercase;
+		color: $color-primary;
+		display: block;
+		margin-bottom: 40px;
+	}
+	img {
+		max-width: 100%;
+		display: block;
+		margin: 10px auto;
+		filter: grayscale(1);
+	}
+	.slick-slide:hover img {
+		filter: grayscale(0);
+	}
+	.sliderClients {
+		display: block;
+		margin-bottom: 40px;
+	}
+}

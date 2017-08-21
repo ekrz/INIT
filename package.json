@@ -1,6 +1,6 @@
 {
   "name": "init-ekrz",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Initialize a new working environnement",
   "main": "index.js",
   "author": {

@@ -1,0 +1,71 @@
+.watchTips {
+	display: block;
+	width: 100%;
+	overflow: hidden;
+	padding: 60px 0 80px;
+	position: relative;
+	float: none;
+	background: rgb(63,170,238);
+	background: -moz-linear-gradient(left,  rgba(63,170,238,1) 0%, rgba(57,181,74,1) 98%);
+	background: -webkit-linear-gradient(left,  rgba(63,170,238,1) 0%,rgba(57,181,74,1) 98%);
+	background: linear-gradient(to right,  rgba(63,170,238,1) 0%,rgba(57,181,74,1) 98%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3faaee', endColorstr='#39b54a',GradientType=1 );
+	h2 {
+		margin: 0px;
+		text-align: center;
+		font-weight: $fw-extrabold;
+		color: $white;
+		margin-bottom: 40px;
+		font-size: em(24px);
+		text-transform: uppercase;
+		@media (min-width: $screen-md) {
+			font-size: em(30px);
+		}
+	}
+	.btn-download {
+		border: solid 2px $white;
+		padding: 12px 80px;
+		font-size: em(20px);
+		border-radius: 50px;
+		text-transform: uppercase;
+		margin-top: 40px;
+		line-height: 50px;
+		color: $white;
+		font-weight: bold;
+		position: relative;
+		background: transparent;
+		transition: background 0.25s ease;
+		@media (max-width: $screen-xs) {
+			padding: 12px 50px 10px 20px;
+			font-size: em(16px);
+		}
+		@media (min-width: $screen-md) {
+			padding: 12px 120px;
+		}
+		&:before {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			width: 100px;
+			height: 100%;
+			background-size: 47px auto;
+			background: url('../images/layout/download.png');
+			background-repeat: no-repeat;
+			background-position: center;
+			content: "";
+			@media (max-width: $screen-xs) {
+				background-size: 30px auto;
+				background-position: right center;
+				right: 15px;
+			}
+		}
+		&:hover {
+			background: rgb(57,181,74);
+			background: -moz-linear-gradient(left,  rgba(57,181,74,1) 0%, rgba(63,170,238,1) 100%);
+			background: -webkit-linear-gradient(left,  rgba(57,181,74,1) 0%,rgba(63,170,238,1) 100%);
+			background: linear-gradient(to right,  rgba(57,181,74,1) 0%,rgba(63,170,238,1) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#39b54a', endColorstr='#3faaee',GradientType=1 );
+		}
+	}
+}

@@ -1,0 +1,75 @@
+.modal-content {
+	background: rgb(57,181,74);
+	background: -moz-linear-gradient(left,  rgba(57,181,74,1) 0%, rgba(63,170,238,1) 100%);
+	background: -webkit-linear-gradient(left,  rgba(57,181,74,1) 0%,rgba(63,170,238,1) 100%);
+	background: linear-gradient(to right,  rgba(57,181,74,1) 0%,rgba(63,170,238,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#39b54a', endColorstr='#3faaee',GradientType=1 );
+	padding: 0 3%;
+	border-radius: 20px;
+	border: none;
+	color: $white;
+	.modal-header {
+		border-bottom: none;
+	}
+	.close {
+		font-size: 32px;
+		color: $white;
+		font-weight: lighter;
+		opacity: 1;
+	}
+	.title {
+		margin: 0 0 20px;
+		font-size: em(22px);
+		padding: 0 0 20px;
+		border-bottom: solid 2px $white;
+	}
+	ul {
+		list-style-position: inside;
+		font-size: em(16px);
+		@media (min-width: $screen-md) {
+			font-size: em(20px);
+		}
+	}
+	h3 {
+		font-size: em(22px);
+		padding: 0 0 20px;
+	}
+	.form-control {
+		background: transparent;
+		border-radius: 8px;
+		border-color: $white;
+		color: $white;
+		padding: 6px 12px;
+		font-size: 18px;
+		border-width: 2px;
+		height: 36px;
+		text-transform: uppercase;
+		&::-webkit-input-placeholder {
+			color: $white;
+		}
+		&::-moz-placeholder { 
+			color: $white;
+		}
+		&:-ms-input-placeholder {
+			color: $white;
+		}
+		&:-moz-placeholder { 
+			color: $white;
+		}
+	}
+	.btn-modal {
+		font-size: em(18px);
+		font-weight: $fw-extrabold;
+		background: $white;
+		border-radius: 8px;
+		color: $color-primary;
+		text-transform: uppercase;
+		padding: 6px 12px;
+		border: solid 2px $white;
+		&:hover,
+		&:focus {
+			border-color: $color-primary;
+			color: $color-primary;
+		}
+	}
+}

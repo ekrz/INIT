@@ -1,8 +1,9 @@
-//default gulp ekrzzz 0.0.8
+//default gulp ekrzzz 0.0.9
 /*
 
 Activity log :
 
+0.0.9 : removed regular css support, project is Sass only
 0.0.8 : added sass support (build only)
 0.0.7 : added gulp-sourcemaps to maps correctly the CSS after autoprefixing
 0.0.6 : added cssComb and Prettify to clean HTML, CSS and JS
@@ -64,12 +65,12 @@ var path = {
     build: {
         html: 'build/',
         scripts: 'build/scripts/',
-        styles: 'build/styles/',
+        // styles: 'build/styles/',
         images: 'build/images/',
         assets: 'build/assets/',
         contentFiles: 'build/contentFiles/',
         fonts: 'build/fonts/',
-        sass: 'build/sass/'
+        sass: 'build/styles/'
         // sounds: 'build/sounds/'
     },
     src: {
@@ -172,6 +173,7 @@ gulp.task('sass:build', function() {
   .pipe(cleanCSS())
   .pipe(sourcemaps.write('.'))
   .pipe(gulp.dest(path.build.sass))
+  .pipe(reload({stream: true}));
 
 });
 gulp.task('images:build', function () {
@@ -190,7 +192,9 @@ gulp.task('contentFiles:build', function () {
 });
 gulp.task('fonts:build', function() {
     gulp.src(path.src.fonts)
+        .pipe(changed(path.build.contentFiles))
         .pipe(gulp.dest(path.build.fonts))
+        .pipe(reload({stream: true}));
 });
 gulp.task('assets:build', function() {
     gulp.src(path.src.assets)
@@ -206,7 +210,6 @@ gulp.task('assets:build', function() {
 // });
 
 gulp.task('build', [
-    'styles:build',
     'sass:build',
     'scripts:build',
     'html:build',
@@ -261,7 +264,7 @@ gulp.task('production:build', function () {
             .pipe(useref())
             .pipe(rigger())
             .pipe(gulpif('*.js', uglify()))
-            .pipe(gulpif('*.css', autoprefixer(), cleanCSS()))
+            // .pipe(gulpif('*.css', autoprefixer(), cleanCSS()))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.html))
         .on('end', function(){ gutil.log('Production complete.'); })

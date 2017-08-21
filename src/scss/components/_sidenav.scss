@@ -1,0 +1,50 @@
+.sideNav {
+	display: block;
+	overflow: hidden;
+	
+	.pageNav {
+		background: #f2f2f2;
+		padding: 30px;
+		@media (min-width: $screen-md) {
+			padding-left: 50px;
+		}
+	}
+	.pageNavList {
+		display: block;
+		list-style: none;
+		margin-bottom: 20px;
+		@media (min-width: $screen-md) {
+			margin-bottom: 50px;
+		}
+		a {	
+			color: $color-secondary;
+			display: block;
+			padding: 5px 0;
+			text-transform: uppercase;
+			font-size: em(16px);
+			@media (min-width: $screen-md) {
+				font-size: em(18px);
+			}
+			@media (min-width: $screen-lg) {
+				font-size: em(20px);
+			}
+		}
+	}
+	.subnav {
+		display: none;
+		list-style: none;
+		a {
+			font-size: em(16px);
+		}
+	}
+	.onPath .subnav {
+		display: block;
+		padding-left: 30px;
+	}
+	.featured {
+		padding: 30px;
+		@media (min-width: $screen-md) {
+			padding-left: 50px;
+		}
+	}
+}

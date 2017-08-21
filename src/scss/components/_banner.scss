@@ -1,0 +1,32 @@
+//----------
+// Banner
+//----------
+
+.banner {
+	width: 100%;
+	background-position: center center;
+	background-size: cover;
+
+	&.banner--fullscreen {
+		height: calc(100vh - #{$navbar-height-xs});
+		@media all and (min-width: $screen-sm-min) {
+		  height: calc(100vh - #{$navbar-height-sm});
+		}
+	}
+	.banner_block {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		right: 0;
+	  margin:  0 auto;
+		max-width: 300px;
+
+		.banner_block-button {
+			border: 1px solid $white;
+			padding: 5px 15px;
+			font-weight: $fw-regular;
+			color: $white;
+			text-transform: uppercase;
+		}
+	}
+}
