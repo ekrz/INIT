@@ -6,7 +6,6 @@
 	position: relative;
 	margin-top: -$navbar-height-xs;
 	width: 100%;
-	background-position: center center;
 	background-size: cover;
 	@media all and (min-width: $screen-sm-min) {
 		margin-top: -$navbar-height-sm;
@@ -76,8 +75,8 @@
 					&:hover,
 					&:focus
 					{
-						border-bottom: 15px;
-						color: $color-secondary;
+						background: $color-primary;
+						color: $white;
 					}
 			}
 		}

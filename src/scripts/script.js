@@ -28,11 +28,11 @@ $( document ).ready(function() {
 	$('.has-children').on('click',function(e){
 		e.preventDefault();
 		if($(this).hasClass('js-active')){
-				$(this).removeClass('js-active')
-		} else {
-			$(this).addClass('js-active')
-		}
+				$(this).removeClass('js-active').find('.has-children_container').slideToggle();
 
+		} else {
+			$(this).addClass('js-active').find('.has-children_container').slideToggle()
+		}
 	});
 
 

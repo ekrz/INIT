@@ -3,6 +3,7 @@
 //-----------------
 
 .navbar--custom {
+	z-index: 10;
 	border: 0;
 	background: $color-primary;
 	box-shadow: none;
@@ -187,19 +188,6 @@
 // navigation children
 
 .has-children {
-	&:hover:not(.js-active){
-		@media all and (min-width: $screen-md-min) {
-			&::after {color: $color-primary;}
-		}
-	}
-	&.js-active {
-		@media all and (min-width: $screen-md-min) {
-			&::after {color: $color-primary;}
-		}
-		.has-children_container {
-			display: block;
-		}
-	}
 
 	&::after {
 		cursor: pointer;
@@ -217,13 +205,13 @@
 	}
 
 	.has-children_container {
-		padding: 15px;
 		text-align: left;
-		display: none;
+		padding: 15px;
+
 		width: 100%;
 		left: 0;
+		display: none;
 		background: $white;
-		border-bottom: 5px solid $color-primary;
 
 		a {
 			color: $black;
@@ -239,6 +227,24 @@
 		@media all and (min-width: 1440px) {
 			padding-left: 20%;
 			padding-right: 20%;
+		}
+	}
+
+	&:hover:not(.js-active){
+		@media all and (min-width: $screen-md-min) {
+			&::after {
+				color: $color-primary;
+			}
+		}
+	}
+	&.js-active {
+		@media all and (min-width: $screen-md-min) {
+			&::after {
+				color: $color-primary;
+			}
+		}
+		.has-children_container {
+			box-shadow: 0 1px 4px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.23);
 		}
 	}
 }
