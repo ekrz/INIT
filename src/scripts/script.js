@@ -3,7 +3,7 @@ console.log('Built by Granite.');
 $( document ).ready(function() {
 
 	// adapt full height on mobile (vh css take toolbar)
-  var el = $(".landing.slider .item");
+  var el = $(".banner--fullscreen");
 
   function resize_Background() {
     el.height($(window).innerHeight());
