@@ -7,8 +7,10 @@
 	margin-top: -$navbar-height-xs;
 	width: 100%;
 	background-size: cover;
+	background-position: 50% 50%;
 	@media all and (min-width: $screen-sm-min) {
 		margin-top: -$navbar-height-sm;
+		background-position: initial;
 	}
 
 	&.banner--fullscreen {
