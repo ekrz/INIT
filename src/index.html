@@ -23,92 +23,179 @@
     <!--[if lt IE 9]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
     <!-- Header -->
     <header>
       <!-- Bootstrap navigation -->
       <div class="navbar navbar-offcanvas navbar-fixed-top navbar--custom">
-
-          <!-- Logo container -->
-          <div class="navbar-header">
-
-            <!-- Hamburger -->
-            <button type="button" class="navbar-toggle collapsed pull-right" data-target="#main-nav" data-toggle="collapse">
+        <!-- Logo container -->
+        <div class="navbar-header">
+          <!-- Hamburger --><button type="button" class="navbar-toggle collapsed pull-right" data-target="#main-nav" data-toggle="collapse">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-
-            <!-- Logo -->
-            <a class="navbar-brand" href="#">
-              <img src="http://fakeimg.pl/1500x600/D64541/f0f0f0/?text=logo">
-            </a>
-          </div>
-
-          <!-- Main navigation -->
-          <nav id="main-nav" class="navbar-collapse collapse">
-
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Contact</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdown-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdown-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>
-            </ul>
-          </nav>
-
-          <!-- Second navigation (icons) -->
-          <nav id="second-nav">
-            <ul class="">
-              <li> <a href=""> <i class="icon-search"></i> </a> </li>
-              <li> <a href=""> <i class="icon-heart-1"></i> </a> </li>
-              <li> <a href=""> <i class="icon-user"></i> </a> </li>
-              <li> <a href=""> <i class="icon-bag"></i> </a> </li>
-            </ul>
-          </nav>
-
+          <!-- Logo --><a class="navbar-brand" href="#">
+            <img src="http://fakeimg.pl/1500x600/D64541/f0f0f0/?text=logo">
+          </a> </div>
+        <!-- Main navigation -->
+        <nav id="main-nav" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <!-- single item -->
+            <li class="onPath sel lev1"><a href="#">Home</a></li>
+            <!-- single item -->
+            <li class="lev1"><a href="#">About</a></li>
+            <!-- single item -->
+            <li class="lev1"><a href="#">Contact</a></li>
+            <!-- item has-children -->
+            <li class="lev1 has-children"> <a href="">Shop</a>
+              <!-- Global container for that category -->
+              <div class="has-children_container">
+                <div class="row">
+                  <!-- Section -->
+                  <div class="col-xs-12 col-sm-4 col-lg-2">
+                    <h3><a href="#">Section</a></h3>
+                    <!-- Section container -->
+                    <div class="sub-menu-section">
+                      <!-- Sub-section container -->
+                      <div class="sub-menu_container">
+                        <h4><a href="#">Sub-section</a></h4>
+                        <ul class="sub-menu">
+                          <li><a href="#">sub-menu item</a></li>
+                          <li><a href="#">sub-menu item</a></li>
+                          <li><a href="#">sub-menu item</a></li>
+                          <li><a href="#">sub-menu item</a></li>
+                        </ul>
+                      </div>
+                      <!-- </Sub-section container> -->
+                      <!-- Sub-section container -->
+                      <div class="sub-menu_container">
+                        <h4><a href="#">Sub-section</a></h4>
+                        <ul class="sub-menu">
+                          <li><a href="#">sub-menu item</a></li>
+                          <li><a href="#">sub-menu item</a></li>
+                          <li><a href="#">sub-menu item</a></li>
+                          <li><a href="#">sub-menu item</a></li>
+                        </ul>
+                      </div>
+                      <!-- </Sub-section container> -->
+                      <!-- Sub-section container -->
+                      <div class="sub-menu_container">
+                        <h4><a href="#">Sub-section</a></h4>
+                        <ul class="sub-menu">
+                          <li><a href="#">sub-menu item</a></li>
+                          <li><a href="#">sub-menu item</a></li>
+                          <li><a href="#">sub-menu item</a></li>
+                          <li><a href="#">sub-menu item</a></li>
+                        </ul>
+                      </div>
+                      <!-- </Sub-section container> -->
+                    </div>
+                    <!-- </Section container> -->
+                  </div>
+                  <!-- </Section> -->
+                  <!-- Section -->
+                  <div class="col-xs-12 col-sm-4 col-lg-2">
+                    <h3><a href="#">Section</a></h3>
+                    <!-- Section container -->
+                    <div class="sub-menu-section">
+                      <!-- Sub-section container -->
+                      <div class="sub-menu_container">
+                        <h4><a href="#">Sub-section</a></h4>
+                        <ul class="sub-menu">
+                          <li><a href="#">sub-menu item</a></li>
+                          <li><a href="#">sub-menu item</a></li>
+                          <li><a href="#">sub-menu item</a></li>
+                          <li><a href="#">sub-menu item</a></li>
+                        </ul>
+                      </div>
+                      <!-- </Sub-section container> -->
+                      <!-- Sub-section container -->
+                      <div class="sub-menu_container">
+                        <h4><a href="#">Sub-section</a></h4>
+                        <ul class="sub-menu">
+                          <li><a href="#">sub-menu item</a></li>
+                          <li><a href="#">sub-menu item</a></li>
+                          <li><a href="#">sub-menu item</a></li>
+                          <li><a href="#">sub-menu item</a></li>
+                        </ul>
+                      </div>
+                      <!-- </Sub-section container> -->
+                      <!-- Sub-section container -->
+                      <div class="sub-menu_container">
+                        <h4><a href="#">Sub-section</a></h4>
+                        <ul class="sub-menu">
+                          <li><a href="#">sub-menu item</a></li>
+                          <li><a href="#">sub-menu item</a></li>
+                          <li><a href="#">sub-menu item</a></li>
+                          <li><a href="#">sub-menu item</a></li>
+                        </ul>
+                      </div>
+                      <!-- </Sub-section container> -->
+                    </div>
+                    <!-- </Section container> -->
+                  </div>
+                  <!-- </Section> -->
+                  <!-- Section -->
+                  <div class="col-xs-12 col-sm-4 col-lg-2">
+                    <h3><a href="#">Section</a></h3>
+                    <!-- Section container -->
+                    <div class="sub-menu-section">
+                      <!-- Sub-section container -->
+                      <div class="sub-menu_container">
+                        <h4><a href="#">Sub-section</a></h4>
+                        <ul class="sub-menu">
+                          <li><a href="#">sub-menu item</a></li>
+                          <li><a href="#">sub-menu item</a></li>
+                          <li><a href="#">sub-menu item</a></li>
+                          <li><a href="#">sub-menu item</a></li>
+                        </ul>
+                      </div>
+                      <!-- </Sub-section container> -->
+                      <!-- Sub-section container -->
+                      <div class="sub-menu_container">
+                        <h4><a href="#">Sub-section</a></h4>
+                        <ul class="sub-menu">
+                          <li><a href="#">sub-menu item</a></li>
+                          <li><a href="#">sub-menu item</a></li>
+                          <li><a href="#">sub-menu item</a></li>
+                          <li><a href="#">sub-menu item</a></li>
+                        </ul>
+                      </div>
+                      <!-- </Sub-section container> -->
+                    </div>
+                    <!-- </Section container> -->
+                  </div>
+                  <!-- </Section> -->
+                  <div class="col-xs-12 col-lg-offset-2 col-lg-4">
+                    <h3>Our Favourites</h3> <img src="http://fakeimg.pl/250x400/111111/f0f0f0/?text=image"> </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <!-- Second navigation (icons) -->
+        <nav id="second-nav">
+          <ul class="">
+            <li> <a href=""> <i class="icon-search"></i> </a> </li>
+            <li> <a href=""> <i class="icon-heart-1"></i> </a> </li>
+            <li> <a href=""> <i class="icon-user"></i> </a> </li>
+            <li> <a href=""> <i class="icon-bag"></i> </a> </li>
+          </ul>
+        </nav>
       </div>
-
     </header>
     <main>
-
       <section>
-        <h1> 0.3.3 — init ekrz </h1>
-      </section>
-
+        <h1> 0.3.3 — init ekrz </h1> </section>
       <section>
         <hr>
         <h2>Variables guide</h2>
-
         <h3>Typography</h3>
         <ul>
           <li>$font-family</li>
         </ul>
       </section>
-
       <section>
         <hr>
         <h2>Colorguide</h2>
@@ -117,7 +204,6 @@
           <li>$color-secondary : #666666 </li>
         </ul>
       </section>
-
       <section>
         <hr>
         <h2>Styleguide</h2>
@@ -139,7 +225,6 @@
           <li>ordered item</li>
         </ol>
       </section>
-
       <section>
         <hr>
         <h2>Bootstrap Grid Guide</h2>

@@ -4,7 +4,7 @@
 
 .navbar--custom {
 	border: 0;
-	background: $white;
+	background: $color-primary;
 	box-shadow: none;
 	transition: 300ms;
 	// activate through JS [ onScroll() ]
@@ -40,7 +40,7 @@
 			margin-right: auto;
 			margin-left: auto;
 			transition: transform 300ms cubic-bezier(.55, 0, .1, 1), opacity 300ms cubic-bezier(.55, 0, .1, 1);
-			background-color: $color-primary;
+			background-color: $white;
 			will-change: transform, opacity;
 		}
 
@@ -66,9 +66,9 @@
 	// first navigation
 	#main-nav {
 		.navbar-nav {
-			text-align: center;
 			float: none;
 			@media all and (min-width: $screen-lg-min) {
+				text-align: center;
 				margin: 0 auto;
 				left: 0;
 				right: 0;
@@ -76,14 +76,32 @@
 			}
 
 			> li {
+				@media all and (min-width: $screen-md-min) {
+					&.js-active,
+					&:hover {
+						> a {
+							color: $color-primary;
+							background: $white;
+						}
+					}
+				}
 				@media all and (min-width: $screen-lg-min) {
 					float: none;
 					display: inline-block;
 				}
 
 				> a {
-					@media all and (min-width: $screen-sm-min) {
+					color: $color-primary;
+					text-transform: uppercase;
+					@media all and (min-width: $screen-md-min) {
+						color: $white;
 						line-height: ($navbar-height-sm / 2) + 5;
+					}
+				}
+
+				&.has-children > a {
+					@media all and (min-width: $screen-md-min) {
+						padding-right: 35px;
 					}
 				}
 			}
@@ -108,6 +126,10 @@
 
 		li {
 			display: inline-block;
+
+			a {
+				color: $white;
+			}
 		}
 	}
 	//navbar behaviour
@@ -159,6 +181,102 @@
 			min-height: auto !important;
 			transform: translate(0, 0) !important;
 			background: transparent;
+		}
+	}
+}
+// navigation children
+
+.has-children {
+	&:hover:not(.js-active){
+		@media all and (min-width: $screen-md-min) {
+			&::after {color: $color-primary;}
+		}
+	}
+	&.js-active {
+		@media all and (min-width: $screen-md-min) {
+			&::after {color: $color-primary;}
+		}
+		.has-children_container {
+			display: block;
+		}
+	}
+
+	&::after {
+		cursor: pointer;
+		position: absolute;
+		content: '\e804';
+		font-family: $fontello;
+		speak: none;
+		right: 15%;
+		top: 10px;
+		color: $color-primary;
+		@media all and (min-width: $screen-md-min) {
+			top: 23px;
+			color: $white;
+		}
+	}
+
+	.has-children_container {
+		padding: 15px;
+		text-align: left;
+		display: none;
+		width: 100%;
+		left: 0;
+		background: $white;
+		border-bottom: 5px solid $color-primary;
+
+		a {
+			color: $black;
+			text-transform: uppercase;
+		}
+		@media all and (min-width: $screen-md-min) {
+			position: fixed;
+		}
+		@media all and (min-width: $screen-lg-min) {
+			padding-left: 5%;
+			padding-right: 5%;
+		}
+		@media all and (min-width: 1440px) {
+			padding-left: 20%;
+			padding-right: 20%;
+		}
+	}
+}
+// children of children (inception.exe)
+
+.sub-menu-section {
+	display: flex;
+	flex-wrap: wrap;
+	@media all and (min-width: 480px) {
+		flex-wrap: nowrap;
+	}
+	@media all and (min-width: $screen-sm-min) {
+		flex-wrap: wrap;
+	}
+	@media all and (min-width: $screen-md-min) {
+		display: block;
+	}
+
+	.sub-menu_container {
+		width: 100%;
+		@media all and (min-width: 360px) {
+			width: 50%;
+		}
+		@media all and (min-width: 480px) {
+			width: 33.33333%;
+		}
+		@media all and (min-width: $screen-sm-min) {
+			width: 100%;
+		}
+
+		.sub-menu {
+			list-style-type: none;
+			margin-bottom: 5px;
+			width: 100%;
+
+			a {
+				text-transform: none;
+			}
 		}
 	}
 }

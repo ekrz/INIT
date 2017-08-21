@@ -23,6 +23,21 @@ $( document ).ready(function() {
 			$('.navbar--custom').removeClass('js-scroll');
 		}
 	});
+
+	// open dropdown
+	$('.has-children').on('click',function(e){
+		e.preventDefault();
+		if($(this).hasClass('js-active')){
+				$(this).removeClass('js-active')
+		} else {
+			$(this).addClass('js-active')
+		}
+
+	});
+
+
+
+
 	// $('.navbar-toggle').on('click', function(e){
 	// 	e.preventDefault();
 	// 	$('body').toggleClass('js-menu-open');

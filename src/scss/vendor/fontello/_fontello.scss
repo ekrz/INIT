@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'fontello';
+  font-family: $fontello;
   src: url('../fonts/fontello.eot');
   src: url('../fonts/fontello.eot#iefix') format('embedded-opentype'),
        url('../fonts/fontello.woff2') format('woff2'),
@@ -65,6 +65,8 @@
 .icon-user:before       { content: '\e801'; } /* '' */
 .icon-heart-1:before    { content: '\e802'; } /* '' */
 .icon-search:before     { content: '\e803'; } /* '' */
+
+.icon-down-open:before { content: '\e804'; } /* '' */
 
 .icon-twitter:before    { content: '\f309'; } /* '' */
 .icon-facebook:before   { content: '\f30c'; } /* '' */
