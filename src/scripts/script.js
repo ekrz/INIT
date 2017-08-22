@@ -2,6 +2,31 @@ console.log('Built by Granite Digital. 👉 http://granite.ie 👀');
 
 $( document ).ready(function() {
 	// -------------------------------------------------
+	// HACK: search simulation for demo
+	// -------------------------------------------------
+
+	$('.search-form input').on('change', function(e){
+		e.preventDefault();
+		$(this).toggleClass('js-active');
+		$(this).siblings().hide();
+		$('.search-suggestions').hide();
+		$('.search-results').show();
+		// $('.search-results').toggle();
+	});
+	// don't send form on ENTER
+	$('.search-form input').on('keyup keypress', function(e) {
+	  var keyCode = e.keyCode || e.which;
+	  if (keyCode === 13) {
+			$('.search-results').show();
+			$(this).siblings().hide();
+			$('.search-suggestions').hide();
+	    e.preventDefault();
+	  }
+});
+
+
+
+	// -------------------------------------------------
 	// slick sliders : initialisation + config
 	// -------------------------------------------------
 

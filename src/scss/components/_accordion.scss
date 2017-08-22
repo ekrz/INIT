@@ -1,0 +1,46 @@
+// -----------------------------------------
+// Accordion (rewrite for panel--default)
+// -----------------------------------------
+.panel-group {
+  border-top: 1px solid $custom-gray;
+}
+.panel--custom {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  border-bottom: 1px solid $custom-gray;
+  // resets for a full panel
+  .panel-heading,
+  .panel-title {
+    padding: 0;
+  }
+  .panel-body{
+    border-top: 0 !important;
+  }
+
+  a {
+    display: block;
+    padding: 15px 0;
+    position: relative;
+    text-decoration: none;
+
+    &:after {
+      right: 0;
+      top: 50%;
+
+      font-size:1.5em;
+      font-weight: 100;
+      position: absolute;
+      content: '\e804';
+      font-family: $fontello;
+      transform: translateY(-50%) rotate(180deg);
+      transition: 300ms;
+    }
+
+    &.collapsed {
+      &:after {
+        transform: translateY(-50%) rotate(0);
+      }
+    }
+  }
+}

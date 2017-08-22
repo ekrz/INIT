@@ -2,15 +2,21 @@
 // Grid shop
 // ------------
 // banner will always ignore the gutter
-section:not(.banner) {
+section:not(.banner):not(.section--fullscreen) {
   @media all and (min-width: $screen-lg-min) {
     margin-left: 5%;
     margin-right: 5%;
   }
 }
+.section--fullscreen {
+  @media all and (min-width: $screen-lg-min) {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
 
 #grid-shop {
-  // title
+  // title basic
   .title {
     margin: 15px auto;
     text-transform: uppercase;
@@ -30,6 +36,21 @@ section:not(.banner) {
       font-size: 1.3em;
       @media all and (min-width: $screen-sm-min) {
         font-size: 1.8em;
+      }
+    }
+  }
+  &.grid-shop--similar {
+    
+    .title {
+      h1 {
+        color: $black;
+        margin: 15px auto;
+        @media all and (min-width: $screen-sm-min) {
+          margin: 25px auto;
+        }
+        @media all and (min-width: $screen-md-min) {
+          margin: 40px auto;
+        }
       }
     }
   }

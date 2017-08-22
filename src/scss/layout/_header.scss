@@ -257,6 +257,10 @@
 		display: none;
 		position: fixed;
 		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+		&.js-active {
+			overflow-y: scroll;
+			height: 100%;
+		}
 	}
 }
 // navigation children
@@ -370,5 +374,11 @@
 		.icon-search::before {
 			content: '\e805';
 		}
+	}
+	.search-suggestions {
+		margin: 5px 0;
+	}
+	.search-results {
+		display: none;
 	}
 }

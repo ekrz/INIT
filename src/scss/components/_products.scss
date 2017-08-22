@@ -58,6 +58,47 @@
 		transform: scale(.95);
 	}
 }
+
+// HACK: be careful to this one
+#second-nav {
+	.product {
+		line-height: normal;
+	}
+}
+
+#product-details {
+	background: rgba($black, .03);
+
+	.container-fluid {
+		@media all and (min-width: $screen-sm-min) {
+			padding-top: 25px;
+			padding-bottom: 25px;
+		}
+		@media all and (min-width: $screen-md-min) {
+			padding-top: 75px;
+			padding-bottom: 75px;
+		}
+	}
+
+	.product-description {
+		h3 {
+			padding-top: 0;
+		}
+	}
+
+	.product-ratings {
+		margin-left: 15px;
+
+		i.icon-star {
+			color: #F1C700;
+
+			&::before {
+				margin-left: 0;
+				margin-right: 0;
+			}
+		}
+	}
+}
 // product detail component
 
 .product_order {

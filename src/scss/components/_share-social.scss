@@ -1,0 +1,29 @@
+// ------------------------
+// Share social networks
+// ------------------------
+
+.share-social-networks {
+  margin-top: 15px;
+  @media all and (min-width: $screen-sm-min) {
+    margin-top: 50px;
+  }
+  h4 {
+    text-transform: uppercase;
+    font-size: 1em;
+  }
+  ul {
+    list-style-type: none;
+    li {
+      display: inline-block;
+      &:not(:last-child) {
+        margin-right: .4em;
+      }
+      a {
+        color: $black;
+        i {
+          font-size: 1.5em;
+        }
+      }
+    }
+  }
+}
