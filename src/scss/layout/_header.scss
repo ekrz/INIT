@@ -108,31 +108,6 @@
 			}
 		}
 	}
-	// second navigation
-	#second-nav {
-		position: absolute;
-		top: 20px;
-		right: calc(5% + 45px);
-		@media all and (min-width: $screen-md-min) {
-			top: 21px;
-			right: 5%;
-		}
-		@media all and (min-width: $screen-lg-min) {
-			right: 2.5%;
-		}
-
-		ul {
-			margin-bottom: 0;
-		}
-
-		li {
-			display: inline-block;
-
-			a {
-				color: $white;
-			}
-		}
-	}
 	//navbar behaviour
 	.navbar-collapse {
 		position: fixed;
@@ -185,71 +160,33 @@
 		}
 	}
 }
-// navigation children
+// nav (main+second) children container
 
-.has-children {
+.nav_container {
+	text-align: left;
+	padding: 15px;
+	width: 100%;
+	left: 0;
+	display: none;
+	background: $white;
 
-	&::after {
-		cursor: pointer;
-		position: absolute;
-		content: '\e804';
-		font-family: $fontello;
-		speak: none;
-		right: 15%;
-		top: 10px;
-		color: $color-primary;
-		@media all and (min-width: $screen-md-min) {
-			top: 23px;
-			color: $white;
-		}
+	a {
+		color: $black;
+		text-transform: uppercase;
 	}
-
-	.has-children_container {
-		text-align: left;
-		padding: 15px;
-
-		width: 100%;
-		left: 0;
-		display: none;
-		background: $white;
-
-		a {
-			color: $black;
-			text-transform: uppercase;
-		}
-		@media all and (min-width: $screen-md-min) {
-			position: fixed;
-		}
-		@media all and (min-width: $screen-lg-min) {
-			padding-left: 5%;
-			padding-right: 5%;
-		}
-		@media all and (min-width: 1440px) {
-			padding-left: 20%;
-			padding-right: 20%;
-		}
+	@media all and (min-width: $screen-md-min) {
+		position: fixed;
 	}
-
-	&:hover:not(.js-active){
-		@media all and (min-width: $screen-md-min) {
-			&::after {
-				color: $color-primary;
-			}
-		}
+	@media all and (min-width: $screen-lg-min) {
+		padding-left: 5%;
+		padding-right: 5%;
 	}
-	&.js-active {
-		@media all and (min-width: $screen-md-min) {
-			&::after {
-				color: $color-primary;
-			}
-		}
-		.has-children_container {
-			box-shadow: 0 1px 4px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.23);
-		}
+	@media all and (min-width: 1440px) {
+		padding-left: 20%;
+		padding-right: 20%;
 	}
 }
-// children of children (inception.exe)
-
+// Sub menu section — children of children (inception.exe)
 .sub-menu-section {
 	display: flex;
 	flex-wrap: wrap;
@@ -283,6 +220,155 @@
 			a {
 				text-transform: none;
 			}
+		}
+	}
+}
+// second navigation
+
+#second-nav {
+	position: absolute;
+	top: 0;
+	right: calc(5% + 45px);
+	line-height: $navbar-height-xs;
+	@media all and (min-width: $screen-sm-min) {
+		line-height: $navbar-height-sm;
+	}
+	@media all and (min-width: $screen-md-min) {
+		right: 5%;
+		line-height: $navbar-height-sm;
+	}
+	@media all and (min-width: $screen-lg-min) {
+		right: 2.5%;
+	}
+
+	> ul {
+		margin-bottom: 0;
+
+		> li {
+			display: inline-block;
+
+			> a {
+				color: $white;
+			}
+		}
+	}
+
+	.nav_container {
+		display: none;
+		position: fixed;
+		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+	}
+}
+// navigation children
+.has-children {
+	&::after {
+		cursor: pointer;
+		position: absolute;
+		content: '\e804';
+		font-family: $fontello;
+		speak: none;
+		right: 15%;
+		top: 10px;
+		color: $color-primary;
+		@media all and (min-width: $screen-md-min) {
+			top: 23px;
+			color: $white;
+		}
+	}
+
+	&:hover:not(.js-active) {
+		@media all and (min-width: $screen-md-min) {
+			&::after {
+				color: $color-primary;
+			}
+		}
+	}
+
+	&.js-active {
+		@media all and (min-width: $screen-md-min) {
+			&::after {
+				color: $color-primary;
+			}
+		}
+
+		.nav_container {
+			box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+		}
+	}
+}
+// search
+.search {
+	.nav_container {
+		padding-top: 40px;
+		padding-bottom: 40px;
+		@media all and (min-width: $screen-sm-min) {
+			padding-top: 75px;
+			padding-bottom: 75px;
+		}
+		@media all and (min-width: $screen-md-min) {
+			padding-top: 100px;
+			padding-bottom: 100px;
+		}
+	}
+
+	h5 {
+		text-transform: uppercase;
+		@media all and (min-width: $screen-sm-min) {}
+	}
+
+	h6 {
+		padding-top: 0;
+		text-align: right;
+		padding-right: 10%;
+		@media all and (min-width: $screen-sm-min) {
+			padding-right: 0;
+			max-width: 500px;
+			margin: 0 auto 50px;
+		}
+		@media all and (min-width: $screen-md-min) {
+			margin-bottom: 75px;
+		}
+	}
+
+	ul {
+		max-width: 200px;
+		margin: 0 auto;
+		line-height: normal;
+
+		li {
+			display: inline-block;
+			margin-right: 0.5em;
+
+			a {
+				color: $color-primary;
+				text-transform: none;
+			}
+		}
+	}
+
+	input {
+		width: 80%;
+		padding: 0;
+		line-height: $navbar-height-xs / 2;
+		border: none;
+		border-bottom: 2px solid $black;
+		@media all and (min-width: $screen-sm-min) {
+			line-height: $navbar-height-sm / 2;
+			font-size: 1.2em;
+			width: 100%;
+			max-width: 500px;
+			margin-top: 50px;
+		}
+		@media all and (min-width: $screen-md-min) {
+			margin-top: 75px;
+			line-height: $navbar-height-sm / 1.5;
+			font-size: 1.5em;
+		}
+	}
+
+	&.js-active {
+		.icon-search::before {
+			content: '\e805';
 		}
 	}
 }

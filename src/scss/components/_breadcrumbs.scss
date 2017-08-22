@@ -1,0 +1,30 @@
+// --------------
+// Breadcrumbs
+// --------------
+
+.breadcrumb {
+  padding: 10px 15px;
+  margin-bottom: 0;
+  background: transparent;
+  ul {
+    margin-bottom: 0;
+
+    li {
+      display: inline-block;
+
+      a {
+        text-transform: capitalize;
+        color: $black;
+      }
+
+      &:not(:last-child) {
+        padding-right: 10px;
+
+        &::after {
+          content: "/";
+          padding-left: 10px;
+        }
+      }
+    }
+  }
+}

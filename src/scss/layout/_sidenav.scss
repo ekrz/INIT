@@ -1,0 +1,99 @@
+// ----------
+// Sidenav
+// ----------
+
+.sidenav {
+  .sidenav-block {
+    position: relative;
+    .sidenav-block_container {
+      display: none;
+      @media all and (min-width: $screen-md-min) {
+        display: block;
+      }
+    }
+    h3 {
+      cursor: pointer;
+      font-size: 1.4em;
+      position: relative;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: $custom-gray;
+      }
+    }
+
+    ul {
+      list-style-type: none;
+
+      li {
+        a {
+          color: $black;
+        }
+      }
+    }
+
+    &:after {
+      position: absolute;
+      right: 0;
+      top: 21px;
+      font-family: $fontello;
+      content: '\e806';
+      font-size: 1.5em;
+
+      transition: 250ms;
+      @media all and (min-width: $screen-md-min) {
+        display: none;
+      }
+    }
+    &.js-active{
+      &:after {
+        transform: rotate(45deg);
+      }
+    }
+  }
+  @media all and (min-width: $screen-md-min) {
+    padding-right: 5%;
+  }
+}
+// sidenav filters
+#filters {
+  .filter-group {
+    padding-bottom: 5px;
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    a {
+      &::before {
+        content: '';
+        display: inline-block;
+        position: relative;
+        top: 3px;
+        width: 16px;
+        height: 16px;
+        border-radius: 3px;
+        border: 2px solid #ddd;
+        margin-right: 6px;
+      }
+    }
+
+    h4 {
+      text-transform: uppercase;
+      padding-bottom: 5px;
+      margin-top: 15px;
+      font-size: 1em;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $custom-gray;
+    }
+  }
+}

@@ -2,7 +2,10 @@ console.log('Built by Granite.');
 
 $( document ).ready(function() {
 
+
+	// -------------------------------------------------
 	// adapt full height on mobile (vh css take toolbar)
+	// -------------------------------------------------
   var el = $(".banner--fullscreen");
 
   function resize_Background() {
@@ -13,7 +16,9 @@ $( document ).ready(function() {
 
   resize_Background();
 
+	// -------------------------------------------------
 	// adapt the coloration of the navbar while scroll
+	// -------------------------------------------------
 	$( window ).scroll(function() {
 		var scroll = getCurrentScroll();
 		if ( scroll > 0 ) {
@@ -24,19 +29,64 @@ $( document ).ready(function() {
 		}
 	});
 
-	// open dropdown
-	$('.has-children').on('click',function(e){
+	// -------------------------------------------------
+	// open dropdown (main-nav + search)
+	// -------------------------------------------------
+	$('.has-children, .search').on('click',function(e){
 		e.preventDefault();
-		if($(this).hasClass('js-active')){
-				$(this).removeClass('js-active').find('.has-children_container').slideToggle();
 
+		$('li').not(this).each(function(){
+			$(this).removeClass('js-active').find('.nav_container').slideUp();
+		});
+
+		if($(this).hasClass('js-active')){
+				$(this).removeClass('js-active').find('.nav_container').slideToggle();
 		} else {
-			$(this).addClass('js-active').find('.has-children_container').slideToggle()
+			$(this).addClass('js-active').find('.nav_container').slideToggle()
 		}
 	});
 
+	// -------------------------------------------------
+	// do not close menu when clicking the children (HACK: input::focus)
+	// -------------------------------------------------
+	$('.nav_container').on('click', function(e){
+		e.stopPropagation();
+	});
 
+	// -------------------------------------------------
+	// open filters+category on mobile
+	// -------------------------------------------------
 
+	// TODO : need to refire correctly that on resize
+
+	var windowsWidth = window.innerWidth;
+	if (windowsWidth < 991) {
+	  $('.sidenav-block').on('click', function(e) {
+
+	    e.preventDefault();
+
+	    $('.sidenav-block').not(this).each(function() {
+	      $(this).removeClass('js-active').find('.sidenav-block_container').slideUp();
+	    });
+
+	    if ($(this).hasClass('js-active')) {
+	      $(this).removeClass('js-active').find('.sidenav-block_container').slideUp();
+	    } else {
+	      $(this).addClass('js-active').find('.sidenav-block_container').slideDown();
+	    }
+
+	  });
+	}
+
+	// -------------------------------------------------
+	// hover effect shop grid : product
+	// -------------------------------------------------
+
+	$('.product').hover(function(){
+		$('.product').not(this).each(function() {
+			$(this).toggleClass('js-not-active');
+		});
+	})
 
 	// $('.navbar-toggle').on('click', function(e){
 	// 	e.preventDefault();
@@ -54,6 +104,14 @@ $( document ).ready(function() {
 });
 
 
+// set windows width
+function resize_WindowsWidth() {
+	var windowsWidth =  window.innerWidth;
+}
+
+resize_WindowsWidth();
+
+// return current page offset
 function getCurrentScroll() {
 	return window.pageYOffset;
 }

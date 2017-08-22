@@ -1,98 +1,52 @@
-.productListing {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	@include make-row();
-	padding: 30px 0;
-	&:before,
-	&:after {
-		content: normal;
-	}
-	.productBox {
-		@include make-xs-column(12);
-		@include make-sm-column(6);
-		@include make-md-column(4);
-		margin-bottom: 30px;
-	}
-	.imgWrap {
-		position: relative;
-		padding-bottom: 83%;
-		display: block;
-		width: 100%;
-		border: solid 1px #dadada;
-	}
-	img {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		margin:auto;
-		max-height: 100%;
-		min-width: 200px;
-	}
-}
-.btn-pricing {
-	background: $color-primary;
-	text-transform: uppercase;
-	padding: 6px 20px;
-	color: $white;
-	border: solid 1px $white;
-	font-weight: $fw-bold;
+// ----------
+// Product
+// ----------
+.product {
+	display: block;
+	margin-bottom: 15px;
+	color: $black;
+	text-decoration: none;
+	text-align: center;
+	transition: 500ms;
+
+	&:focus,
 	&:hover {
-		color: $white;
-		background: $color-primary;
-	}
-}
-.infoBubble {
-	position: absolute;
-	top: 10px;
-	right: 25px;
-	padding: 20px;
-	border-radius: 50%;
-	background: $color-primary;
-	color: $white;
-	span {
-		text-transform: uppercase;
-		display: block;
-		text-align: center;
-		font-size: 14px;
-		line-height: 1.2;
-		+ span {
-			font-weight: $fw-bold;
-			font-size: em(24px)
-		}
-	}
-	&.inverted {
-		background: $white;
+		text-decoration: none;
 		color: $color-primary;
 	}
-}
-.prodBoxDesc {
-	position: relative;
-	background: $color-primary;
-	color: $white;
-	padding: 20px 20px 60px;
-	text-align: left;
-	display: block;
-	overflow: hidden;
-	.title {
-		text-transform: uppercase;
-		margin-top: 0px;
-		font-size: em(22px);
-		font-weight: $fw-bold;
-		@media (min-width: $screen-md) {
-			font-size: em(28px);
+	span {
+		display:block;
+		@media all and (min-width: $screen-sm-min) {
+			margin-top: 5px;
 		}
 	}
-	p {
+	.product-tag {
+		font-size: .65em;
+		background: $gray-light;
+		color: $white;
 		text-transform: uppercase;
-		font-size: 14px;
-		font-weight: $fw-bold;
+		text-align: center;
+		margin-top: 5px;
+		padding: 5px 15px;
+		@media all and (min-width: $screen-sm-min) {
+		  font-size: .7em;
+			display: inline-block;
+			margin: 5px auto 0;
+		}
 	}
-	.btn-pricing {
-		position: absolute;
-		left: 20px;
-		bottom: 20px;
+	.product-name {
+		font-weight: 600;
+		font-size: .9em;
+	}
+	.product-price {
+		font-weight: 900;
+		font-size: 1.2em;
+		&::before{
+			content: '€';
+		}
+	}
+	&.js-not-active {
+		opacity: .8;
+		transform: scale(.95);
 	}
 }
