@@ -1,4 +1,4 @@
-console.log('Built by Granite.');
+console.log('Built by Granite Digital. 👉 http://granite.ie 👀');
 
 $( document ).ready(function() {
 
@@ -83,6 +83,27 @@ $( document ).ready(function() {
 	// -------------------------------------------------
 
 	$('.product').hover(function(){
+		$('.product').not(this).each(function() {
+			$(this).toggleClass('js-not-active');
+		});
+	})
+
+	// -------------------------------------------------
+	// on click effect shop grid : filter
+	// -------------------------------------------------
+	$('.filter-group a').on('click', function(e){
+		e.preventDefault();
+		$(this).toggleClass('js-ticked');
+	})
+
+	// -------------------------------------------------
+	// on click effect shop grid : sort by
+	// -------------------------------------------------
+	$('.sort-by span').on('click', function(e){
+		e.preventDefault();
+		$(this).siblings('.sort-by-options').slideToggle();
+
+		// hide the products
 		$('.product').not(this).each(function() {
 			$(this).toggleClass('js-not-active');
 		});
