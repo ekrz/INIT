@@ -4,22 +4,20 @@
 
 .banner {
 	position: relative;
-	margin-top: -$navbar-height-xs;
 	width: 100%;
 	background-size: cover;
 	background-position: 50% 50%;
 	@media all and (min-width: $screen-sm-min) {
-		margin-top: -$navbar-height-sm;
 		background-position: initial;
 	}
-
+	// banner fullscreen makes 100% vertical
 	&.banner--fullscreen {
 		height: calc(100vh - #{$navbar-height-xs});
 		@media all and (min-width: $screen-sm-min) {
 			height: calc(100vh - #{$navbar-height-sm});
 		}
 	}
-
+	// block of text in the middle of the banner
 	.banner_block {
 		color: $white;
 		position: absolute;
@@ -28,13 +26,11 @@
 		right: 0;
 		margin: 0 auto;
 		max-width: 275px;
-		@media all and (min-width: $screen-sm-min )
-		{
-			max-width: 500px
+		@media all and (min-width: $screen-sm-min ) {
+			max-width: 500px;
 		}
-		@media all and (min-width: $screen-md-min )
-		{
-			max-width: 750px
+		@media all and (min-width: $screen-md-min ) {
+			max-width: 750px;
 		}
 
 		.banner_block-text {
@@ -42,44 +38,72 @@
 
 			h2 {
 				text-transform: uppercase;
-				padding: 0;
-				padding-bottom: 5px;
+				padding: 0 0 5px;
 				font-size: 2.3em;
-				letter-spacing: .2em;
+				letter-spacing: 0.2em;
 				@media all and (min-width: $screen-sm-min ) {
-						font-size: 3.2em;
+					font-size: 3.2em;
 				}
 			}
+
 			span {
 				padding: 0;
 				font-size: 1.8em;
-				letter-spacing: .05em;
+				letter-spacing: 0.05em;
 				@media all and (min-width: $screen-sm-min ) {
-						font-size: 3em;
+					font-size: 3em;
 				}
 			}
 		}
-
+		// CTA for the banner
 		.banner_block-button {
 			color: $white;
 			display: inline-block;
 			border: 1px solid $white;
-
 			margin-top: 25px;
 			padding: 10px 20px;
 			font-weight: $fw-regular;
-
 			text-transform: uppercase;
 			text-decoration: none;
 			@media all and (min-width: $screen-sm-min) {
-					margin-top: 50px;
-					transition: 250ms;
-					&:hover,
-					&:focus
-					{
-						background: $color-primary;
-						color: $white;
-					}
+				margin-top: 50px;
+				transition: 250ms;
+
+				&:focus,
+				&:hover {
+					background: $color-primary;
+					color: $white;
+				}
+			}
+		}
+	}
+
+	// banner + product slider
+	&.product-slider {
+		.product {
+			@media all and (min-width: $screen-sm-min) {
+				position: absolute;
+				top: 15px;
+				padding: 5px;
+				right: 14px;
+				background: rgba($white, .93);
+				height: calc(100% - 15px);
+				width: calc(50% - 29px);
+			}
+			@media all and (min-width: $screen-md-min) {
+				right: 10%;
+				height: calc(100% - 10px);
+				top: 5px;
+			}
+			@media all and (min-width: 1440px) {
+				right: 5%;
+				width: 33.3333%;
+				height: calc(100% - 15px);
+				top: 15px;
+				padding: 5px 15px;
+			}
+			@media all and (min-width: 1500px) {
+				padding: 40px 15px;
 			}
 		}
 	}

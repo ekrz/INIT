@@ -215,8 +215,74 @@
       </div>
     </header>
     <main>
-      <!-- Shop container -->
-      <section id="grid-shop">
+      <!-- Product banner + shop it -->
+      <section class="banner product-slider">
+        <!-- Slider -->
+        <div class="slider">
+          <img src="http://fakeimg.pl/500x800/111111/f0f0f0/?text=product">
+          <img src="http://fakeimg.pl/500x800/be64ff/f0f0f0/?text=product">
+          <img src="http://fakeimg.pl/500x800/55ff77/f0f0f0/?text=product">
+          <img src="http://fakeimg.pl/500x800/ff5000/f0f0f0/?text=product">
+          <img src="http://fakeimg.pl/500x800/ee4fe0/f0f0f0/?text=product">
+        </div>
+        <!-- Product details+order -->
+        <div class="product">
+
+          <!-- Product tag, name and price -->
+          <div class="product_order">
+            <span class="product-tag">Fisherman out of Ireland</span>
+            <span class="product-name">Fisherman Half-zip Raglan Sweater</span>
+            <span class="product-price">191.63</span>
+          </div>
+
+          <!-- Chose product size -->
+          <div class="product_options">
+            <h3>Size: </h3> <span>Please select size</span>
+            <div class="product_options_container">
+              <ul>
+                <li><a href="">S</a></li>
+                <li><a href="">M</a></li>
+                <li><a href="">L</a></li>
+                <li><a href="">XL</a></li>
+                <li class="details"><a href="">size guide</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Chose product colour -->
+          <div class="product_options">
+            <h3>Colour: </h3> <span>Please select colour</span>
+            <div class="product_options_container">
+              <ul>
+                <li><a href="">Beige</a></li>
+                <li><a href="">Black</a></li>
+                <li><a href="">Navy Blue</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Add product to bag -->
+          <div class="product_add-to-bag">
+            <a href=""><i class="icon-bag"></i> Add to my bag</a>
+          </div>
+
+          <!-- Add product to wishlist -->
+          <div class="product_add-to-wishlist">
+            <a href=""><i class="icon-heart-1"></i> Add to wishlist</a>
+          </div>
+
+          <!-- Any extra information regarding the product -->
+          <div class="product_extra-info">
+            <span><i class="icon-flight"></i> Free shipping to USA </span>
+            <p>Applies to order of US $200 or more. Returns are always free.</p>
+            <a href="">See details</a>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Product details -->
+      <section id="product-details">
         <!-- Breadcrumbs -->
         <div class="breadcrumb">
           <ul>
@@ -225,159 +291,23 @@
             <li><a href="">item</a></li>
           </ul>
         </div>
+      </section>
+
+      <!-- Shop container -->
+      <section id="grid-shop">
+
         <div class="container-fluid">
           <div class="row">
-            <!-- Shop sidenav -->
-            <div class="sidenav col-xs-12 col-md-3">
-
-              <div id="category" class="sidenav-block">
-                <h3>Category</h3>
-                <div class="sidenav-block_container">
-                  <ul>
-                    <li><a href="">Item</a></li>
-                    <li><a href="">Item</a></li>
-                    <li><a href="">Item</a></li>
-                    <li><a href="">Item</a></li>
-                    <li><a href="">Item</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div id="filters" class="sidenav-block">
-                <h3>Filters</h3>
-                <div class="sidenav-block_container">
-                  <div class="filter-group">
-                    <h4>Collection</h4>
-                    <ul>
-                      <li><a href="">Item</a></li>
-                      <li><a href="">Item</a></li>
-                      <li><a href="">Item</a></li>
-                      <li><a href="">Item</a></li>
-                      <li><a href="">Item</a></li>
-                    </ul>
-                  </div>
-                  <div class="filter-group">
-                    <h4>Collection</h4>
-                    <ul>
-                      <li><a href="">Item</a></li>
-                      <li><a href="">Item</a></li>
-                      <li><a href="">Item</a></li>
-                      <li><a href="">Item</a></li>
-                      <li><a href="">Item</a></li>
-                    </ul>
-                  </div>
-                  <div class="filter-group">
-                    <h4>Collection</h4>
-                    <ul>
-                      <li><a href="">Item</a></li>
-                      <li><a href="">Item</a></li>
-                      <li><a href="">Item</a></li>
-                      <li><a href="">Item</a></li>
-                      <li><a href="">Item</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             <!-- Shop grid -->
-            <div class="grid-shop_container col-xs-12 col-md-9">
+            <div class="grid-shop_container col-xs-12">
               <!-- title  -->
               <div class="row">
-                <div class="title col-xs-12 col-sm-8">
-                  <span class="category">Clothing</span>
-                  <h1>Irish designed clothing for men</h1>
-                </div>
-                <div class="sort-by col-xs-12 col-sm-4">
-                  <div class="sort-by_container">
-                    <span>Sort by</span>
-                    <ul class="sort-by-options">
-                      <li>A-Z (A first)</li>
-                      <li class="sel">A-Z (Z first)</li>
-                      <li>Price (highest first)</li>
-                      <li>Price (lowest first)</li>
-                    </ul>
-                  </div>
+                <div class="title text-center col-xs-12">
+                  <h1>You might also like</h1>
                 </div>
               </div>
               <!-- content  -->
               <div class="row">
-                <!-- product -->
-                <a class="product col-xs-6 col-sm-4 col-lg-3" href="demo-shop-product.html">
-                  <img src="http://fakeimg.pl/400x550/111111/f0f0f0/?text=product">
-                  <span class="product-tag">Fisherman out of Ireland</span>
-                  <span class="product-name">Fisherman Half-zip Raglan Sweater</span>
-                  <span class="product-price">198.51</span>
-                </a>
-                <!-- product -->
-                <a class="product col-xs-6 col-sm-4 col-lg-3" href="demo-shop-product.html">
-                  <img src="http://fakeimg.pl/400x550/111111/f0f0f0/?text=product">
-                  <span class="product-tag">Fisherman out of Ireland</span>
-                  <span class="product-name">Fisherman Half-zip Raglan Sweater</span>
-                  <span class="product-price">198.51</span>
-                </a>
-                <!-- product -->
-                <a class="product col-xs-6 col-sm-4 col-lg-3" href="demo-shop-product.html">
-                  <img src="http://fakeimg.pl/400x550/111111/f0f0f0/?text=product">
-                  <span class="product-tag">Fisherman out of Ireland</span>
-                  <span class="product-name">Fisherman Half-zip Raglan Sweater</span>
-                  <span class="product-price">198.51</span>
-                </a>
-                <!-- product -->
-                <a class="product col-xs-6 col-sm-4 col-lg-3" href="demo-shop-product.html">
-                  <img src="http://fakeimg.pl/400x550/111111/f0f0f0/?text=product">
-                  <span class="product-tag">Fisherman out of Ireland</span>
-                  <span class="product-name">Fisherman Half-zip Raglan Sweater</span>
-                  <span class="product-price">198.51</span>
-                </a>
-                <!-- product -->
-                <a class="product col-xs-6 col-sm-4 col-lg-3" href="demo-shop-product.html">
-                  <img src="http://fakeimg.pl/400x550/111111/f0f0f0/?text=product">
-                  <span class="product-tag">Fisherman out of Ireland</span>
-                  <span class="product-name">Fisherman Half-zip Raglan Sweater</span>
-                  <span class="product-price">198.51</span>
-                </a>
-                <!-- product -->
-                <a class="product col-xs-6 col-sm-4 col-lg-3" href="demo-shop-product.html">
-                  <img src="http://fakeimg.pl/400x550/111111/f0f0f0/?text=product">
-                  <span class="product-tag">Fisherman out of Ireland</span>
-                  <span class="product-name">Fisherman Half-zip Raglan Sweater</span>
-                  <span class="product-price">198.51</span>
-                </a>
-                <!-- product -->
-                <a class="product col-xs-6 col-sm-4 col-lg-3" href="demo-shop-product.html">
-                  <img src="http://fakeimg.pl/400x550/111111/f0f0f0/?text=product">
-                  <span class="product-tag">Fisherman out of Ireland</span>
-                  <span class="product-name">Fisherman Half-zip Raglan Sweater</span>
-                  <span class="product-price">198.51</span>
-                </a>
-                <!-- product -->
-                <a class="product col-xs-6 col-sm-4 col-lg-3" href="demo-shop-product.html">
-                  <img src="http://fakeimg.pl/400x550/111111/f0f0f0/?text=product">
-                  <span class="product-tag">Fisherman out of Ireland</span>
-                  <span class="product-name">Fisherman Half-zip Raglan Sweater</span>
-                  <span class="product-price">198.51</span>
-                </a>
-                <!-- product -->
-                <a class="product col-xs-6 col-sm-4 col-lg-3" href="demo-shop-product.html">
-                  <img src="http://fakeimg.pl/400x550/111111/f0f0f0/?text=product">
-                  <span class="product-tag">Fisherman out of Ireland</span>
-                  <span class="product-name">Fisherman Half-zip Raglan Sweater</span>
-                  <span class="product-price">198.51</span>
-                </a>
-                <!-- product -->
-                <a class="product col-xs-6 col-sm-4 col-lg-3" href="demo-shop-product.html">
-                  <img src="http://fakeimg.pl/400x550/111111/f0f0f0/?text=product">
-                  <span class="product-tag">Fisherman out of Ireland</span>
-                  <span class="product-name">Fisherman Half-zip Raglan Sweater</span>
-                  <span class="product-price">198.51</span>
-                </a>
-                <!-- product -->
-                <a class="product col-xs-6 col-sm-4 col-lg-3" href="demo-shop-product.html">
-                  <img src="http://fakeimg.pl/400x550/111111/f0f0f0/?text=product">
-                  <span class="product-tag">Fisherman out of Ireland</span>
-                  <span class="product-name">Fisherman Half-zip Raglan Sweater</span>
-                  <span class="product-price">198.51</span>
-                </a>
                 <!-- product -->
                 <a class="product col-xs-6 col-sm-4 col-lg-3" href="demo-shop-product.html">
                   <img src="http://fakeimg.pl/400x550/111111/f0f0f0/?text=product">

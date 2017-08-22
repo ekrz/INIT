@@ -1,15 +1,42 @@
 console.log('Built by Granite Digital. 👉 http://granite.ie 👀');
 
 $( document ).ready(function() {
+	// -------------------------------------------------
+	// slick sliders : initialisation + config
+	// -------------------------------------------------
 
+	slickConfig = {
+		autoplay: true,
+	  mobileFirst: true,
+	  dots: false,
+	  arrows: false,
+	  infinite: true,
+	  slidesToShow: 2,
+	  responsive: [{
+	      breakpoint: 991,
+	      settings: {
+	        slidesToShow: 3
+	      }
+	    },
+	    {
+	      breakpoint: 1199,
+	      settings: {
+	        slidesToShow: 4
+	      }
+	    }
+	  ]
+	}
 
+	$('.slider').slick(slickConfig);
 	// -------------------------------------------------
 	// adapt full height on mobile (vh css take toolbar)
 	// -------------------------------------------------
   var el = $(".banner--fullscreen");
 
   function resize_Background() {
-    el.height($(window).innerHeight());
+    if (window.innerWidth < 991) {
+      el.height($(window).innerHeight());
+    }
   }
 
   $(window).resize( $.throttle( 250, resize_Background ) );
