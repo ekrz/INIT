@@ -14,6 +14,29 @@
 		@media all and (min-width: $screen-sm-min) {
 			box-shadow: 0 0 0 rgba(0,0,0,.16), 0 0 3px rgba(0,0,0,.23);
 		}
+		#nav-float {
+			transform: translate3d(100%,0,0);
+		}
+	}
+	#nav-float {
+		transition: 350ms;
+		z-index: -1;
+		display: none;
+		position: absolute;
+		color: $white;
+		padding: 10px;
+		width: 100%;
+		text-align: center;
+		@media all and (min-width: $screen-sm-min) {
+		  display: flex;
+			justify-content: center;
+			align-items: center;
+			background: $color-secondary
+		}
+		i {
+			margin-right: 5px;
+			font-size: .65em;
+		}
 	}
 	// logo
 	.navbar-header {
@@ -89,6 +112,7 @@
 			}
 
 			> li {
+				border-bottom: 1px solid rgba($color-secondary, .1);
 				@media all and (min-width: $screen-md-min) {
 					&.js-active,
 					&:hover {
@@ -104,11 +128,19 @@
 				}
 
 				> a {
-					color: $color-primary;
-					text-transform: uppercase;
+					color: $black;
+					font-size: 1.2em;
+					font-weight: 600;
 					@media all and (min-width: $screen-md-min) {
+						font-size: .8em;
+						color: $color-primary;
+						font-weight: normal;
+						text-transform: uppercase;
 						color: $white;
 						line-height: ($navbar-height-sm / 2) + 5;
+					}
+					@media all and (min-width: $screen-lg-min) {
+						font-size: 1em;
 					}
 				}
 
@@ -149,18 +181,18 @@
 			transform: translate3d(-100%, 0, 0);
 		}
 
-		&::before {
-			position: absolute;
-			z-index: 0;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			content: '';
-			opacity: 0.05;
-			background: url('/images/menu/watermark.svg') no-repeat;
-			background-size: cover;
-		}
+		// &::before {
+		// 	position: absolute;
+		// 	z-index: 0;
+		// 	top: 0;
+		// 	left: 0;
+		// 	width: 100%;
+		// 	height: 100%;
+		// 	content: '';
+		// 	opacity: 0.05;
+		// 	background: url('/images/menu/watermark.svg') no-repeat;
+		// 	background-size: cover;
+		// }
 		@media all and (min-width: $screen-md-min) {
 			position: static;
 			width: auto;
@@ -196,6 +228,14 @@
 	@media all and (min-width: 1440px) {
 		padding-left: 20%;
 		padding-right: 20%;
+	}
+	.our-favourite {
+		display: none;
+		@media all and (min-width: $screen-lg-min) {
+			display: block;
+			border-left: 1px solid rgba($color-primary, .8);
+			padding-left: 50px;
+		}
 	}
 }
 // Sub menu section — children of children (inception.exe)
@@ -279,17 +319,20 @@
 // navigation children
 .has-children {
 	&::after {
+		content: '\e804';
 		cursor: pointer;
 		position: absolute;
-		content: '\e804';
 		font-family: $fontello;
 		speak: none;
 		right: 15%;
-		top: 10px;
-		color: $color-primary;
+		top: 5px;
+		color: $black;
+		font-size: 1.4em;
+		transition: 300ms;
 		@media all and (min-width: $screen-md-min) {
 			top: 23px;
 			color: $white;
+			font-size: 1em;
 		}
 	}
 
@@ -302,10 +345,11 @@
 	}
 
 	&.js-active {
-		@media all and (min-width: $screen-md-min) {
 			&::after {
-				color: $color-primary;
-			}
+				transform: rotate(180deg);
+				@media all and (min-width: $screen-md-min) {
+					color: $color-primary;
+				}
 		}
 
 		.nav_container {
@@ -394,4 +438,5 @@
 	.search-results {
 		display: none;
 	}
+
 }

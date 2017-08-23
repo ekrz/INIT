@@ -36,6 +36,12 @@
 		.banner_block-text {
 			font-family: $font-family-two;
 
+			img {
+				max-width: 200px;
+				@media all and (min-width: $screen-sm-min ) {
+					max-width: 300px;
+				}
+			}
 			h2 {
 				text-transform: uppercase;
 				padding: 0 0 5px;

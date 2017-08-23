@@ -2,6 +2,11 @@
 // Mosaic layout ©
 //-----------------
 
+// NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE
+// FIXME : Mosaic © works alright but needs to be rewriten on some points.
+//         the responsive is extremely hacky for now and needs to be simplified.
+//--------------------------------------------------------------------------------
+
 .mosaic {}
 
 // mosaic element
@@ -13,6 +18,7 @@
 		width: calc(50% - 15px);
 		display: inline-block;
 		margin-left: 2.5px;
+		transition: 1s;
 		@media all and (min-width: $screen-sm-min + 1) {
 			margin-left: 0;
 			width: 50%;
@@ -20,6 +26,7 @@
 	}
 	// block :  common settings
 	.mosaic-block {
+		z-index: 1;
 		display: inline-block;
 		position: relative;
 		width: 50%;
@@ -38,7 +45,15 @@
 		@media all and (min-width: $screen-md-min) {
 			width: 250px;
 			height: 250px;
+			padding: 30px;
 			position: absolute;
+			&:hover + .mosaic-image{
+				transform: scale(.95);
+			}
+		}
+		@media all and (min-width: 1440px) {
+			width: 300px;
+			height: 300px;
 		}
 		// block : title
 		h2 {
@@ -140,6 +155,11 @@
 				left: 0;
 			}
 		}
+		.mosaic-image {
+			@media all and (min-width: $screen-lg-min) {
+				width: calc(50% - 55px)
+			}
+		}
 	}
 	// specific right mosaic followed up
 	&.mosaic--left  +  .mosaic--right:not(.mosaic--big),
@@ -162,6 +182,10 @@
 			}
 			@media all and (min-width: $screen-md-min) {
 				position: absolute;
+			}
+			@media all and (min-width: 1440px) {
+				width: 350px;
+				height: 350px;
 			}
 			a {
 				&:hover {
@@ -189,11 +213,11 @@
 			}
 			@media all and (min-width: $screen-lg-min) {
 
-				margin-top: -355px;
+				margin-top: -305px;
 			}
 			@media all and (min-width: 1440px) {
 
-				margin-top: -380px;
+				margin-top: -325px;
 			}
 			.mosaic-block {
 				@media all and (min-width: $screen-sm-min + 1) {
@@ -233,6 +257,9 @@
 					top: auto;
 					bottom: 175px;
 				}
+				@media all and (min-width: $screen-lg-min) {
+					left: -50px;
+				}
 
 			}
 			.mosaic-image {
@@ -240,6 +267,10 @@
 					margin-left: 100px;
 					margin-top: 100px;
 					margin-bottom: 100px;
+				}
+				@media all and (min-width: $screen-lg-min) {
+				  margin-top: 0;
+					margin-left: 115px;
 				}
 			}
 		}

@@ -6,11 +6,14 @@
 footer {
 	background: rgba($color-primary, .05);
 	border-top: 2px solid rgba($color-secondary, .3);
+	margin-top: 15px;
 	@media all and (min-width: $screen-md-min) {
 		padding: 15px 5%;
+		margin-top: 30px;
 	}
 	@media all and (min-width: $screen-lg-min) {
 		padding: 40px 10%;
+		margin-top: 50px;
 	}
 	h3 {
 		color: rgba($black, .5);
@@ -21,7 +24,11 @@ footer {
 		list-style-type: none;
 		li {
 			a {
+				font-size: .8em;
 				color: rgba($black, .5);
+				@media all and (min-width: 400px) {
+					font-size: 1em;
+				}
 				&:hover {
 					color: $black;
 				}

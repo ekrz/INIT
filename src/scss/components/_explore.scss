@@ -1,0 +1,70 @@
+//-----------------
+// Explore layout
+//-----------------
+
+#explore {
+	margin-top: 15px;
+	a {
+		color: $black;
+		text-decoration: none;
+	}
+	.title {
+		h2 {
+			color: $black;
+			margin: 15px auto;
+			text-transform: uppercase;
+			font-size: 1.2em;
+			@media all and (min-width: $screen-sm-min) {
+				margin: 25px auto;
+				font-size: 1.5em;
+			}
+			@media all and (min-width: $screen-md-min) {
+				margin: 40px auto;
+			}
+		}
+	}
+
+	.explore-row {
+		margin: 0 auto;
+		text-align: center;
+		.explore-item {
+			position: relative;
+			display: block;
+			img {
+				transition: 500ms;
+			}
+			&:hover {
+				img {
+					transform: scale(.9);
+				}
+			}
+			}
+			&:not(:nth-child(2)) {
+				.explore-item:first-child {
+						margin-bottom: 40px;
+						@media all and (min-width: 1440px) {
+							margin-bottom: 50px;
+						}
+						@media all and (min-width: 1600px) {
+							margin-bottom: 75px;
+						}
+				}
+			}
+
+	}
+	.explore-text {
+		display: block;
+		position: relative;
+		h3 {
+			text-transform: uppercase;
+			font-weight: 400;
+			font-size: 1em;
+			padding-bottom: 5px;
+		}
+		p {
+			font-size: .8em;
+			margin-bottom: 0;
+			padding-bottom: 20px;
+		}
+	}
+}
