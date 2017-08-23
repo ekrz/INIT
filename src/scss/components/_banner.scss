@@ -105,6 +105,10 @@
 			@media all and (min-width: 1500px) {
 				padding: 40px 15px;
 			}
+			&:focus,
+			&:hover {
+				color: inherit;
+			}
 		}
 	}
 }
