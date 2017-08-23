@@ -1,7 +1,7 @@
 {
   "name": "init-ekrz",
-  "version": "0.3.6",
-  "description": "Initialize a new working environnement",
+  "version": "0.4.0",
+  "description": "Initialize a new Sass project",
   "main": "index.js",
   "author": {
     "name": "Emmanuel K. Retzepter",

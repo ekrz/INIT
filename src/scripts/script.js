@@ -131,9 +131,9 @@ $( document ).ready(function() {
 	});
 
 	// -------------------------------------------------
-	// open dropdown (main-nav + search)
+	// open dropdown (main-nav + search + cart)
 	// -------------------------------------------------
-	$('.has-children, .search').on('click',function(e){
+	$('.has-children, .search, .show-cart').on('click',function(e){
 		e.preventDefault();
 
 		$('li').not(this).each(function(){

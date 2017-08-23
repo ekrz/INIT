@@ -54,6 +54,7 @@
 		@media all and (min-width: 1440px) {
 			width: 300px;
 			height: 300px;
+			padding: 50px 40px
 		}
 		// block : title
 		h2 {
@@ -107,6 +108,9 @@
 			@media all and (min-width: $screen-md-min) {
 				left: calc(50% - 30px) !important;
 			}
+			@media all and (min-width: 1440px) {
+			  left: calc(50% - 45px) !important;
+			}
 		}
 	}
 	// regular right + common
@@ -148,6 +152,9 @@
 			@media all and (min-width: $screen-md-min) {
 				margin-left: 15px;
 			}
+			@media all and (min-width: $screen-lg-min) {
+				margin-left: 0;
+			}
 		}
 		.mosaic-block {
 			@media all and (min-width: $screen-sm-min + 1) {
@@ -157,7 +164,7 @@
 		}
 		.mosaic-image {
 			@media all and (min-width: $screen-lg-min) {
-				width: calc(50% - 55px)
+				width: 50%
 			}
 		}
 	}
@@ -184,12 +191,24 @@
 				position: absolute;
 			}
 			@media all and (min-width: 1440px) {
-				width: 350px;
+			  width: 350px;
 				height: 350px;
+				padding: 75px 50px;
 			}
 			a {
 				&:hover {
 					color: $color-primary;
+				}
+			}
+			h2 {
+				@media all and (min-width: 1440px) {
+					font-size: 2.5em;
+					line-height: 1
+				}
+			}
+			p {
+				@media all and (min-width: 1440px) {
+				  font-size: 1em;
 				}
 			}
 		}
@@ -197,6 +216,9 @@
 			width: calc(50% - 15px);
 			@media all and (min-width: $screen-md-min) {
 			  width: calc(100% - 115px);
+			}
+			@media all and (min-width: $screen-lg-min) {
+			  width: 100%;
 			}
 		}
 		// big left
@@ -213,11 +235,7 @@
 			}
 			@media all and (min-width: $screen-lg-min) {
 
-				margin-top: -305px;
-			}
-			@media all and (min-width: 1440px) {
-
-				margin-top: -325px;
+				margin-top: -33%;
 			}
 			.mosaic-block {
 				@media all and (min-width: $screen-sm-min + 1) {
@@ -231,6 +249,14 @@
 					bottom: 50px;
 					right:15px;
 				}
+				@media all and (min-width: $screen-lg-min) {
+				  right:-45px;
+					bottom: 100px;
+				}
+				@media all and (min-width: 1440px) {
+					bottom: 200px;
+					right:-115px;
+				}
 			}
 			.mosaic-image {
 				@media all and (min-width: $screen-sm-min + 1) {
@@ -238,6 +264,9 @@
 				}
 				@media all and (min-width: $screen-md-min) {
 					margin-left: 15px;
+				}
+				@media all and (min-width: $screen-lg-min) {
+					margin-left: -25px;
 				}
 			}
 
@@ -260,6 +289,9 @@
 				@media all and (min-width: $screen-lg-min) {
 					left: -50px;
 				}
+				@media all and (min-width: 1440px) {
+					left: -115px;
+				}
 
 			}
 			.mosaic-image {
@@ -270,7 +302,8 @@
 				}
 				@media all and (min-width: $screen-lg-min) {
 				  margin-top: 0;
-					margin-left: 115px;
+					margin-left: 0;
+					margin-bottom: 0
 				}
 			}
 		}
