@@ -1,0 +1,196 @@
+//----------
+// Mosaic
+//----------
+
+.mosaic {
+	margin-top: 15px;
+	// mosaic item
+	.mosaic-tile {
+		position: relative;
+		max-width: 300px;
+		margin: 0 auto 10px;
+		@media all and (min-width: $screen-sm-min) {
+			max-width: none;
+		}
+		// mosaic image
+		img {
+			position: relative;
+			padding: 0 15px;
+			@media all and (min-width: 500px) {
+				padding: 0;
+			}
+			@media all and (min-width: $screen-sm-min) {
+				padding: 30px;
+			}
+			@media all and (min-width: 1440px) {
+				padding: 30px 0;
+			}
+		}
+		// mosaic text
+		.mosaic-block {
+			z-index: 1;
+			position: absolute;
+			color: $white;
+			height: 250px;
+			width: 250px;
+			padding: 15px;
+			bottom: 15px;
+			background: rgba($color-secondary, .9);
+			@media all and (min-width: 500px) {
+				bottom: 50px;
+			}
+			@media all and (min-width: $screen-sm-min) {
+				bottom: 100px;
+			}
+			@media all and (min-width: 1440px) {
+				width: 300px;
+				height: 300px;
+			}
+
+			h2 {
+				font-family: $font-family-three;
+				font-style: italic;
+				width: 80%;
+			}
+
+			p {
+				font-size: 0.8em;
+				margin: 5px 0 15px;
+			}
+
+			a {
+				text-decoration: none;
+				color: $white;
+				display: inline-block;
+				border-top: 2px solid $white;
+				padding-top: 10px;
+				font-weight: 600;
+				text-transform: uppercase;
+			}
+		}
+
+		&.mosaic-tile--left {
+			img {
+				left: 25px;
+				@media all and (min-width: $screen-md-min) {
+					left: 30px;
+				}
+				@media all and (min-width: $screen-lg-min) {
+					left: 25px;
+				}
+			}
+
+			.mosaic-block {
+				left: 0;
+				@media all and (min-width: 360px) {
+					left: -10px;
+				}
+				@media all and (min-width: 500px) {
+					left: -50px;
+				}
+				@media all and (min-width: $screen-sm-min) {
+					left: 5px;
+				}
+				@media all and (min-width: $screen-lg-min) {
+					left: -70px;
+				}
+			}
+		}
+
+		&.mosaic-tile--right {
+			img {
+				right: 25px;
+				@media all and (min-width: $screen-lg-min) {
+					right: 100px;
+				}
+			}
+
+			.mosaic-block {
+				right: 0;
+				@media all and (min-width: 360px) {
+					right: -10px;
+				}
+				@media all and (min-width: 500px) {
+					right: -50px;
+				}
+				@media all and (min-width: $screen-sm-min) {
+					right: 0;
+				}
+				@media all and (min-width: $screen-lg-min) {
+					right: 5px;
+				}
+			}
+		}
+
+		&.mosaic-tile--big {
+			@media all and (min-width: $screen-sm-min) {
+				top: 165px;
+				position: absolute;
+			}
+			@media all and (min-width: $screen-md-min) {
+				top: 70px;
+			}
+			@media all and (min-width: $screen-lg-min) {
+				top: 0;
+				position: relative;
+			}
+
+			img {
+				@media all and (min-width: $screen-sm-min) {
+					padding: 5px;
+					left: 10px;
+				}
+				@media all and (min-width: $screen-md-min) {
+					padding-left: 50px;
+					padding-right: 10px;
+				}
+				@media all and (min-width: $screen-lg-min) {
+					left: -30px;
+					padding-left: 80px;
+					padding-right: 25px;
+				}
+				@media all and (min-width: 1440px) {
+					left: -30px;
+					padding-left: 0;
+					padding-right: 0;
+				}
+			}
+
+			.mosaic-block {
+				background: rgba($color-primary, .9);
+				@media all and (min-width: $screen-sm-min) {
+					left: -5px;
+				}
+				@media all and (min-width: $screen-md-min) {
+					width: 300px;
+					height: 300px;
+					left: 15px;
+				}
+				@media all and (min-width: $screen-lg-min) {
+					left: -5px;
+				}
+				@media all and (min-width: 1440px) {
+					width: 350px;
+					height: 350px;
+					left: -140px;
+				}
+			}
+		}
+
+		&:not(.mosaic-tile--big) {
+			@media all and (min-width: 1440px) {
+				margin-bottom: 25px
+			}
+			img {
+				@media all and (min-width:$screen-sm-min ) {
+					padding-bottom: 5px;
+					padding-top: 5px;
+				}
+				@media all and (min-width:$screen-lg-min ) {
+					padding-bottom: 0;
+					padding-top: 0;
+				}
+			}
+		}
+	}
+}

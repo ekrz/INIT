@@ -7,6 +7,10 @@ section:not(.banner):not(.section--fullscreen) {
     margin-left: 5%;
     margin-right: 5%;
   }
+  @media all and (min-width: 1440px) {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
 }
 .section--fullscreen {
   @media all and (min-width: $screen-lg-min) {
@@ -40,7 +44,7 @@ section:not(.banner):not(.section--fullscreen) {
     }
   }
   &.grid-shop--similar {
-    
+
     .title {
       h1 {
         color: $black;
