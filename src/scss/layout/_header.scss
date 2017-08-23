@@ -16,11 +16,23 @@
 		}
 	}
 	// logo
-	.navbar-brand {
-		height: $navbar-height-xs;
-		padding: 0;
-		@media all and (min-width: $screen-sm-min) {
-			height: $navbar-height-sm;
+	.navbar-header {
+
+		position: relative; 								// NOTE: be careful with zIndex
+		z-index: 1;
+		.navbar-brand {
+			height: $navbar-height-xs;
+			padding: 0;
+			max-width: 125px;
+			margin-left: 15px;
+			@media all and (min-width: $screen-sm-min) {
+				height: $navbar-height-sm;
+				max-width: 165px;
+				margin-left: 5%;
+			}
+			@media all and (min-width: $screen-md-min) {
+				margin-left: 55px
+			}
 		}
 	}
 	// hamburger

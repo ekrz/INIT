@@ -79,7 +79,7 @@
       margin-bottom: 5px;
     }
 
-    a {
+    a:not(.filter-group-more) {
       text-decoration: none;
       position: relative;
       &::before {
@@ -95,7 +95,7 @@
       }
       &.js-ticked {
         &::before {
-          background: $black;
+          background: $color-primary;
         }
       }
     }

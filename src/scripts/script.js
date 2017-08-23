@@ -4,7 +4,6 @@ $( document ).ready(function() {
 	// -------------------------------------------------
 	// HACK: search simulation for demo
 	// -------------------------------------------------
-
 	$('.search-form input').on('change', function(e){
 		e.preventDefault();
 		$(this).toggleClass('js-active');
@@ -22,9 +21,7 @@ $( document ).ready(function() {
 			$('.search-suggestions').hide();
 	    e.preventDefault();
 	  }
-});
-
-
+	});
 
 	// -------------------------------------------------
 	// slick sliders : initialisation + config
@@ -53,6 +50,58 @@ $( document ).ready(function() {
 	}
 
 	$('.slider').slick(slickConfig);
+
+
+	// -----------------------------------------------------
+	// SLIDER TO GRID 0.0.3
+	// Slider init on small screens to a grid on big screens
+	// -----------------------------------------------------
+
+	// initialize the slider with the settings
+	function slickGrid($slick_slider) {
+		var screenWidth = window.innerWidth;
+		settings = {
+			dots: false,
+			arrows:false,
+			centerMode: true,
+			centerPadding: '0',
+			slidesToShow: 1
+		}
+		if (screenWidth <= 768) {
+			$slick_slider.slick(settings);
+		}
+	}
+
+	// check on resize if slider needs to be init or terminated
+	function slickGridResize($slick_slider) {
+		var screenWidth = window.innerWidth;
+		if (screenWidth > 768) {
+			if ($slick_slider.hasClass('slick-initialized')) {
+				$slick_slider.slick('unslick');
+			}
+			return false;
+		}
+		if (!$slick_slider.hasClass('slick-initialized') && screenWidth <= 768) {
+			console.log("crash");
+			return $slick_slider.slick(settings);
+		}
+	}
+
+	// any slider that needs Slider-to-Grid functionality is given this class (markup)
+	var slider = $('.js-slickGrid');
+
+	// init all the Slider-to-Grid
+	slider.each(function() {
+		slickGrid($(this));
+	});
+
+	// check Slider-to-Grid init or terminate
+	$(window).on('resize', function() {
+		slider.each(function(){
+			slickGridResize($(this));
+		});
+	});
+
 	// -------------------------------------------------
 	// adapt full height on mobile (vh css take toolbar)
 	// -------------------------------------------------
@@ -161,20 +210,36 @@ $( document ).ready(function() {
 		});
 	})
 
-	// $('.navbar-toggle').on('click', function(e){
-	// 	e.preventDefault();
-	// 	$('body').toggleClass('js-menu-open');
-	// });
+	// -------------------------------------------------
+	// global changes on resize
+	// -------------------------------------------------
+	function resize_Global(){
+		equalizeHeight($('.mosaic-tile:not(.mosaic--big) h2'));
+	}
+	// we use throttle not to spawn resize every time
+	$(window).resize( $.throttle( 250, resize_Global ) );
 
-	// if ( $('body').hasClass('.js-menu-open') )
-	// {
-	// 	$('.navbar-toggle').on('click', function(e){
-	// 		$('.navbar-nav').css({"transform": "translate3d(-100%, 0px, 0px)"})
-	// 	});
-	// }
-
+	equalizeHeight($('.mosaic-tile:not(.mosaic--big) h2'));
 
 });
+
+// -------------------------------------------------
+// equalizeHeight() : levels selected elements to the same height
+// -------------------------------------------------
+
+function equalizeHeight(element) {
+	var maxHeight = 0;
+	element.css("height", "");
+	element.each(function() {
+		if ($(this).outerHeight() > maxHeight) {
+			maxHeight = $(this).outerHeight();
+		}
+	});
+	if (maxHeight > 0){
+		element.css("height", maxHeight);
+	}
+}
+
 
 
 // set windows width
