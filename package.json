@@ -1,6 +1,6 @@
 {
   "name": "init-ekrz",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Initialize a new Sass project",
   "main": "index.js",
   "author": {
