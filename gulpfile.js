@@ -27,10 +27,7 @@ Activity log :
 //       => 'gulp bravo' to launch prod (dev mode + rigger, minify, uglify...)
 
 
-
 'use strict';
-
-console.log('');
 
 var gulp = require('gulp'),
     watch = require('gulp-watch'),
