@@ -1,8 +1,10 @@
-//default gulp ekrzzz 0.0.9
+//default gulp init-ekrz 0.0.10
+
 /*
 
 Activity log :
 
+0.0.10 : deletion of useless parts of the workflow
 0.0.9 : removed regular css support, project is Sass only
 0.0.8 : added sass support (build only)
 0.0.7 : added gulp-sourcemaps to maps correctly the CSS after autoprefixing
@@ -24,7 +26,6 @@ Activity log :
 */
 
 // tl;dr => 'gulp' to launch dev mode (browser-sync, compress images but do not strike .CSS and .JS rendering)
-//       => 'gulp bravo' to launch prod (dev mode + rigger, minify, uglify...)
 
 
 'use strict';
@@ -49,10 +50,6 @@ var gulp = require('gulp'),
     gutil = require('gulp-util'),
     browserSync = require("browser-sync"),
     changed = require('gulp-changed'),
-
-    /* REMOVED */
-    // pngquant = require('imagemin-pngquant'),
-    // minifyCss = require('gulp-minify-css'),
     reload = browserSync.reload;
 
 //definition of our paths, we store them in a var.
@@ -103,7 +100,7 @@ var config = {
     },
     tunnel: false,
     host: 'localhost',
-    port: 9000,
+    port: 3000,
     logPrefix: "server"
 };
 
@@ -113,10 +110,9 @@ gulp.task('webserver', function () {
 });
 
 
-//////////////////////////////////////////////////////////////////
-//   DEV WORKFLOW
-//   this is the dev workflow, used while development is active
-//////////////////////////////////////////////////////////////////
+//-------------------------------------------------------------
+//   _build : dev workflow, used while development is active
+//-------------------------------------------------------------
 
 
 gulp.task('html:build', function () {
@@ -153,20 +149,9 @@ gulp.task('sass:build', function() {
   .pipe(sourcemaps.init())
   .pipe(sass())
   .on("error", notify.onError(function (error) {
-    return "Errored at: " + error.message;
+    return "huge mistake: " + error.message;
   }))
-  .pipe(autoprefixer(
-    [
-    "Android 2.3",
-    "Android >= 4",
-    "Chrome >= 20",
-    "Firefox >= 24",
-    "Explorer >= 8",
-    "iOS >= 6",
-    "Opera >= 12",
-    "Safari >= 6"
-    ])
-  )
+  .pipe(autoprefixer(["Android 2.3", "Android >= 4", "Chrome >= 20", "Firefox >= 24", "Explorer >= 8", "iOS >= 6", "Opera >= 12", "Safari >= 6"]))
   .pipe(cleanCSS())
   .pipe(sourcemaps.write('.'))
   .pipe(gulp.dest(path.build.sass))
@@ -247,53 +232,6 @@ gulp.task('watch', function(){
     // });
 });
 
-
-///////////////////////////////////////////////////////////////////
-//   PROD WORKFLOW
-//   this is the prod workflow, used while development is finished
-//////////////////////////////////////////////////////////////////
-
-
-gulp.task('production:build', function () {
-    gulp.src(path.src.html)
-    .pipe(changed(path.build.html))
-        .pipe(sourcemaps.init())
-            .pipe(useref())
-            .pipe(rigger())
-            .pipe(gulpif('*.js', uglify()))
-            // .pipe(gulpif('*.css', autoprefixer(), cleanCSS()))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest(path.build.html))
-        .on('end', function(){ gutil.log('Production complete.'); })
-        .pipe(reload({stream: true}));
-});
-
-gulp.task('production', [
-    'production:build',
-    'images:build',
-    'contentFiles:build',
-    'fonts:build'
-    // 'sounds:build'
-]);
-
-gulp.task('watch-prod', function(){
-    watch([path.watch.html], function(event, cb) {
-        gulp.start('production:build');
-    });
-    watch([path.watch.images], function(event, cb) {
-        gulp.start('images:build');
-    });
-    watch([path.watch.contentFiles], function(event, cb) {
-        gulp.start('contentFiles:build');
-    });
-    watch([path.watch.fonts], function(event, cb) {
-        gulp.start('fonts:build');
-    });
-    // watch([path.watch.sounds], function(event, cb) {
-    //     gulp.start('sounds:build');
-    // });
-});
-
 // Clean => 'gulp clean' / delete the build folder but it's cooler.
 
 gulp.task('clean', function (cb) {
@@ -301,7 +239,5 @@ gulp.task('clean', function (cb) {
 });
 
 // By default we are in dev => 'gulp' and 'gulp-default'
-// to launch production => 'gulp bravo' (because we're happy)
 
 gulp.task('default', ['build', 'webserver', 'watch']);
-gulp.task('bravo', ['production', 'webserver', 'watch-prod']);

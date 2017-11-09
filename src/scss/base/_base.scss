@@ -4,22 +4,13 @@
 }
 
 body {
-	display: flex;
-	flex-direction: column;
-	position: relative;
 	font-family: $font-family-one;
 	font-size: $font-size-base;
 	line-height: $line-height-base;
 	background-color: $body-bg;
-	min-height: 100vh;
-	overflow-x: hidden;
 	text-rendering: auto;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	padding-top: $navbar-height-xs;
-	@media all and (min-width: $screen-sm-min) {
-	  padding-top: $navbar-height-sm;
-	}
 }
 
 #wrap {
@@ -32,26 +23,6 @@ body {
 img {
 	max-width: 100%;
 	height: auto;
-}
-
-.hdLHS {
-	padding: 0 0 20px;
-	margin-top: 30px;
-	margin-bottom: 20px;
-	font-weight: bold;
-	font-weight: 300;
-	text-transform: uppercase;
-	font-size: 24px;
-	font-weight: 900;
-	border-bottom: solid 2px $color-secondary;
-	color: $color-primary;
-	@media (min-width: 1025px) {
-		font-size: em(28px);
-	}
-
-	a {
-		color: $color-primary;
-	}
 }
 
 h1#pageTitle {
@@ -112,9 +83,8 @@ h1#pageTitle {
 		}
 	}
 }
-/* ======================
-  	Cookie Style
-====================== */
+
+// Granite.Cookie
 #stickycookiePolicy {
 	background: rgba(0,0,0,0.8);
 	color: #fff;
@@ -133,12 +103,8 @@ h1#pageTitle {
 #stickycookiePolicy a:hover {
 	color: $color-primary;
 }
-/* ======================
-  	END Cookie Style
-====================== */
-/* ======================
-  	JsMessage Style
-====================== */
+
+// noscript
 .no-script.modal-backdrop.fade.in {
 	opacity: 0.5;
 	z-index: 10000;
@@ -180,6 +146,3 @@ input.modal-closing-trick {
 input.modal-closing-trick:checked ~ div {
 	display: none !important;
 }
-/* ======================
-  	END JsMessage Style
-====================== */
