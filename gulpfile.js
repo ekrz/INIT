@@ -1,9 +1,10 @@
-//default gulp init-ekrz 0.0.10
+//default gulp init-ekrz 0.0.11
 
 /*
 
 Activity log :
 
+0.0.11 : redirecting scripts to /js/
 0.0.10 : deletion of useless parts of the workflow
 0.0.9 : removed regular css support, project is Sass only
 0.0.8 : added sass support (build only)
@@ -58,7 +59,7 @@ var gulp = require('gulp'),
 var path = {
     build: {
         html: 'build/',
-        scripts: 'build/scripts/',
+        scripts: 'build/js/',
         // styles: 'build/styles/',
         images: 'build/images/',
         assets: 'build/assets/',
@@ -69,7 +70,7 @@ var path = {
     },
     src: {
         html: 'src/**/*.html',
-        scripts: 'src/scripts/**/*.js',
+        scripts: 'src/js/**/*.js',
         styles: 'src/styles/**/*.css',
         images: 'src/images/**/*.+(png|jpg|gif|svg|ico)',
         assets: 'src/assets/**/*.*',
@@ -80,7 +81,7 @@ var path = {
     },
     watch: {
         html: 'src/**/*.html',
-        scripts: 'src/scripts/**/*.js',
+        scripts: 'src/js/**/*.js',
         styles: 'src/styles/**/*.css',
         sass: 'src/scss/**/*.scss',
         images: 'src/images/**/*.+(png|jpg|gif|svg|ico)',

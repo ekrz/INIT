@@ -15,12 +15,12 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
     <!-- build:css styles/bundle.min.css -->
-    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/theme.css" />
     <!-- endbuild -->
   </head>
 
   <body>
-    
+
     <!--[if lt IE 9]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -28,34 +28,9 @@
 
     <main>
       <section>
-        <h1> 0.5.0 — init-ekrz </h1>
+        <h1> 0.6.0 — init-ekrz </h1>
       </section>
-      <section>
-        <h2> Pages </h2>
-        <a href="/demo-home.html">Demo Homepage</a>
-        <br>
-        <a href="/demo-banner-fullscreen.html">Banner Fullscreen</a>
-        <br>
-        <a href="/demo-shop-grid.html">Shop Grid</a>
-        <br>
-        <a href="/demo-shop-product.html">Shop Product</a>
-      </section>
-      <section>
-        <hr>
-        <h2>Variables guide</h2>
-        <h3>Typography</h3>
-        <ul>
-          <li>$font-family</li>
-        </ul>
-      </section>
-      <section>
-        <hr>
-        <h2>Colorguide</h2>
-        <ul>
-          <li>$color-primary : #AAAAAA </li>
-          <li>$color-secondary : #666666 </li>
-        </ul>
-      </section>
+
       <section>
         <hr>
         <h2>Styleguide</h2>
@@ -77,63 +52,22 @@
           <li>ordered item</li>
         </ol>
       </section>
-      <section>
-        <hr>
-        <h2>Bootstrap Grid Guide</h2>
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-          </div>
-        </div>
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-8">.col-md-8</div>
-            <div class="col-md-4">.col-md-4</div>
-          </div>
-        </div>
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-4">.col-md-4</div>
-            <div class="col-md-4">.col-md-4</div>
-            <div class="col-md-4">.col-md-4</div>
-          </div>
-        </div>
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-6">.col-md-6</div>
-            <div class="col-md-6">.col-md-6</div>
-          </div>
-        </div>
-      </section>
     </main>
     <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script>
       window.jQuery || document.write('<script src="js/vendor/jquery-1.12.4.min.js"><\/script>')
-
     </script>
-    <!-- build:js scripts/bundle.min.js -->
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/slick/slick.min.js"></script>
-    <script src="scripts/script.js"></script>
-    <!-- endbuild --><noscript>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha256-DHF4zGyjT7GOMPBwpeehwoey18z8uiz98G4PRu2lV0A=" crossorigin="anonymous"></script>
+    <script src="js/site.js"></script>
+
+    <noscript>
       <input type="checkbox" class="modal-closing-trick" id="modal-closing-trick">
       <div class="no-script modal-backdrop fade in"></div>
         <div class="modal fade in no-js">
             <div class="noscriptmsg"> You should activate JavaScript to enhance your experience on this website. </div>
             <a href="http://www.enable-javascript.com/" class="btn btn-primary" target="_blank">How?</a>
             <label class="btn btn-primary btn-danger" for="modal-closing-trick"> No, I know what I do. </label>
-
             <h6> This website won't properly work without JavaScript. </h6>
         </div>
     </noscript> </body>
