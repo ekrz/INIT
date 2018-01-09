@@ -1,89 +1,133 @@
 console.log('Built by ekrz. 👉 http://retzepter.com 👀');
 
-$( document ).ready(function() {
+$(document).ready(function() {
+  // executes when HTML-Document is loaded and DOM is ready
+  console.log("document is ready");
 
-	// -------------------------------------------------
-	// slick sliders : initialisation + config
-	// -------------------------------------------------
-
-	slickConfig = {
-		autoplay: true,
-	  mobileFirst: true,
-	  dots: false,
-	  arrows: false,
-	  infinite: true,
-	  slidesToShow: 2,
-	  responsive: [{
-	      breakpoint: 991,
-	      settings: {
-	        slidesToShow: 3
-	      }
-	    },
-	    {
-	      breakpoint: 1199,
-	      settings: {
-	        slidesToShow: 4
-	      }
-	    }
-	  ]
-	}
-
-	$('.slider').slick(slickConfig);
+  // popover trigger
 
 
-	// -----------------------------------------------------
-	// SLIDER TO GRID 0.0.3
-	// Slider init on small screens to a grid on big screens
-	// -----------------------------------------------------
 
-	// initialize the slider with the settings
-	function slickGrid($slick_slider) {
-		var screenWidth = window.innerWidth;
-		settings = {
-			dots: false,
-			arrows:false,
-			centerMode: true,
-			centerPadding: '0',
-			slidesToShow: 1
-		}
-		if (screenWidth <= 768) {
-			$slick_slider.slick(settings);
-		}
-	}
+  // enable toggles everywhere
+  $('[data-toggle="tooltip"]').tooltip();
 
-	// check on resize if slider needs to be init or terminated
-	function slickGridResize($slick_slider) {
-		var screenWidth = window.innerWidth;
-		if (screenWidth > 768) {
-			if ($slick_slider.hasClass('slick-initialized')) {
-				$slick_slider.slick('unslick');
-			}
-			return false;
-		}
-		if (!$slick_slider.hasClass('slick-initialized') && screenWidth <= 768) {
-			console.log("crash");
-			return $slick_slider.slick(settings);
-		}
-	}
 
-	// any slider that needs Slider-to-Grid functionality is given this class (markup)
-	var slider = $('.js-slickGrid');
 
-	// init all the Slider-to-Grid
-	slider.each(function() {
-		slickGrid($(this));
-	});
 
-	// check Slider-to-Grid init or terminate
-	$(window).on('resize', function() {
-		slider.each(function(){
-			slickGridResize($(this));
-		});
-	});
+  // enable popovers everywhere
 
-	// -------------------------------------------------
-	// adapt full height on mobile (vh css take toolbar)
-	// -------------------------------------------------
+  $('[data-toggle="popover"]').popover();
+
+
+  $('.body').scrollspy({
+    target: '#navbar-example2'
+  })
+
+
+
+
+  // http://stackoverflow.com/questions/17534661/make-anchor-link-go-some-pixels-above-where-its-linked-to
+  // The function actually applying the offset
+  function offsetAnchor() {
+    if (location.hash.length !== 0) {
+      window.scrollTo(window.scrollX, window.scrollY - 100);
+    }
+  }
+
+  // Captures click events of all <a> elements with href starting with #
+  $(document).on('click', 'a[href^="#"]', function(event) {
+    // Click events are captured before hashchanges. Timeout
+    // causes offsetAnchor to be called after the page jump.
+    window.setTimeout(function() {
+      offsetAnchor();
+    }, 0);
+  });
+
+  // Set the offset when entering page with hash present in the url
+  window.setTimeout(offsetAnchor, 0);
+
+  // -------------------------------------------------
+  // slick sliders : initialisation + config
+  // -------------------------------------------------
+
+  slickConfig = {
+    autoplay: true,
+    mobileFirst: true,
+    dots: false,
+    arrows: false,
+    infinite: true,
+    slidesToShow: 2,
+    responsive: [{
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 3
+        }
+      },
+      {
+        breakpoint: 1199,
+        settings: {
+          slidesToShow: 4
+        }
+      }
+    ]
+  }
+
+  $('.slider').slick(slickConfig);
+
+
+  // -----------------------------------------------------
+  // SLIDER TO GRID 0.0.3
+  // Slider init on small screens to a grid on big screens
+  // -----------------------------------------------------
+
+  // initialize the slider with the settings
+  function slickGrid($slick_slider) {
+    var screenWidth = window.innerWidth;
+    settings = {
+      dots: false,
+      arrows: false,
+      centerMode: true,
+      centerPadding: '0',
+      slidesToShow: 1
+    }
+    if (screenWidth <= 768) {
+      $slick_slider.slick(settings);
+    }
+  }
+
+  // check on resize if slider needs to be init or terminated
+  function slickGridResize($slick_slider) {
+    var screenWidth = window.innerWidth;
+    if (screenWidth > 768) {
+      if ($slick_slider.hasClass('slick-initialized')) {
+        $slick_slider.slick('unslick');
+      }
+      return false;
+    }
+    if (!$slick_slider.hasClass('slick-initialized') && screenWidth <= 768) {
+      console.log("crash");
+      return $slick_slider.slick(settings);
+    }
+  }
+
+  // any slider that needs Slider-to-Grid functionality is given this class (markup)
+  var slider = $('.js-slickGrid');
+
+  // init all the Slider-to-Grid
+  slider.each(function() {
+    slickGrid($(this));
+  });
+
+  // check Slider-to-Grid init or terminate
+  $(window).on('resize', function() {
+    slider.each(function() {
+      slickGridResize($(this));
+    });
+  });
+
+  // -------------------------------------------------
+  // adapt full height on mobile (vh css take toolbar)
+  // -------------------------------------------------
   var el = $(".banner--fullscreen");
 
   function resize_Background() {
@@ -92,113 +136,112 @@ $( document ).ready(function() {
     }
   }
 
-  $(window).resize( $.throttle( 250, resize_Background ) );
+  $(window).resize($.throttle(250, resize_Background));
 
   resize_Background();
 
-	// -------------------------------------------------
-	// adapt the coloration of the navbar while scroll
-	// -------------------------------------------------
-	$( window ).scroll(function() {
-		var scroll = getCurrentScroll();
-		if ( scroll > 0 ) {
-			$('.navbar--custom').addClass('js-scroll');
-		}
-		else {
-			$('.navbar--custom').removeClass('js-scroll');
-		}
-	});
+  // -------------------------------------------------
+  // adapt the coloration of the navbar while scroll
+  // -------------------------------------------------
+  $(window).scroll(function() {
+    var scroll = getCurrentScroll();
+    if (scroll > 0) {
+      $('.navbar--custom').addClass('js-scroll');
+    } else {
+      $('.navbar--custom').removeClass('js-scroll');
+    }
+  });
 
-	// -------------------------------------------------
-	// open dropdown (main-nav + search + cart)
-	// -------------------------------------------------
-	$('.has-children, .search, .show-cart').on('click',function(e){
-		e.preventDefault();
+  // -------------------------------------------------
+  // open dropdown (main-nav + search + cart)
+  // -------------------------------------------------
+  $('.has-children, .search, .show-cart').on('click', function(e) {
+    e.preventDefault();
 
-		$('li').not(this).each(function(){
-			$(this).removeClass('js-active').find('.nav_container').slideUp();
-		});
+    $('li').not(this).each(function() {
+      $(this).removeClass('js-active').find('.nav_container').slideUp();
+    });
 
-		if($(this).hasClass('js-active')){
-				$(this).removeClass('js-active').find('.nav_container').slideToggle();
-		} else {
-			$(this).addClass('js-active').find('.nav_container').slideToggle()
-		}
-	});
+    if ($(this).hasClass('js-active')) {
+      $(this).removeClass('js-active').find('.nav_container').slideToggle();
+    } else {
+      $(this).addClass('js-active').find('.nav_container').slideToggle()
+    }
+  });
 
-	// -------------------------------------------------
-	// do not close menu when clicking the children (HACK: input::focus)
-	// -------------------------------------------------
-	$('.nav_container').on('click', function(e){
-		e.stopPropagation();
-	});
+  // -------------------------------------------------
+  // do not close menu when clicking the children (HACK: input::focus)
+  // -------------------------------------------------
+  $('.nav_container').on('click', function(e) {
+    e.stopPropagation();
+  });
 
-	// -------------------------------------------------
-	// open filters+category on mobile
-	// -------------------------------------------------
+  // -------------------------------------------------
+  // open filters+category on mobile
+  // -------------------------------------------------
 
-	// TODO : need to refire correctly that on resize
+  // TODO : need to refire correctly that on resize
 
-	var windowsWidth = window.innerWidth;
-	if (windowsWidth < 991) {
-	  $('.sidenav-block').on('click', function(e) {
+  var windowsWidth = window.innerWidth;
+  if (windowsWidth < 991) {
+    $('.sidenav-block').on('click', function(e) {
 
-	    e.preventDefault();
+      e.preventDefault();
 
-	    $('.sidenav-block').not(this).each(function() {
-	      $(this).removeClass('js-active').find('.sidenav-block_container').slideUp();
-	    });
+      $('.sidenav-block').not(this).each(function() {
+        $(this).removeClass('js-active').find('.sidenav-block_container').slideUp();
+      });
 
-	    if ($(this).hasClass('js-active')) {
-	      $(this).removeClass('js-active').find('.sidenav-block_container').slideUp();
-	    } else {
-	      $(this).addClass('js-active').find('.sidenav-block_container').slideDown();
-	    }
+      if ($(this).hasClass('js-active')) {
+        $(this).removeClass('js-active').find('.sidenav-block_container').slideUp();
+      } else {
+        $(this).addClass('js-active').find('.sidenav-block_container').slideDown();
+      }
 
-	  });
-	}
+    });
+  }
 
-	// -------------------------------------------------
-	// hover effect shop grid : product
-	// -------------------------------------------------
+  // -------------------------------------------------
+  // hover effect shop grid : product
+  // -------------------------------------------------
 
-	$('.product').hover(function(){
-		$('.product').not(this).each(function() {
-			$(this).toggleClass('js-not-active');
-		});
-	})
+  $('.product').hover(function() {
+    $('.product').not(this).each(function() {
+      $(this).toggleClass('js-not-active');
+    });
+  })
 
-	// -------------------------------------------------
-	// on click effect shop grid : filter
-	// -------------------------------------------------
-	$('.filter-group a').on('click', function(e){
-		e.preventDefault();
-		$(this).toggleClass('js-ticked');
-	})
+  // -------------------------------------------------
+  // on click effect shop grid : filter
+  // -------------------------------------------------
+  $('.filter-group a').on('click', function(e) {
+    e.preventDefault();
+    $(this).toggleClass('js-ticked');
+  })
 
-	// -------------------------------------------------
-	// on click effect shop grid : sort by
-	// -------------------------------------------------
-	$('.sort-by span').on('click', function(e){
-		e.preventDefault();
-		$(this).siblings('.sort-by-options').slideToggle();
+  // -------------------------------------------------
+  // on click effect shop grid : sort by
+  // -------------------------------------------------
+  $('.sort-by span').on('click', function(e) {
+    e.preventDefault();
+    $(this).siblings('.sort-by-options').slideToggle();
 
-		// hide the products
-		$('.product').not(this).each(function() {
-			$(this).toggleClass('js-not-active');
-		});
-	})
+    // hide the products
+    $('.product').not(this).each(function() {
+      $(this).toggleClass('js-not-active');
+    });
+  })
 
-	// -------------------------------------------------
-	// global changes on resize
-	// -------------------------------------------------
-	function resize_Global(){
-		equalizeHeight($('.mosaic-tile:not(.mosaic--big) h2'));
-	}
-	// we use throttle not to spawn resize every time
-	$(window).resize( $.throttle( 250, resize_Global ) );
+  // -------------------------------------------------
+  // global changes on resize
+  // -------------------------------------------------
+  function resize_Global() {
+    equalizeHeight($('.mosaic-tile:not(.mosaic--big) h2'));
+  }
+  // we use throttle not to spawn resize every time
+  $(window).resize($.throttle(250, resize_Global));
 
-	equalizeHeight($('.mosaic-tile:not(.mosaic--big) h2'));
+  equalizeHeight($('.mosaic-tile:not(.mosaic--big) h2'));
 
 });
 
@@ -207,30 +250,30 @@ $( document ).ready(function() {
 // -------------------------------------------------
 
 function equalizeHeight(element) {
-	var maxHeight = 0;
-	element.css("height", "");
-	element.each(function() {
-		if ($(this).outerHeight() > maxHeight) {
-			maxHeight = $(this).outerHeight();
-		}
-	});
-	if (maxHeight > 0){
-		element.css("height", maxHeight);
-	}
+  var maxHeight = 0;
+  element.css("height", "");
+  element.each(function() {
+    if ($(this).outerHeight() > maxHeight) {
+      maxHeight = $(this).outerHeight();
+    }
+  });
+  if (maxHeight > 0) {
+    element.css("height", maxHeight);
+  }
 }
 
 
 
 // set windows width
 function resize_WindowsWidth() {
-	var windowsWidth =  window.innerWidth;
+  var windowsWidth = window.innerWidth;
 }
 
 resize_WindowsWidth();
 
 // return current page offset
 function getCurrentScroll() {
-	return window.pageYOffset;
+  return window.pageYOffset;
 }
 
 /*
@@ -241,4 +284,48 @@ function getCurrentScroll() {
  * Dual licensed under the MIT and GPL licenses.
  * http://benalman.com/about/license/
  */
-(function(b,c){var $=b.jQuery||b.Cowboy||(b.Cowboy={}),a;$.throttle=a=function(e,f,j,i){var h,d=0;if(typeof f!=="boolean"){i=j;j=f;f=c}function g(){var o=this,m=+new Date()-d,n=arguments;function l(){d=+new Date();j.apply(o,n)}function k(){h=c}if(i&&!h){l()}h&&clearTimeout(h);if(i===c&&m>e){l()}else{if(f!==true){h=setTimeout(i?k:l,i===c?e-m:e)}}}if($.guid){g.guid=j.guid=j.guid||$.guid++}return g};$.debounce=function(d,e,f){return f===c?a(d,e,false):a(d,f,e!==false)}})(this);
+(function(b, c) {
+  var $ = b.jQuery || b.Cowboy || (b.Cowboy = {}),
+    a;
+  $.throttle = a = function(e, f, j, i) {
+    var h, d = 0;
+    if (typeof f !== "boolean") {
+      i = j;
+      j = f;
+      f = c
+    }
+
+    function g() {
+      var o = this,
+        m = +new Date() - d,
+        n = arguments;
+
+      function l() {
+        d = +new Date();
+        j.apply(o, n)
+      }
+
+      function k() {
+        h = c
+      }
+      if (i && !h) {
+        l()
+      }
+      h && clearTimeout(h);
+      if (i === c && m > e) {
+        l()
+      } else {
+        if (f !== true) {
+          h = setTimeout(i ? k : l, i === c ? e - m : e)
+        }
+      }
+    }
+    if ($.guid) {
+      g.guid = j.guid = j.guid || $.guid++
+    }
+    return g
+  };
+  $.debounce = function(d, e, f) {
+    return f === c ? a(d, e, false) : a(d, f, e !== false)
+  }
+})(this);
