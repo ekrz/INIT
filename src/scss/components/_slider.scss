@@ -11,7 +11,7 @@
 	.slider {
 		img {
 			padding: 15px;
-			@media all and (min-width: $screen-md-min) {
+			@include media-breakpoint-up(md) {
 			  padding: 5px;
 			}
 			@media all and (min-width: 1440px) {
