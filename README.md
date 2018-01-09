@@ -1,6 +1,6 @@
-# init-ekrz 2.0a
+# init-ekrz 2.1.0
 
-Generate a bootstrap Sass ready project powered by Gulp.
+Generate a bootstrap 4 Sass ready project powered by Gulp.
 
 ## Getting Started
 
@@ -41,7 +41,7 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [Bootstrap](https://github.com/twbs/bootstrap) - The most popular framework for developing projects.
+* [Bootstrap 4](https://github.com/twbs/bootstrap) - The most popular framework for developing projects.
 * [Sass](https://github.com/sass/sass) - Sass makes CSS fun again
 * [Gulp](https://github.com/gulpjs/gulp) - The streaming build system
 
