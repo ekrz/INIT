@@ -1,9 +1,9 @@
-//default gulp init-ekrz 0.0.11
+//default gulp init-ekrz 0.0.12
 
 /*
 
 Activity log :
-
+0.0.12 : added Webp conversion
 0.0.11 : redirecting scripts to /js/
 0.0.10 : deletion of useless parts of the workflow
 0.0.9 : removed regular css support, project is Sass only
@@ -32,25 +32,28 @@ Activity log :
 'use strict';
 
 var gulp = require('gulp'),
-    watch = require('gulp-watch'),
-    cache = require('gulp-cache'),
-    rename = require('gulp-rename'),
+
     autoprefixer = require('gulp-autoprefixer'),
-    uglify = require('gulp-uglify'),
-    prettify = require('gulp-jsbeautifier'),
-    useref = require('gulp-useref'),
-    sourcemaps = require('gulp-sourcemaps'),
-    rigger = require('gulp-rigger'),
+    browserSync = require("browser-sync"),
+    cache = require('gulp-cache'),
+    changed = require('gulp-changed'),
     cleanCSS = require('gulp-clean-css'),
+    clone = require('gulp-clone'),
     csscomb = require('gulp-csscomb'),
-    imagemin = require('gulp-imagemin'),
-    rimraf = require('rimraf'),
-    notify= require("gulp-notify"),
-    sass = require('gulp-sass'),
     gulpif = require('gulp-if'),
     gutil = require('gulp-util'),
-    browserSync = require("browser-sync"),
-    changed = require('gulp-changed'),
+    imagemin = require('gulp-imagemin'),
+    notify= require("gulp-notify"),
+    prettify = require('gulp-jsbeautifier'),
+    rename = require('gulp-rename'),
+    rigger = require('gulp-rigger'),
+    rimraf = require('rimraf'),
+    sass = require('gulp-sass'),
+    sourcemaps = require('gulp-sourcemaps'),
+    useref = require('gulp-useref'),
+    watch = require('gulp-watch'),
+    webp = require('gulp-webp'),
+
     reload = browserSync.reload;
 
 //definition of our paths, we store them in a var.
@@ -159,20 +162,56 @@ gulp.task('sass:build', function() {
   .pipe(reload({stream: true}));
 
 });
+
+
 gulp.task('images:build', function () {
+    var cloneSink = clone.sink();
     gulp.src(path.src.images)
-        .pipe(changed(path.build.images))
-        .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
-        .pipe(gulp.dest(path.build.images))
-        .pipe(reload({stream: true}));
+      .pipe(changed(path.build.images))
+
+      // NOTE : This now converts to Webp + optimisation
+      // Imagemin
+      .pipe(cache(imagemin({
+          optimizationLevel: 3,
+          progressive: true,
+          svgoPlugins: [{
+          removeViewBox: false
+          }]
+      })))
+
+      .pipe(cloneSink)        // clone image
+      .pipe(webp())           // convert cloned image to WebP
+      .pipe(cloneSink.tap())  // restore original image
+
+      .pipe(gulp.dest(path.build.images))
+
+    .pipe(reload({stream: true}));
 });
+
 gulp.task('contentFiles:build', function () {
-    gulp.src(path.src.contentFiles)
-        .pipe(changed(path.build.contentFiles))
-        .pipe(cache(imagemin({ optimizationLevel: 4, progressive: true, interlaced: true })))
-        .pipe(gulp.dest(path.build.contentFiles))
-        .pipe(reload({stream: true}));
+  var cloneSink = clone.sink();
+  gulp.src(path.src.contentFiles)
+    .pipe(changed(path.build.contentFiles))
+
+    // NOTE : This now converts to Webp + optimisation
+    // Imagemin
+    .pipe(cache(imagemin({
+        optimizationLevel: 3,
+        progressive: true,
+        svgoPlugins: [{
+        removeViewBox: false
+        }]
+    })))
+
+    .pipe(cloneSink)        // clone image
+    .pipe(webp())           // convert cloned image to WebP
+    .pipe(cloneSink.tap())  // restore original image
+
+    .pipe(gulp.dest(path.build.contentFiles))
+
+    .pipe(reload({stream: true}));
 });
+
 gulp.task('fonts:build', function() {
     gulp.src(path.src.fonts)
         .pipe(changed(path.build.contentFiles))

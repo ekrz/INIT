@@ -6,7 +6,7 @@
   "author": {
     "name": "Emmanuel K. Retzepter",
     "email": "hello@retzepter.com",
-    "url": "http://retzepter.com/"
+    "url": "https://retzepter.com/"
   },
   "license": "MIT",
   "dependencies": {
@@ -29,6 +29,11 @@
     "gulp-util": "^3.0.8",
     "gulp-watch": "^4.3.11",
     "imagemin-pngquant": "^5.0.0",
+    "imagemin-webp": "^4.1.0",
     "rimraf": "^2.6.1"
+  },
+  "devDependencies": {
+    "gulp-clone": "^1.1.1",
+    "gulp-webp": "^3.0.0"
   }
 }
