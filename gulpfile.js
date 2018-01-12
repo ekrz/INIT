@@ -118,7 +118,7 @@ gulp.task('webserver', function () {
 //   _build : dev workflow, used while development is active
 //-------------------------------------------------------------
 
-
+// HTML
 gulp.task('html:build', function () {
     gulp.src(path.src.html)
     .pipe(changed(path.build.html))
@@ -127,6 +127,8 @@ gulp.task('html:build', function () {
         .pipe(gulp.dest(path.build.html))
         .pipe(reload({stream: true}));
 });
+
+// JavaScript
 gulp.task('scripts:build', function () {
     gulp.src(path.src.scripts)
         .pipe(sourcemaps.init())
@@ -137,6 +139,8 @@ gulp.task('scripts:build', function () {
         .pipe(gulp.dest(path.build.scripts))
         .pipe(reload({stream: true}));
 });
+
+// Styles (pure .CSS)
 gulp.task('styles:build', function () {
     gulp.src(path.src.styles)
         .pipe(sourcemaps.init())
@@ -148,6 +152,7 @@ gulp.task('styles:build', function () {
         .pipe(reload({stream: true}));
 });
 
+// Styles (Sass)
 gulp.task('sass:build', function() {
   return gulp.src(path.src.sass)
   .pipe(sourcemaps.init())
@@ -163,7 +168,7 @@ gulp.task('sass:build', function() {
 
 });
 
-
+// Images (/images/) as webp
 gulp.task('images:build', function () {
     var cloneSink = clone.sink();
     gulp.src(path.src.images)
@@ -188,6 +193,7 @@ gulp.task('images:build', function () {
     .pipe(reload({stream: true}));
 });
 
+// Images (/contentFiles/) as webp
 gulp.task('contentFiles:build', function () {
   var cloneSink = clone.sink();
   gulp.src(path.src.contentFiles)
@@ -212,12 +218,15 @@ gulp.task('contentFiles:build', function () {
     .pipe(reload({stream: true}));
 });
 
+// Fonts
 gulp.task('fonts:build', function() {
     gulp.src(path.src.fonts)
         .pipe(changed(path.build.contentFiles))
         .pipe(gulp.dest(path.build.fonts))
         .pipe(reload({stream: true}));
 });
+
+// Any other assets from /assets/
 gulp.task('assets:build', function() {
     gulp.src(path.src.assets)
         .pipe(changed(path.build.assets))
@@ -226,6 +235,7 @@ gulp.task('assets:build', function() {
         .pipe(gulp.dest(path.build.assets))
 });
 
+// Sounds
 // gulp.task('sounds:build', function() {
 //     gulp.src(path.src.sounds)
 //         .pipe(gulp.dest(path.build.sounds))
