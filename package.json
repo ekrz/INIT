@@ -10,31 +10,29 @@
   },
   "license": "MIT",
   "dependencies": {
+    "autoprefixer": "^7.2.5",
     "browser-sync": "^2.18.8",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
     "gulp-cache": "^0.4.6",
     "gulp-changed": "^2.0.0",
     "gulp-clean-css": "^3.0.4",
     "gulp-csscomb": "^3.0.8",
-    "gulp-if": "^2.0.2",
     "gulp-imagemin": "^3.1.1",
     "gulp-inject-partials": "^1.0.3",
     "gulp-jsbeautifier": "^2.1.0",
     "gulp-notify": "^3.0.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-rigger": "^0.5.8",
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^2.1.0",
-    "gulp-useref": "^3.1.2",
-    "gulp-util": "^3.0.8",
     "gulp-watch": "^4.3.11",
     "imagemin-pngquant": "^5.0.0",
     "imagemin-webp": "^4.1.0",
+    "postcss-csso": "^3.0.0",
     "rimraf": "^2.6.1"
   },
   "devDependencies": {
     "gulp-clone": "^1.1.4",
+    "gulp-crass": "^0.2.2",
+    "gulp-postcss": "^7.0.1",
     "gulp-webp": "^3.0.0"
   }
 }

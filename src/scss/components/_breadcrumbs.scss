@@ -3,8 +3,9 @@
 // --------------
 
 .breadcrumb {
-  padding: 10px 15px;
   margin-bottom: 0;
+  padding: 10px 15px;
+
   background: transparent;
   ul {
     margin-bottom: 0;
@@ -14,6 +15,7 @@
 
       a {
         text-transform: capitalize;
+
         color: $black;
       }
 
@@ -21,8 +23,9 @@
         padding-right: 10px;
 
         &::after {
-          content: "/";
           padding-left: 10px;
+
+          content: "/";
         }
       }
     }

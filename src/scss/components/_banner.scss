@@ -4,28 +4,35 @@
 
 .banner {
 	position: relative;
+
 	width: 100%;
-	background-size: cover;
+
 	background-position: 50% 50%;
+	background-size: cover;
+
 	@include media-breakpoint-up(sm) {
 		background-position: initial;
 	}
 	// banner fullscreen makes 100% vertical
 	&.banner--fullscreen {
 		height: calc(100vh - #{$navbar-height-xs});
+
 		@include media-breakpoint-up(sm) {
 			height: calc(100vh - #{$navbar-height-sm});
 		}
 	}
 	// block of text in the middle of the banner
 	.banner_block {
-		color: $white;
 		position: absolute;
 		top: 50%;
-		left: 0;
 		right: 0;
-		margin: 0 auto;
+		left: 0;
+
 		max-width: 275px;
+		margin: 0 auto;
+
+		color: $white;
+
 		@include media-breakpoint-up(sm) {
 			max-width: 500px;
 		}
@@ -38,15 +45,19 @@
 
 			img {
 				max-width: 200px;
+
 				@include media-breakpoint-up(sm) {
 					max-width: 300px;
 				}
 			}
 			h2 {
-				text-transform: uppercase;
 				padding: 0 0 5px;
-				font-size: 2.3em;
+
 				letter-spacing: 0.2em;
+				text-transform: uppercase;
+
+				font-size: 2.3em;
+
 				@include media-breakpoint-up(sm) {
 					font-size: 3.2em;
 				}
@@ -54,8 +65,11 @@
 
 			span {
 				padding: 0;
-				font-size: 1.8em;
+
 				letter-spacing: 0.05em;
+
+				font-size: 1.8em;
+
 				@include media-breakpoint-up(sm) {
 					font-size: 3em;
 				}
@@ -63,22 +77,28 @@
 		}
 		// CTA for the banner
 		.banner_block-button {
-			color: $white;
 			display: inline-block;
-			border: 1px solid $white;
+
 			margin-top: 25px;
 			padding: 10px 20px;
-			font-weight: $fw-regular;
-			text-transform: uppercase;
+
 			text-decoration: none;
+			text-transform: uppercase;
+
+			color: $white;
+			border: 1px solid $white;
+
+			font-weight: $fw-regular;
+
 			@include media-breakpoint-up(sm) {
 				margin-top: 50px;
+
 				transition: 250ms;
 
 				&:focus,
 				&:hover {
-					background: $color-primary;
 					color: $white;
+					background: $color-primary;
 				}
 			}
 		}
@@ -90,22 +110,26 @@
 			@include media-breakpoint-up(sm) {
 				position: absolute;
 				top: 15px;
-				padding: 5px;
 				right: 14px;
-				background: rgba($white, .93);
-				height: calc(100% - 15px);
+
 				width: calc(50% - 29px);
+				height: calc(100% - 15px);
+				padding: 5px;
+
+				background: rgba($white, .93);
 			}
 			@include media-breakpoint-up(md) {
-				right: 10%;
-				height: calc(100% - 10px);
 				top: 5px;
+				right: 10%;
+
+				height: calc(100% - 10px);
 			}
 			@media all and (min-width: 1440px) {
+				top: 15px;
 				right: 5%;
+
 				width: 33.3333%;
 				height: calc(100% - 15px);
-				top: 15px;
 				padding: 5px 15px;
 			}
 			@media all and (min-width: 1500px) {

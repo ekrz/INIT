@@ -6,9 +6,9 @@
 }
 .panel--custom {
   border: 0;
+  border-bottom: 1px solid $custom-gray;
   background: transparent;
   box-shadow: none;
-  border-bottom: 1px solid $custom-gray;
   // resets for a full panel
   .panel-heading,
   .panel-title {
@@ -19,22 +19,26 @@
   }
 
   a {
-    display: block;
-    padding: 15px 0;
     position: relative;
+
+    display: block;
+
+    padding: 15px 0;
+
     text-decoration: none;
 
     &:after {
-      right: 0;
+      position: absolute;
       top: 50%;
+      right: 0;
 
+      content: '\e804';
+      transition: 300ms;
+      transform: translateY(-50%) rotate(180deg);
+
+      font-family: $fontello;
       font-size:1.5em;
       font-weight: 100;
-      position: absolute;
-      content: '\e804';
-      font-family: $fontello;
-      transform: translateY(-50%) rotate(180deg);
-      transition: 300ms;
     }
 
     &.collapsed {
