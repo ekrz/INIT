@@ -1,18 +1,13 @@
-//default gulp init-ekrz 0.0.12
+//default gulp init-ekrz 0.0.13
 
 /*
 
 Activity log :
+0.0.13 : added HTML partials
 0.0.12 : added Webp conversion
 0.0.11 : redirecting scripts to /js/
-0.0.10 : deletion of useless parts of the workflow
-0.0.9 : removed regular css support, project is Sass only
-0.0.8 : added sass support (build only)
-0.0.7 : added gulp-sourcemaps to maps correctly the CSS after autoprefixing
-0.0.6 : added cssComb and Prettify to clean HTML, CSS and JS
-0.0.5 : splited production and dev mode (more comfortable)
-0.0.4 : added gulp-useref + removed image-pngquant
-0.0.3 : added gulpif and compression of assets
+
+NOTE: see more history on github (https://github.com/ekrz/init-ekrz).
 
   .-"""-.
  /      o\
@@ -42,6 +37,7 @@ var gulp = require('gulp'),
     csscomb = require('gulp-csscomb'),
     gulpif = require('gulp-if'),
     gutil = require('gulp-util'),
+    injectPartials = require('gulp-inject-partials'),
     imagemin = require('gulp-imagemin'),
     notify= require("gulp-notify"),
     prettify = require('gulp-jsbeautifier'),
@@ -118,11 +114,12 @@ gulp.task('webserver', function () {
 //   _build : dev workflow, used while development is active
 //-------------------------------------------------------------
 
-// HTML
+// HTML and partials
 gulp.task('html:build', function () {
     gulp.src(path.src.html)
     .pipe(changed(path.build.html))
         .pipe(rigger())
+        .pipe(injectPartials())
         .pipe(prettify())
         .pipe(gulp.dest(path.build.html))
         .pipe(reload({stream: true}));

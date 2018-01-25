@@ -1,6 +1,6 @@
 {
   "name": "init-ekrz",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Generate a bootstrap 4 Sass ready project powered by Gulp.",
   "main": "index.js",
   "author": {
@@ -19,6 +19,7 @@
     "gulp-csscomb": "^3.0.8",
     "gulp-if": "^2.0.2",
     "gulp-imagemin": "^3.1.1",
+    "gulp-inject-partials": "^1.0.3",
     "gulp-jsbeautifier": "^2.1.0",
     "gulp-notify": "^3.0.0",
     "gulp-rename": "^1.2.2",
