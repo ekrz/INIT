@@ -33,6 +33,7 @@
     "gulp-clone": "^1.1.4",
     "gulp-crass": "^0.2.2",
     "gulp-postcss": "^7.0.1",
+    "gulp-size": "^3.0.0",
     "gulp-webp": "^3.0.0"
   }
 }

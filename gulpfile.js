@@ -41,6 +41,7 @@ var gulp = require('gulp'),
   prettify = require('gulp-jsbeautifier'),
   rimraf = require('rimraf'),
   sass = require('gulp-sass'),
+  size = require('gulp-size'),
   sourcemaps = require('gulp-sourcemaps'),
   watch = require('gulp-watch'),
   webp = require('gulp-webp'),
@@ -114,6 +115,7 @@ gulp.task('html:build', function() {
     .pipe(changed(path.build.html))
     .pipe(injectPartials())
     .pipe(prettify())
+    .pipe(size())
     .pipe(gulp.dest(path.build.html))
     .pipe(reload({
       stream: true
@@ -127,6 +129,7 @@ gulp.task('scripts:build', function() {
     .pipe(changed(path.build.scripts))
     .pipe(prettify())
     .pipe(sourcemaps.write())
+    .pipe(size())
     .pipe(gulp.dest(path.build.scripts))
     .pipe(reload({
       stream: true
@@ -138,6 +141,7 @@ var plugins = [
   autoprefixer({browsers: ['last 2 versions']}),
   csso({restructure: false, debug: true})
 ];
+
 // Styles (pure .CSS)
 gulp.task('styles:build', function() {
   gulp.src(path.src.styles)
@@ -146,6 +150,7 @@ gulp.task('styles:build', function() {
     .pipe(postcss(plugins))
     .pipe(gulp.dest(path.build.styles))
     .pipe(sourcemaps.write())
+    .pipe(size())
     .pipe(reload({
       stream: true
     }));
@@ -155,9 +160,13 @@ gulp.task('styles:build', function() {
 gulp.task('sass:build', function() {
   return gulp.src(path.src.sass)
     .pipe(sourcemaps.init())
-    .pipe(sass().on('error: ', sass.logError))
+    .pipe(sass())
+    .on("error", notify.onError(function (error) {
+      return "oh no! " + error.message;
+    }))
     .pipe(postcss(plugins))
     .pipe(sourcemaps.write('.'))
+    .pipe(size())
     .pipe(gulp.dest(path.build.sass))
     .pipe(reload({
       stream: true
@@ -184,6 +193,7 @@ gulp.task('images:build', function() {
     .pipe(cloneSink) // clone image
     .pipe(webp()) // convert cloned image to WebP
     .pipe(cloneSink.tap()) // restore original image
+    .pipe(size())
 
     .pipe(gulp.dest(path.build.images))
 
@@ -211,6 +221,7 @@ gulp.task('contentFiles:build', function() {
     .pipe(cloneSink) // clone image
     .pipe(webp()) // convert cloned image to WebP
     .pipe(cloneSink.tap()) // restore original image
+    .pipe(size())
 
     .pipe(gulp.dest(path.build.contentFiles))
 
@@ -223,6 +234,7 @@ gulp.task('contentFiles:build', function() {
 gulp.task('fonts:build', function() {
   gulp.src(path.src.fonts)
     .pipe(changed(path.build.contentFiles))
+    .pipe(size())
     .pipe(gulp.dest(path.build.fonts))
     .pipe(reload({
       stream: true
