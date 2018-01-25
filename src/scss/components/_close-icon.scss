@@ -1,0 +1,114 @@
+// Close icon (pure CSS)
+
+.close-icon{
+  position: relative;
+
+  display: inline-block;
+  overflow: hidden;
+
+  width: 50px;
+  height: 50px;
+  &:hover {
+    &::before, &::after {
+      background: $color-primary;
+    }
+  }
+
+  &::before, &::after {
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+    margin-top: -1px;
+
+    content: '';
+
+    background: #000;
+  }
+  &::before {
+    transform: rotate(45deg);
+  }
+  &::after {
+    transform: rotate(-45deg);
+  }
+  &.big {
+    transform: scale(3);
+  }
+  &.small {
+    width: 35px;
+    height: 35px;
+
+    transform: scale(.75);
+  }
+  &.hairline {
+    &::before, &::after {
+      height: 1px;
+    }
+  }
+  &.thick {
+    &::before, &::after {
+      height: 4px;
+      margin-top: -2px;
+    }
+  }
+  &.black {
+    &::before, &::after {
+      height: 8px;
+      margin-top: -4px;
+    }
+  }
+  &.heavy {
+    &::before, &::after {
+      height: 12px;
+      margin-top: -6px;
+    }
+  }
+  &.pointy {
+    &::Before, &::after {
+      left: -50%;
+
+      width: 200%;
+    }
+  }
+  &.rounded {
+    &::before, &::after {
+      border-radius: 5px;
+    }
+  }
+  &.blades {
+    &::before, &::after {
+      border-radius: 5px 0;
+    }
+  }
+  &.warp {
+    &::before, &::after {
+      border-radius: 120% 0;
+    }
+  }
+  &.fat {
+    &::before, &::after {
+      border-radius: 100%;
+    }
+  }
+}
+
+small {
+  display: block;
+
+  padding: 5rem;
+
+  text-align: center;
+
+  color: #777;
+
+  font: .8rem/1 sans-serif;
+}
+small a {
+  text-decoration: none;
+
+  color: $color-primary;
+  border-bottom: 1px solid #ccc;
+}
+small a:hover { border-bottom-color: #222; }
