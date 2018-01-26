@@ -1,8 +1,9 @@
-//default gulp init-ekrz 0.1.0
+//default gulp init-ekrz 0.1.1
 
 /*
 
 Activity log :
+0.1.1 : reload HTML on partial injection
 0.1.0 : replace clean-css by csso
 0.0.14 : replace clean-css by csso
 0.0.13 : added HTML partials
@@ -71,7 +72,8 @@ var path = {
     assets: 'src/assets/**/*.*',
     contentFiles: 'src/contentFiles/**/*.+(png|jpg|gif|svg|ico)',
     fonts: 'src/fonts/**/*.*',
-    sass: 'src/scss/**/*.scss'
+    sass: ['!src/scss/bootstrap/*.scss', 'src/scss/**/*.scss'],
+    bootstrap: 'src/scss/bootstrap/*.scss'
     // sounds: 'src/sounds/**/*.*'
   },
   watch: {
@@ -112,7 +114,7 @@ gulp.task('webserver', function() {
 // HTML and partials
 gulp.task('html:build', function() {
   gulp.src(path.src.html)
-    .pipe(changed(path.build.html))
+    // .pipe(changed(path.build.html))
     .pipe(injectPartials())
     .pipe(prettify())
     .pipe(size())
@@ -159,6 +161,24 @@ gulp.task('styles:build', function() {
 // Styles (Sass)
 gulp.task('sass:build', function() {
   return gulp.src(path.src.sass)
+    .pipe(sourcemaps.init())
+    .pipe(sass())
+    .on("error", notify.onError(function (error) {
+      return "oh no! " + error.message;
+    }))
+    .pipe(postcss(plugins))
+    .pipe(sourcemaps.write('.'))
+    .pipe(size())
+    .pipe(gulp.dest(path.build.sass))
+    .pipe(reload({
+      stream: true
+    }));
+
+});
+
+// Build Boostrap (Sass)
+gulp.task('bootstrap:build', function() {
+  return gulp.src(path.src.bootstrap)
     .pipe(sourcemaps.init())
     .pipe(sass())
     .on("error", notify.onError(function (error) {
