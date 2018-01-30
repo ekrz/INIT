@@ -96,10 +96,8 @@ var config = {
   server: {
     baseDir: "./build"
   },
-  tunnel: false,
-  host: 'localhost',
-  port: 9000,
-  logPrefix: "server"
+  // proxy: '.dev'
+  port: 9000
 };
 
 //task for the localserver
