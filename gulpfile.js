@@ -1,12 +1,11 @@
-//default gulp init-ekrz 0.1.1
+//default gulp init-ekrz 0.1.2
 
 /*
 
 Activity log :
+0.1.2 : uglify javascript
 0.1.1 : reload HTML on partial injection
 0.1.0 : replace clean-css by csso
-0.0.14 : replace clean-css by csso
-0.0.13 : added HTML partials
 
 NOTE: see more history on github (https://github.com/ekrz/init-ekrz).
 
@@ -44,6 +43,7 @@ var gulp = require('gulp'),
   sass = require('gulp-sass'),
   size = require('gulp-size'),
   sourcemaps = require('gulp-sourcemaps'),
+  uglify = require('gulp-uglify'),
   watch = require('gulp-watch'),
   webp = require('gulp-webp'),
 
@@ -127,7 +127,7 @@ gulp.task('scripts:build', function() {
   gulp.src(path.src.scripts)
     .pipe(sourcemaps.init())
     .pipe(changed(path.build.scripts))
-    .pipe(prettify())
+    .pipe(uglify())
     .pipe(sourcemaps.write())
     .pipe(size())
     .pipe(gulp.dest(path.build.scripts))
@@ -155,7 +155,6 @@ gulp.task('styles:build', function() {
       stream: true
     }));
 });
-
 // Styles (Sass)
 gulp.task('sass:build', function() {
   return gulp.src(path.src.sass)
@@ -173,7 +172,6 @@ gulp.task('sass:build', function() {
     }));
 
 });
-
 // Build Boostrap (Sass)
 gulp.task('bootstrap:build', function() {
   return gulp.src(path.src.bootstrap)
@@ -191,7 +189,6 @@ gulp.task('bootstrap:build', function() {
     }));
 
 });
-
 // Images (/images/) as webp
 gulp.task('images:build', function() {
   var cloneSink = clone.sink();
@@ -219,7 +216,6 @@ gulp.task('images:build', function() {
       stream: true
     }));
 });
-
 // Images (/contentFiles/) as webp
 gulp.task('contentFiles:build', function() {
   var cloneSink = clone.sink();
@@ -247,7 +243,6 @@ gulp.task('contentFiles:build', function() {
       stream: true
     }));
 });
-
 // Fonts
 gulp.task('fonts:build', function() {
   gulp.src(path.src.fonts)
