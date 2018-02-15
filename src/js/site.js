@@ -4,36 +4,12 @@ $(document).ready(function() {
   // executes when HTML-Document is loaded and DOM is ready
   console.log("document is ready");
 
-  // popover trigger
-
-
-
-  // enable toggles everywhere
-  $('[data-toggle="tooltip"]').tooltip();
-
-
-
-
-  // enable popovers everywhere
-
-  $('[data-toggle="popover"]').popover();
-
-
-  $('.body').scrollspy({
-    target: '#navbar-example2'
-  })
-
-
-
-
-  // http://stackoverflow.com/questions/17534661/make-anchor-link-go-some-pixels-above-where-its-linked-to
   // The function actually applying the offset
   function offsetAnchor() {
     if (location.hash.length !== 0) {
       window.scrollTo(window.scrollX, window.scrollY - 100);
     }
   }
-
   // Captures click events of all <a> elements with href starting with #
   $(document).on('click', 'a[href^="#"]', function(event) {
     // Click events are captured before hashchanges. Timeout
@@ -261,8 +237,6 @@ function equalizeHeight(element) {
     element.css("height", maxHeight);
   }
 }
-
-
 
 // set windows width
 function resize_WindowsWidth() {
