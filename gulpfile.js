@@ -1,107 +1,72 @@
-//default gulp init-ekrz 0.1.2
+// Default gulp init-ekrz 0.1.4
+
+// INSTALL : npm i
+// LAUNCH : gulp
 
 /*
 
 Activity log :
-0.1.2 : uglify javascript
-0.1.1 : reload HTML on partial injection
-0.1.0 : replace clean-css by csso
+0.1.4 : Add gulp-load-plugins and refactor gulpfile.js
+0.1.3 : ITCSS-like integration
 
 NOTE: see more history on github (https://github.com/ekrz/init-ekrz).
 
-  .-"""-.
- /      o\
-|    o   0).-.
-|       .-;(_/     .-.
- \     /  /)).---._|  `\   ,
-  '.  '  /((       `'-./ _/|
-    \  .'  )        .-.;`  /
-     '.             |  `\-'
-       '._        -'    /
-          ``""--`------`
 */
 
-// tl;dr => 'gulp' to launch dev mode (browser-sync, compress images but do not strike .CSS and .JS rendering)
+"use strict";
 
-
-'use strict';
-
-var gulp = require('gulp'),
-
-  autoprefixer = require('autoprefixer'),
+// Plugins
+var gulp = require("gulp"),
+  $ = require("gulp-load-plugins")(),
+  autoprefixer = require("autoprefixer"),
   browserSync = require("browser-sync"),
-  cache = require('gulp-cache'),
-  changed = require('gulp-changed'),
-  clone = require('gulp-clone'),
-  csso = require('postcss-csso'),
-  injectPartials = require('gulp-inject-partials'),
-  imagemin = require('gulp-imagemin'),
-  notify = require("gulp-notify"),
-  postcss = require('gulp-postcss'),
-  prettify = require('gulp-jsbeautifier'),
-  rimraf = require('rimraf'),
-  sass = require('gulp-sass'),
-  size = require('gulp-size'),
-  sourcemaps = require('gulp-sourcemaps'),
-  uglify = require('gulp-uglify'),
-  watch = require('gulp-watch'),
-  webp = require('gulp-webp'),
-
+  csso = require("postcss-csso"),
+  imageminPngquant = require('imagemin-pngquant'),
+  imageminZopfli = require('imagemin-zopfli'),
+  imageminMozjpeg = require('imagemin-mozjpeg'), //need to run 'brew install libpng'
+  imageminGiflossy = require('imagemin-giflossy'),
+  rimraf = require("rimraf"),
+  sourcemaps = require("gulp-sourcemaps"),
   reload = browserSync.reload;
 
-//definition of our paths, we store them in a var.
-// => Reusable and editable in only one place
-
+// Variables
 var path = {
   build: {
-    html: 'build/',
-    scripts: 'build/js/',
-    // styles: 'build/styles/',
-    images: 'build/images/',
-    assets: 'build/assets/',
-    contentFiles: 'build/contentFiles/',
-    fonts: 'build/fonts/',
-    sass: 'build/styles/'
-    // sounds: 'build/sounds/'
+    html: "dist/",
+    scripts: "dist/js/",
+    sass: "dist/styles/",
+    images: "dist/images/",
+    assets: "dist/assets/",
+    fonts: "dist/fonts/"
   },
   src: {
-    html: 'src/**/*.html',
-    scripts: 'src/js/**/*.js',
-    styles: 'src/styles/**/*.css',
-    images: 'src/images/**/*.+(png|jpg|gif|svg|ico)',
-    assets: 'src/assets/**/*.*',
-    contentFiles: 'src/contentFiles/**/*.+(png|jpg|gif|svg|ico)',
-    fonts: 'src/fonts/**/*.*',
-    sass: ['!src/scss/bootstrap/*.scss', 'src/scss/**/*.scss'],
-    bootstrap: 'src/scss/bootstrap/*.scss'
-    // sounds: 'src/sounds/**/*.*'
+    html: "src/**/*.html",
+    scripts: "src/js/**/*.js",
+    sass: ["!src/scss/bootstrap/*.scss", "src/scss/**/*.scss"],
+    images: "src/images/**/*.+(png|jpg|gif|svg|ico)",
+    assets: "src/assets/**/*.*",
+    fonts: "src/fonts/**/*.+(eot|svg|ttf|woff|woff2)"
   },
   watch: {
-    html: 'src/**/*.html',
-    scripts: 'src/js/**/*.js',
-    styles: 'src/styles/**/*.css',
-    sass: 'src/scss/**/*.scss',
-    images: 'src/images/**/*.+(png|jpg|gif|svg|ico)',
-    assets: 'src/assets/**/*.*',
-    contentFiles: 'src/contentFiles/**/*.+(png|jpg|gif|svg|ico)',
-    fonts: 'src/fonts/**/*.*'
-    // sounds: 'src/sounds/**/*.*'
+    html: "src/**/*.html",
+    scripts: "src/js/**/*.js",
+    sass: "src/scss/**/*.scss",
+    images: "src/images/**/*.+(png|jpg|gif|svg|ico)",
+    assets: "src/assets/**/*.*",
+    fonts: "src/fonts/**/*.+(eot|svg|ttf|woff|woff2)"
   },
-  clean: './build'
+  clean: "./dist"
 };
 
-
-// config our localserver
+// local server
 var config = {
   server: {
-    baseDir: "./build"
+    baseDir: "./dist"
   },
   // proxy: '.dev'
   port: 9000
 };
-
-//task for the localserver
-gulp.task('webserver', function() {
+gulp.task("webserver", function() {
   browserSync(config);
 });
 
@@ -110,210 +75,186 @@ gulp.task('webserver', function() {
 //-------------------------------------------------------------
 
 // HTML and partials
-gulp.task('html:build', function() {
-  gulp.src(path.src.html)
-    // .pipe(changed(path.build.html))
-    .pipe(injectPartials())
-    .pipe(prettify())
-    .pipe(size())
+gulp.task("html:build", function() {
+  gulp
+    .src(path.src.html)
+    .pipe($.injectPartials())
+    .pipe($.jsbeautifier())
+    .pipe($.size())
     .pipe(gulp.dest(path.build.html))
-    .pipe(reload({
-      stream: true
-    }));
+    .pipe(
+      reload({
+        stream: true
+      })
+    );
 });
 
 // JavaScript
-gulp.task('scripts:build', function() {
-  gulp.src(path.src.scripts)
+gulp.task("scripts:build", function() {
+  gulp
+    .src(path.src.scripts)
     .pipe(sourcemaps.init())
-    .pipe(changed(path.build.scripts))
-    .pipe(uglify())
+    .pipe($.changed(path.build.scripts))
+    .pipe($.uglify())
+    .on(
+      "error",
+      $.notify.onError(function(error) {
+        return "oh no! " + error.message;
+      })
+    )
     .pipe(sourcemaps.write())
-    .pipe(size())
+    .pipe($.size())
     .pipe(gulp.dest(path.build.scripts))
-    .pipe(reload({
-      stream: true
-    }));
+    .pipe(
+      reload({
+        stream: true
+      })
+    );
 });
 
 // Post-css plugins
 var plugins = [
-  autoprefixer({browsers: ['last 2 versions']}),
-  csso({restructure: false, debug: true})
+  autoprefixer({
+    browsers: ["last 2 versions"]
+  }),
+  csso({
+    restructure: false,
+    debug: true
+  })
 ];
 
-// Styles (pure .CSS)
-gulp.task('styles:build', function() {
-  gulp.src(path.src.styles)
-    .pipe(sourcemaps.init())
-    .pipe(changed(path.build.styles))
-    .pipe(postcss(plugins))
-    .pipe(gulp.dest(path.build.styles))
-    .pipe(sourcemaps.write())
-    .pipe(size())
-    .pipe(reload({
-      stream: true
-    }));
-});
 // Styles (Sass)
-gulp.task('sass:build', function() {
-  return gulp.src(path.src.sass)
+gulp.task("sass:build", function() {
+  return gulp
+    .src(path.src.sass)
     .pipe(sourcemaps.init())
-    .pipe(sass())
-    .on("error", notify.onError(function (error) {
-      return "oh no! " + error.message;
-    }))
-    .pipe(postcss(plugins))
-    .pipe(sourcemaps.write('.'))
-    .pipe(size())
+    .pipe($.sass())
+    .on(
+      "error",
+      $.notify.onError(function(error) {
+        return "oh no! " + error.message;
+      })
+    )
+    .pipe($.postcss(plugins))
+    .pipe(sourcemaps.write("."))
+    .pipe($.size())
     .pipe(gulp.dest(path.build.sass))
-    .pipe(reload({
-      stream: true
-    }));
-
+    .pipe(
+      reload({
+        stream: true
+      })
+    );
 });
-// Build Boostrap (Sass)
-gulp.task('bootstrap:build', function() {
-  return gulp.src(path.src.bootstrap)
-    .pipe(sourcemaps.init())
-    .pipe(sass())
-    .on("error", notify.onError(function (error) {
-      return "oh no! " + error.message;
-    }))
-    .pipe(postcss(plugins))
-    .pipe(sourcemaps.write('.'))
-    .pipe(size())
-    .pipe(gulp.dest(path.build.sass))
-    .pipe(reload({
-      stream: true
-    }));
 
-});
 // Images (/images/) as webp
-gulp.task('images:build', function() {
-  var cloneSink = clone.sink();
-  gulp.src(path.src.images)
-    .pipe(changed(path.build.images))
-
-    // NOTE : This now converts to Webp + optimisation
-    // Imagemin
-    .pipe(cache(imagemin({
-      optimizationLevel: 3,
-      progressive: true,
-      svgoPlugins: [{
-        removeViewBox: false
-      }]
-    })))
-
-    .pipe(cloneSink) // clone image
-    .pipe(webp()) // convert cloned image to WebP
-    .pipe(cloneSink.tap()) // restore original image
-    .pipe(size())
-
+gulp.task("images:build", function() {
+  var cloneSink = $.clone.sink();
+  gulp
+    .src(path.src.images)
+    .pipe($.changed(path.build.images))
+    .pipe($.imagemin([
+        //png
+        imageminPngquant({
+            speed: 1,
+            quality: 95 //lossy settings
+        }),
+        imageminZopfli({
+            more: true
+        }),
+        //gif
+        // imagemin.gifsicle({
+        //     interlaced: true,
+        //     optimizationLevel: 3
+        // }),
+        //gif very light lossy, use only one of gifsicle or Giflossy
+        imageminGiflossy({
+            optimizationLevel: 3,
+            optimize: 3, //keep-empty: Preserve empty transparent frames
+            lossy: 2
+        }),
+        //svg
+        $.imagemin.svgo({
+            plugins: [{
+                removeViewBox: false
+            }]
+        }),
+        //jpg lossless
+        $.imagemin.jpegtran({
+            progressive: true
+        }),
+        //jpg very light lossy, use vs jpegtran
+        imageminMozjpeg({
+            quality: 85
+        })
+    ]))
+    // .pipe(cloneSink)
+    // .pipe($.webp())
+    // .pipe(cloneSink.tap())
+    // .pipe($.size())
     .pipe(gulp.dest(path.build.images))
-
-    .pipe(reload({
-      stream: true
-    }));
+    // .pipe(
+    //   reload({
+    //     stream: true
+    //   })
+    // );
 });
-// Images (/contentFiles/) as webp
-gulp.task('contentFiles:build', function() {
-  var cloneSink = clone.sink();
-  gulp.src(path.src.contentFiles)
-    .pipe(changed(path.build.contentFiles))
 
-    // NOTE : This now converts to Webp + optimisation
-    // Imagemin
-    .pipe(cache(imagemin({
-      optimizationLevel: 3,
-      progressive: true,
-      svgoPlugins: [{
-        removeViewBox: false
-      }]
-    })))
-
-    .pipe(cloneSink) // clone image
-    .pipe(webp()) // convert cloned image to WebP
-    .pipe(cloneSink.tap()) // restore original image
-    .pipe(size())
-
-    .pipe(gulp.dest(path.build.contentFiles))
-
-    .pipe(reload({
-      stream: true
-    }));
-});
 // Fonts
-gulp.task('fonts:build', function() {
-  gulp.src(path.src.fonts)
-    .pipe(changed(path.build.contentFiles))
-    .pipe(size())
+gulp.task("fonts:build", function() {
+  gulp
+    .src(path.src.fonts)
+    .pipe($.changed(path.build.fonts))
+    .pipe($.size())
     .pipe(gulp.dest(path.build.fonts))
-    .pipe(reload({
-      stream: true
-    }));
+    .pipe(
+      reload({
+        stream: true
+      })
+    );
 });
 
 // Any other assets from /assets/
-gulp.task('assets:build', function() {
-  gulp.src(path.src.assets)
-    .pipe(changed(path.build.assets))
-    .pipe(gulp.dest(path.build.assets))
+gulp.task("assets:build", function() {
+  gulp
+    .src(path.src.assets)
+    .pipe($.changed(path.build.assets))
+    .pipe(gulp.dest(path.build.assets));
 });
 
-// Sounds
-// gulp.task('sounds:build', function() {
-//     gulp.src(path.src.sounds)
-//         .pipe(gulp.dest(path.build.sounds))
-// });
-
-gulp.task('build', [
-  'sass:build',
-  'scripts:build',
-  'html:build',
-  'images:build',
-  'contentFiles:build',
-  'fonts:build',
-  'assets:build'
-  // 'sounds:build'
+gulp.task("build", [
+  "sass:build",
+  "scripts:build",
+  "html:build",
+  "images:build",
+  "fonts:build",
+  "assets:build"
 ]);
 
-gulp.task('watch', function() {
-  watch([path.watch.html], function(event, cb) {
-    gulp.start('html:build');
+gulp.task("watch", function() {
+  $.watch([path.watch.html], function(event, cb) {
+    gulp.start("html:build");
   });
-  watch([path.watch.styles], function(event, cb) {
-    gulp.start('styles:build');
+  $.watch([path.watch.sass], function(event, cb) {
+    gulp.start("sass:build");
   });
-  watch([path.watch.sass], function(event, cb) {
-    gulp.start('sass:build');
+  $.watch([path.watch.scripts], function(event, cb) {
+    gulp.start("scripts:build");
   });
-  watch([path.watch.scripts], function(event, cb) {
-    gulp.start('scripts:build');
+  $.watch([path.watch.images], function(event, cb) {
+    gulp.start("images:build");
   });
-  watch([path.watch.images], function(event, cb) {
-    gulp.start('images:build');
+  $.watch([path.watch.fonts], function(event, cb) {
+    gulp.start("fonts:build");
   });
-  watch([path.watch.contentFiles], function(event, cb) {
-    gulp.start('contentFiles:build');
+  $.watch([path.watch.assets], function(event, cb) {
+    gulp.start("assets:build");
   });
-  watch([path.watch.fonts], function(event, cb) {
-    gulp.start('fonts:build');
-  });
-  watch([path.watch.assets], function(event, cb) {
-    gulp.start('assets:build');
-  });
-  // watch([path.watch.sounds], function(event, cb) {
-  //     gulp.start('sounds:build');
-  // });
 });
 
-// Clean => 'gulp clean' / delete the build folder but it's cooler.
-
-gulp.task('clean', function(cb) {
+// TASK : Clean
+gulp.task("clean", function(cb) {
   rimraf(path.clean, cb);
 });
 
-// By default we are in dev => 'gulp' and 'gulp-default'
-
-gulp.task('default', ['build', 'webserver', 'watch']);
+// TASK : Default (runs build, browserSync)
+gulp.task("default", ["build", "webserver", "watch"]);
