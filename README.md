@@ -1,6 +1,6 @@
-# init-ekrz 2.1.1
+# init-ekrz 2.3.0
 
-Generate a bootstrap 4 Sass ready project with partials. Powered by Gulp.
+Generate a bootstrap 4 Sass ready project with Nunjucks templating engine. Powered by Gulp.
 
 ## Getting Started
 
@@ -10,7 +10,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 To start init, you must have nodeJS (+ npm/yarn) and gulp installed on your machine.
 ```
-> git clone git@github.com:ekrz/init-ekrz.git
+> git clone https://github.com/ekrz/init-ekrz.git
 > cd init-ekrz
 > npm i
 > gulp
@@ -26,8 +26,9 @@ vim README.md
 ## Built With
 
 * [Bootstrap 4](https://github.com/twbs/bootstrap) - The most popular framework for developing projects.
-* [Sass](https://github.com/sass/sass) - Sass makes CSS fun again
-* [Gulp](https://github.com/gulpjs/gulp) - The streaming build system
+* [Gulp](https://github.com/gulpjs/gulp) - The streaming build system.
+* [Nunjucks](https://mozilla.github.io/nunjucks/) - A rich and powerful templating language for JavaScript.
+* [Sass](https://github.com/sass/sass) - Sass makes CSS fun again.
 
 
 ## Authors

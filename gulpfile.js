@@ -1,13 +1,9 @@
-// Default gulp init-ekrz 0.1.4
-
-// INSTALL : npm i
-// LAUNCH : gulp
-
+// Default gulp init-ekrz 0.1.5
 /*
 
 Activity log :
+0.1.5 : Add critical, fontello, size report, better image compression, ...
 0.1.4 : Add gulp-load-plugins and refactor gulpfile.js
-0.1.3 : ITCSS-like integration
 
 NOTE: see more history on github (https://github.com/ekrz/init-ekrz).
 
@@ -17,22 +13,28 @@ NOTE: see more history on github (https://github.com/ekrz/init-ekrz).
 
 // Plugins
 var gulp = require("gulp"),
+
   $ = require("gulp-load-plugins")(),
+
   autoprefixer = require("autoprefixer"),
   browserSync = require("browser-sync"),
+  critical = require('critical').stream,
+
   csso = require("postcss-csso"),
+
   imageminPngquant = require('imagemin-pngquant'),
   imageminZopfli = require('imagemin-zopfli'),
   imageminMozjpeg = require('imagemin-mozjpeg'), //need to run 'brew install libpng'
   imageminGiflossy = require('imagemin-giflossy'),
+
   rimraf = require("rimraf"),
-  sourcemaps = require("gulp-sourcemaps"),
   reload = browserSync.reload;
 
 // Variables
 var path = {
   build: {
-    html: "dist/",
+    root: "dist/",
+    all: "dist/**/*.*",
     scripts: "dist/js/",
     sass: "dist/styles/",
     images: "dist/images/",
@@ -40,15 +42,17 @@ var path = {
     fonts: "dist/fonts/"
   },
   src: {
-    html: "src/**/*.html",
+    root: "src/",
+    fontelloConfig: "src/assets/fontello-config.json",
+    nunjucks: ["src/pages/*.+(html|njk)", "src/*.+(html|njk)"],
     scripts: "src/js/**/*.js",
-    sass: ["!src/scss/bootstrap/*.scss", "src/scss/**/*.scss"],
+    sass: "src/scss/**/*.scss",
     images: "src/images/**/*.+(png|jpg|gif|svg|ico)",
     assets: "src/assets/**/*.*",
     fonts: "src/fonts/**/*.+(eot|svg|ttf|woff|woff2)"
   },
   watch: {
-    html: "src/**/*.html",
+    nunjucks: "src/**/*.+(html|njk)",
     scripts: "src/js/**/*.js",
     sass: "src/scss/**/*.scss",
     images: "src/images/**/*.+(png|jpg|gif|svg|ico)",
@@ -66,6 +70,7 @@ var config = {
   // proxy: '.dev'
   port: 9000
 };
+
 gulp.task("webserver", function() {
   browserSync(config);
 });
@@ -74,36 +79,39 @@ gulp.task("webserver", function() {
 //   _build : dev workflow, used while development is active
 //-------------------------------------------------------------
 
-// HTML and partials
-gulp.task("html:build", function() {
-  gulp
-    .src(path.src.html)
-    .pipe($.injectPartials())
-    .pipe($.jsbeautifier())
-    .pipe($.size())
-    .pipe(gulp.dest(path.build.html))
-    .pipe(
-      reload({
-        stream: true
-      })
-    );
+// Render Nunjucks + HTML
+gulp.task('nunjucks', function() {
+  return gulp.src(path.src.nunjucks)
+  .pipe($.nunjucksRender({
+    path: ['src/templates']
+  }))
+  .pipe($.jsbeautifier())
+  .pipe(gulp.dest(path.build.root))
+  .pipe(
+    reload({
+      stream: true
+    })
+  );
 });
-
 // JavaScript
-gulp.task("scripts:build", function() {
-  gulp
-    .src(path.src.scripts)
-    .pipe(sourcemaps.init())
+gulp.task("scripts", function() {
+  return gulp
+    .src([
+      'node_modules/jquery/dist/jquery.js',
+      'node_modules/bootstrap/dist/js/bootstrap.js',
+      path.src.scripts
+    ])
+    .pipe($.sourcemaps.init())
     .pipe($.changed(path.build.scripts))
-    .pipe($.uglify())
     .on(
       "error",
       $.notify.onError(function(error) {
-        return "oh no! " + error.message;
+        return error.message;
       })
     )
-    .pipe(sourcemaps.write())
-    .pipe($.size())
+    .pipe($.concat('app.min.js'))
+    .pipe($.uglify())
+    .pipe($.sourcemaps.write('.'))
     .pipe(gulp.dest(path.build.scripts))
     .pipe(
       reload({
@@ -123,21 +131,27 @@ var plugins = [
   })
 ];
 
+// Fontello Options
+var fontelloOptions = {
+  css : 'scss/theme/vendors/fontello/',
+  font : 'fonts/fontello/'
+}
+
 // Styles (Sass)
-gulp.task("sass:build", function() {
+gulp.task("sass", function() {
   return gulp
     .src(path.src.sass)
-    .pipe(sourcemaps.init())
+    .pipe($.sourcemaps.init())
     .pipe($.sass())
     .on(
       "error",
       $.notify.onError(function(error) {
-        return "oh no! " + error.message;
+        return error.message;
       })
     )
     .pipe($.postcss(plugins))
-    .pipe(sourcemaps.write("."))
-    .pipe($.size())
+    .pipe($.rename('main.min.css'))
+    .pipe($.sourcemaps.write("."))
     .pipe(gulp.dest(path.build.sass))
     .pipe(
       reload({
@@ -147,9 +161,9 @@ gulp.task("sass:build", function() {
 });
 
 // Images (/images/) as webp
-gulp.task("images:build", function() {
+gulp.task("images", function() {
   var cloneSink = $.clone.sink();
-  gulp
+  return gulp
     .src(path.src.images)
     .pipe($.changed(path.build.images))
     .pipe($.imagemin([
@@ -187,24 +201,22 @@ gulp.task("images:build", function() {
             quality: 85
         })
     ]))
-    // .pipe(cloneSink)
-    // .pipe($.webp())
-    // .pipe(cloneSink.tap())
-    // .pipe($.size())
+    .pipe(cloneSink)
+    .pipe($.webp())
+    .pipe(cloneSink.tap())
     .pipe(gulp.dest(path.build.images))
-    // .pipe(
-    //   reload({
-    //     stream: true
-    //   })
-    // );
+    .pipe(
+      reload({
+        stream: true
+      })
+    );
 });
 
 // Fonts
-gulp.task("fonts:build", function() {
-  gulp
+gulp.task("fonts", function() {
+  return gulp
     .src(path.src.fonts)
     .pipe($.changed(path.build.fonts))
-    .pipe($.size())
     .pipe(gulp.dest(path.build.fonts))
     .pipe(
       reload({
@@ -214,47 +226,83 @@ gulp.task("fonts:build", function() {
 });
 
 // Any other assets from /assets/
-gulp.task("assets:build", function() {
-  gulp
+gulp.task("assets", function() {
+  return gulp
     .src(path.src.assets)
     .pipe($.changed(path.build.assets))
     .pipe(gulp.dest(path.build.assets));
 });
 
+// Build queue
 gulp.task("build", [
-  "sass:build",
-  "scripts:build",
-  "html:build",
-  "images:build",
-  "fonts:build",
-  "assets:build"
+  "sass",
+  "scripts",
+  "nunjucks",
+  "fonts",
+  "assets",
+  "images"
 ]);
 
+// Watch
 gulp.task("watch", function() {
-  $.watch([path.watch.html], function(event, cb) {
-    gulp.start("html:build");
+  $.watch([path.watch.nunjucks], function(event, cb) {
+    gulp.start("nunjucks");
   });
   $.watch([path.watch.sass], function(event, cb) {
-    gulp.start("sass:build");
+    gulp.start("sass");
   });
   $.watch([path.watch.scripts], function(event, cb) {
-    gulp.start("scripts:build");
+    gulp.start("scripts");
   });
   $.watch([path.watch.images], function(event, cb) {
-    gulp.start("images:build");
+    gulp.start("images");
   });
   $.watch([path.watch.fonts], function(event, cb) {
-    gulp.start("fonts:build");
+    gulp.start("fonts");
   });
   $.watch([path.watch.assets], function(event, cb) {
-    gulp.start("assets:build");
+    gulp.start("assets");
   });
 });
 
-// TASK : Clean
+// Run the default task
+gulp.task("default", ["build", "webserver", "watch"]);
+
+// Generate & Inline Critical-path CSS
+gulp.task('critical', function () {
+    return gulp.src('dist/*.html')
+        .pipe(critical({
+          base: 'dist/',
+          inline: false,
+          css: ['dist/styles/main.min.css']
+        }))
+        .on(
+          "error",
+          $.notify.onError(function(error) {
+            return error.message;
+          })
+        )
+        .pipe(gulp.dest('dist'));
+});
+
+// Import Fontello font (glyph)
+gulp.task('fontello', function () {
+  return gulp
+    .src(path.src.fontelloConfig)
+    .pipe($.fontello(fontelloOptions))
+    .pipe(gulp.dest(path.src.root))
+});
+
+// Display a report of the size and Gzipped size of the project
+gulp.task('size', function () {
+  return gulp
+    .src(path.build.all)
+    .pipe($.sizereport({
+        gzip: true
+    }));
+});
+
+// Remove the dist folder
 gulp.task("clean", function(cb) {
   rimraf(path.clean, cb);
 });
-
-// TASK : Default (runs build, browserSync)
-gulp.task("default", ["build", "webserver", "watch"]);

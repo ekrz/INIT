@@ -1,5 +1,26 @@
-// Import Bootstrap and theme
+// Overwrite Bootstrap
+@import "theme/settings/boostrap-custom";
 
-@import "bootstrap/bootstrap-reboot";
-@import "bootstrap/bootstrap-grid";
-@import "theme/theme";
+// Get boostrap from node
+@import "../../node_modules/bootstrap/scss/bootstrap-reboot";
+@import "../../node_modules/bootstrap/scss/bootstrap-grid";
+
+// Get theme
+
+// [0] Vendors --- Vendor libraries
+// [1] Settings ------- Sass vars, etc.
+// [2] Tools ---------- Functions and mixins.
+// [3] Generic -------- Generic, high-level styling, like resets, etc.
+// [4] Base ----------- Unclasses HTML elements (e.g. `h2`, `ul`).
+// [5] Objects -------- Objects and abstractions.
+// [6] Components ----- Your designed UI elements (inuitcss includes none of these).
+// [7] Trumps --------- Overrides and helper classes.
+
+@import 'theme/vendors/include';
+@import 'theme/settings/include';
+@import 'theme/tools/include';
+@import 'theme/generic/include';
+@import 'theme/base/include';
+@import 'theme/objects/include';
+@import 'theme/components/include';
+@import 'theme/tools/include';
