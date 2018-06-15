@@ -32,9 +32,12 @@ var gulp = require("gulp"),
 
 // Variables
 var path = {
+  maps: "./dist/**/*.map",
   build: {
     root: "dist/",
     all: "dist/**/*.*",
+    htmlOutput: "dist/**/*.html",
+    cssMain: "dist/styles/main.min.css",
     scripts: "dist/js/",
     sass: "dist/styles/",
     images: "dist/images/",
@@ -45,6 +48,7 @@ var path = {
     root: "src/",
     fontelloConfig: "src/assets/fontello-config.json",
     nunjucks: ["src/pages/*.+(html|njk)", "src/*.+(html|njk)"],
+    html: "src/**/*.html",
     scripts: "src/js/**/*.js",
     sass: "src/scss/**/*.scss",
     images: "src/images/**/*.+(png|jpg|gif|svg|ico)",
@@ -52,12 +56,7 @@ var path = {
     fonts: "src/fonts/**/*.+(eot|svg|ttf|woff|woff2)"
   },
   watch: {
-    nunjucks: "src/**/*.+(html|njk)",
-    scripts: "src/js/**/*.js",
-    sass: "src/scss/**/*.scss",
-    images: "src/images/**/*.+(png|jpg|gif|svg|ico)",
-    assets: "src/assets/**/*.*",
-    fonts: "src/fonts/**/*.+(eot|svg|ttf|woff|woff2)"
+    nunjucks: "src/**/*.+(html|njk)"
   },
   clean: "./dist"
 };
@@ -248,19 +247,19 @@ gulp.task("watch", function() {
   $.watch([path.watch.nunjucks], function(event, cb) {
     gulp.start("nunjucks");
   });
-  $.watch([path.watch.sass], function(event, cb) {
+  $.watch([path.src.sass], function(event, cb) {
     gulp.start("sass");
   });
-  $.watch([path.watch.scripts], function(event, cb) {
+  $.watch([path.src.scripts], function(event, cb) {
     gulp.start("scripts");
   });
-  $.watch([path.watch.images], function(event, cb) {
+  $.watch([path.src.images], function(event, cb) {
     gulp.start("images");
   });
-  $.watch([path.watch.fonts], function(event, cb) {
+  $.watch([path.src.fonts], function(event, cb) {
     gulp.start("fonts");
   });
-  $.watch([path.watch.assets], function(event, cb) {
+  $.watch([path.src.assets], function(event, cb) {
     gulp.start("assets");
   });
 });
@@ -285,6 +284,17 @@ gulp.task('critical', function () {
         .pipe(gulp.dest('dist'));
 });
 
+// PurgeCSS
+gulp.task("purge", function() {
+  return gulp
+    .src(path.build.cssMain)
+    .pipe($.purgecss({
+        content: [path.build.htmlOutput]
+      })
+    )
+    .pipe(gulp.dest(path.build.sass))
+});
+
 // Import Fontello font (glyph)
 gulp.task('fontello', function () {
   return gulp
@@ -302,6 +312,13 @@ gulp.task('size', function () {
     }));
 });
 
+// Run the prod task
+gulp.task("prod", function(cb){
+  gulp.start("critical");
+  gulp.start("purge");
+  rimraf(path.maps, cb);
+  gulp.start("size");
+});
 // Remove the dist folder
 gulp.task("clean", function(cb) {
   rimraf(path.clean, cb);
