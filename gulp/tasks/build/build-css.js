@@ -4,14 +4,14 @@
 
 var path = require('../../paths.js');
 const critical = require('critical').stream;
-const csso = require("postcss-csso");
-const autoprefixer = require("autoprefixer");
+const csso = require('postcss-csso');
+const autoprefixer = require('autoprefixer');
 
 
 // Post-css plugins
 var plugins = [
 	autoprefixer({
-		browsers: ["last 2 versions"]
+		browsers: ['last 2 versions']
 	}),
 	csso({
 		restructure: false,
@@ -20,12 +20,12 @@ var plugins = [
 ];
 
 // Styles (Sass)
-gulp.task("build-css", function () {
+gulp.task('build-css', function () {
 	return gulp
 		.src(path.to.sass.main)
 		.pipe($.sass())
 		.on(
-			"error",
+			'error',
 			$.notify.onError(function (error) {
 				return error.message;
 			})
@@ -55,7 +55,7 @@ gulp.task('build-css-critical', function () {
 });
 
 // PurgeCSS
-gulp.task("build-css-purge", function () {
+gulp.task('build-css-purge', function () {
 	return gulp
 		.src(config.path.build.cssMain)
 		.pipe($.purgecss({

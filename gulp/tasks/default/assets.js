@@ -6,7 +6,7 @@ var path = require('../../paths.js');
 
 
 // Any other assets from /assets/
-gulp.task("assets", function () {
+gulp.task('assets', function () {
 	return gulp
 		.src(path.to.assets.source)
 		.pipe(gulp.dest(path.to.assets.destination))

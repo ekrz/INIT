@@ -5,7 +5,7 @@
 var path = require('../../paths.js');
 
 
-gulp.task("scripts-import", function () {
+gulp.task('scripts-import', function () {
 	return gulp
 		.src([
 			'node_modules/jquery/dist/jquery.js',
@@ -21,11 +21,11 @@ gulp.task('eslint', function() {
 });
 
 // JavaScript
-gulp.task("scripts", ['eslint'], function () {
+gulp.task('scripts', ['eslint'], function () {
 	return gulp
 		.src(path.to.scripts.source)
 		.on(
-			"error",
+			'error',
 			$.notify.onError(function (error) {
 				return error.message;
 			})

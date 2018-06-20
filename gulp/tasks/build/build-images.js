@@ -10,7 +10,7 @@ const imageminGiflossy = require('imagemin-giflossy');
 
 
 // Images (/images/) as webp
-gulp.task("build-images", function () {
+gulp.task('build-images', function () {
 	var cloneSink = $.clone.sink();
 	return gulp
 		.src(path.to.images.source)

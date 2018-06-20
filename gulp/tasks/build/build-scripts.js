@@ -6,7 +6,7 @@ var path = require('../../paths.js');
 
 
 // JavaScript
-gulp.task("build-scripts", function () {
+gulp.task('build-scripts', function () {
 	return gulp
 		.src([
 			'node_modules/jquery/dist/jquery.js',
@@ -14,7 +14,7 @@ gulp.task("build-scripts", function () {
 			path.to.scripts.source
 		])
 		.on(
-			"error",
+			'error',
 			$.notify.onError(function (error) {
 				return error.message;
 			})

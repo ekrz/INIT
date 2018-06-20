@@ -14,6 +14,6 @@ var serverConfig = {
 	port: 9000
 };
 
-gulp.task("connect", function () {
+gulp.task('connect', function () {
 	browserSync(serverConfig);
 });
