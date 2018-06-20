@@ -1,0 +1,48 @@
+  {% extends '../templates/_layout.njk' %}
+
+  {% block main %}
+  <style media="screen">
+    body {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      width: 100%;
+      height: 100vh;
+
+      text-align: center;
+
+      color: white;
+      background: #1c1e21;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    a {
+      text-decoration: none;
+      font-weight: bold;
+      color: white;
+    }
+    a:hover{
+      color: white;
+    }
+  </style>
+
+  <header>
+    <h1> 2.3a — init-ekrz </h1>
+  </header>
+
+  <main>
+    <section>
+      <h5>Bootstrap your project with Gulp+Sass+Nunjucks+Boostrap 4.</h5>
+    </section>
+  </main>
+
+  <footer>
+    <span>Made by <a href="https://www.retzepter.com">ekrz</a> </span>
+  </footer>
+
+  {% endblock %}
