@@ -1,10 +1,14 @@
 'use strict';
 
-const imageminPngquant  = require('imagemin-pngquant');
-const imageminZopfli    = require('imagemin-zopfli');
-const imageminMozjpeg   = require('imagemin-mozjpeg');
-const imageminGiflossy  = require('imagemin-giflossy');
-var path      = require('../../paths.js');
+
+
+var path = require('../../paths.js');
+const imageminPngquant = require('imagemin-pngquant');
+const imageminZopfli = require('imagemin-zopfli');
+const imageminMozjpeg = require('imagemin-mozjpeg');
+const imageminGiflossy = require('imagemin-giflossy');
+
+
 // Images (/images/) as webp
 gulp.task("build-images", function () {
 	var cloneSink = $.clone.sink();

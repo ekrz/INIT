@@ -1,5 +1,10 @@
 'use strict';
-var path      = require('../../paths.js');
+
+
+
+var path = require('../../paths.js');
+
+
 // JavaScript
 gulp.task("build-scripts", function () {
 	return gulp

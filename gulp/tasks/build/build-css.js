@@ -1,9 +1,13 @@
 'use strict';
 
+
+
+var path = require('../../paths.js');
 const critical = require('critical').stream;
 const csso = require("postcss-csso");
 const autoprefixer = require("autoprefixer");
-var path      = require('../../paths.js');
+
+
 // Post-css plugins
 var plugins = [
 	autoprefixer({

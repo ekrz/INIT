@@ -1,5 +1,10 @@
 'use strict';
-var path      = require('../../paths.js');
+
+
+
+var path = require('../../paths.js');
+
+
 // Watch
 gulp.task("watch", function () {
   gulp.watch(path.to.nunjucks.watch, ['nunjucks']);

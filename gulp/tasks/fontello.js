@@ -1,6 +1,10 @@
 'use strict';
 
-var path      = require('../paths.js');
+
+
+var path = require('../paths.js');
+
+
 // Fontello Options
 var options = {
 	css: 'scss/theme/vendors/fontello/',

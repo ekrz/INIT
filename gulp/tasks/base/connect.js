@@ -2,7 +2,8 @@
 
 
 
-var path      = require('../../paths.js');
+var path = require('../../paths.js');
+
 
 // local server
 var serverConfig = {

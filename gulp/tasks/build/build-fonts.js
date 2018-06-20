@@ -1,6 +1,10 @@
 'use strict';
 
-var path      = require('../../paths.js');
+
+
+var path = require('../../paths.js');
+
+
 // Fonts
 gulp.task("build-fonts", function () {
 	return gulp

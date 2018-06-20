@@ -1,14 +1,13 @@
-// File globs.
-
 'use strict';
 
-var path = require('path');
 
+
+var path = require('path');
 var pathToThisFile = __dirname;
 var root = path.dirname(pathToThisFile);
 var _root = root + '/src/';
-
 var destination = root + '/dist/';
+
 
 module.exports = {
 	to: {

@@ -1,5 +1,10 @@
 'use strict';
-var path      = require('../../paths.js');
+
+
+
+var path = require('../../paths.js');
+
+
 // Render Nunjucks + HTML
 gulp.task('nunjucks', function () {
 	return gulp
