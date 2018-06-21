@@ -20,46 +20,36 @@ var plugins = [
 ];
 
 // Styles (Sass)
-gulp.task('build-css', function () {
+gulp.task('build-sass', function () {
 	return gulp
 		.src(path.to.sass.main)
 		.pipe($.sass())
-		.on(
-			'error',
-			$.notify.onError(function (error) {
-				return error.message;
-			})
-		)
-		.pipe($.postcss(plugins))
 		.pipe($.rename('main.min.css'))
 		.pipe(gulp.dest(path.to.sass.destination))
 		.pipe(reload({stream: true}));
 });
 
+// PurgeCSS (with purgecss and css-purge)
+gulp.task('build-css-purge', ['build-sass'], function () {
+	return gulp
+		.src(path.to.sass.destination + '/main.min.css')
+		.pipe($.purgecss({
+			content: [path.to.nunjucks.destination + '/*.html']
+		}))
+		.pipe($.postcss(plugins))
+		.pipe($.cssPurge())
+		.pipe(gulp.dest(path.to.sass.destination))
+});
 
 // Generate & Inline Critical-path CSS
-gulp.task('build-css-critical', function () {
-	return gulp.src('dist/*.html')
+gulp.task('build-css-critical', ['build-css-purge'],  function () {
+	return gulp.src(path.to.nunjucks.destination + '/*.html')
 		.pipe(critical({
-			base: 'dist/',
+			base: path.to.nunjucks.destination,
 			inline: false,
-			css: ['dist/styles/main.min.css']
+			css: path.to.sass.destination + '/main.min.css'
 		}))
-		.on(
-			"error",
-			$.notify.onError(function (error) {
-				return error.message;
-			})
-		)
-		.pipe(gulp.dest('dist'));
+		.pipe(gulp.dest(path.to.destination));
 });
 
-// PurgeCSS
-gulp.task('build-css-purge', function () {
-	return gulp
-		.src(config.path.build.cssMain)
-		.pipe($.purgecss({
-			content: [config.path.build.htmlOutput]
-		}))
-		.pipe(gulp.dest(config.path.build.sass))
-});
+gulp.task('build-css', ['build-css-critical']);

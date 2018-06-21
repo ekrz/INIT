@@ -1,8 +1,11 @@
 "use strict";
 
+
+
 // Default gulp init-ekrz 0.2.0
 // Tasks are splitted under ./gulp/tasks/
 // Run npm install, sit back and relax.
+
 
 global.gulp         = require("gulp");
 var runSequence     = require('run-sequence');
@@ -17,7 +20,7 @@ global.reload       = browserSync.reload;
 // Require all tasks.
 requireDir('./gulp/tasks', { recurse: true });
 
-
+// Default task.
 gulp.task('default', function() {
   runSequence(
     'clean',
@@ -26,7 +29,8 @@ gulp.task('default', function() {
       'sass',
       'scripts-import',
       'scripts',
-      'images'
+      'images',
+      'fonts'
     ],
     'watch',
     'connect'

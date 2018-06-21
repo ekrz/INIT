@@ -17,7 +17,11 @@ var plugins = [
 gulp.task('sass-lint', function () {
   return gulp
 		.src(path.to.sass.source)
-    .pipe($.sassLint())
+    .pipe($.sassLint({
+			files: {
+				ignore: 'src/scss/theme/settings/fontello/fontello.scss'
+			}
+		}))
     .pipe($.sassLint.format())
     .pipe($.sassLint.failOnError())
 });
@@ -25,7 +29,7 @@ gulp.task('sass-lint', function () {
 // Styles (Sass)
 gulp.task('sass', ['sass-lint'], function () {
 	return gulp
-		.src(path.to.sass.source)
+		.src(path.to.sass.main)
 		.pipe($.sourcemaps.init())
 		.pipe($.sass())
 		.on(
