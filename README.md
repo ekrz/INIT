@@ -11,7 +11,7 @@ These instructions will get you a copy of the project up and running on your loc
 > To start init, you must have nodeJS (+ npm/yarn) and gulp installed on your machine.
 ```
 > git clone https://github.com/ekrz/init-ekrz.git {your-project}
-> cd init-ekrz
+> cd {your-project}
 > npm i
 > gulp
 ```

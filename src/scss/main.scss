@@ -1,13 +1,13 @@
 // Overwrite Bootstrap
-@import "theme/settings/boostrap-custom";
+@import 'theme/settings/boostrap-custom';
 
 // Build custom boostrap from node
-@import "./node_modules/bootstrap/scss/functions";
-@import "./node_modules/bootstrap/scss/variables";
-@import "./node_modules/bootstrap/scss/mixins";
+@import './node_modules/bootstrap/scss/functions';
+@import './node_modules/bootstrap/scss/variables';
+@import './node_modules/bootstrap/scss/mixins';
 
-@import "./node_modules/bootstrap/scss/bootstrap-reboot";
-@import "./node_modules/bootstrap/scss/bootstrap-grid";
+@import './node_modules/bootstrap/scss/bootstrap-reboot';
+@import './node_modules/bootstrap/scss/bootstrap-grid';
 
 // Get theme
 

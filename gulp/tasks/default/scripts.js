@@ -15,7 +15,8 @@ gulp.task('scripts-import', function () {
 });
 
 gulp.task('eslint', function() {
-	return gulp.src(path.to.scripts.source)
+	return gulp
+		.src(path.to.scripts.source)
 		.pipe($.eslint())
 		.pipe($.eslint.format());
 });
