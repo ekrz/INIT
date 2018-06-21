@@ -1,6 +1,10 @@
-  {% extends '../templates/_layout.njk' %}
+{# Index.html  #}
 
-  {% block main %}
+
+
+{% extends '../templates/_layout.njk' %}
+
+{% block main %}
   <style media="screen">
     body {
       display: flex;
@@ -14,8 +18,14 @@
 
       text-align: center;
 
-      color: white;
-      background: #1c1e21;
+      color: blue;
+      background: #fafafa;
+    }
+    h1 {
+      font-size: 3rem;
+    }
+    h2 {
+      font-size: 1rem;
     }
     ul {
       list-style: none;
@@ -24,24 +34,30 @@
     a {
       text-decoration: none;
       font-weight: bold;
-      color: white;
+      color: blue;
     }
-    a:hover{
-      color: white;
+    a:hover {
+      text-decoration: none;
     }
   </style>
 
   <header>
-    <h1> 2.4.0 — init-ekrz </h1>
+    <h1>
+      2.4.0 — init-ekrz
+    </h1>
   </header>
 
   <main>
     <section>
-      <h5>Bootstrap your project with Gulp+Sass+Nunjucks+Boostrap 4.</h5>
+      <h2>
+        Bootstrap your project with Gulp+Sass+Nunjucks+Boostrap 4.
+      </h2>
     </section>
   </main>
 
   <footer>
-    <span>Made by <a href="https://www.retzepter.com">ekrz</a> </span>
+    <span>Made by
+      <a href="https://www.retzepter.com">ekrz</a>
+    </span>
   </footer>
-  {% endblock %}
+{% endblock %}

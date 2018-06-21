@@ -17,13 +17,13 @@ var plugins = [
 gulp.task('sass-lint', function () {
 	return gulp
 		.src(path.to.sass.source)
-	    .pipe($.sassLint({
+    .pipe($.sassLint({
 			files: {
 				ignore: 'src/scss/theme/settings/fontello/fontello.scss'
 			}
 		}))
-	    .pipe($.sassLint.format())
-	    .pipe($.sassLint.failOnError())
+		.pipe($.sassLint.format())
+		.pipe($.sassLint.failOnError())
 });
 
 // Styles (Sass)
