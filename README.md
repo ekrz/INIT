@@ -1,4 +1,4 @@
-# init-ekrz 2.3.1
+# init-ekrz 2.4.0
 
 Generate a bootstrap 4 Sass ready project with Nunjucks templating engine. Powered by Gulp.
 
