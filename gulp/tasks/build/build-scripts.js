@@ -13,8 +13,7 @@ gulp.task('build-scripts', function () {
 			'node_modules/bootstrap/dist/js/bootstrap.js',
 			path.to.scripts.source
 		])
-		.on(
-			'error',
+		.on('error',
 			$.notify.onError(function (error) {
 				return error.message;
 			})

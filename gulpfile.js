@@ -48,6 +48,7 @@ gulp.task('build', function() {
 			'build-fonts',
 			'nunjucks'
 		],
-		'connect'
+		'connect',
+        'size'
 	);
 });

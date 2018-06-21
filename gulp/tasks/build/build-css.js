@@ -34,7 +34,9 @@ gulp.task('build-css-purge', ['build-sass'], function () {
 	return gulp
 		.src(path.to.sass.destination + '/main.min.css')
 		.pipe($.purgecss({
-			content: [path.to.nunjucks.destination + '/*.html']
+			content: [
+				path.to.nunjucks.destination + '/*.html'
+			]
 		}))
 		.pipe($.postcss(plugins))
 		.pipe($.cssPurge())

@@ -25,8 +25,7 @@ gulp.task('eslint', function() {
 gulp.task('scripts', ['eslint'], function () {
 	return gulp
 		.src(path.to.scripts.source)
-		.on(
-			'error',
+		.on('error',
 			$.notify.onError(function (error) {
 				return error.message;
 			})

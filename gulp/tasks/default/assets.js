@@ -10,7 +10,7 @@ gulp.task('assets', function () {
 	return gulp
 		.src(path.to.assets.source)
 		.pipe(gulp.dest(path.to.assets.destination))
-    .pipe(reload({stream: true}));
+		.pipe(reload({stream: true}));
 });
 
 // Fontello Options
