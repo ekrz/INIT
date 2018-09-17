@@ -22,19 +22,19 @@ requireDir('./gulp/tasks', { recurse: true });
 
 // Default task.
 gulp.task('default', function() {
-  runSequence(
+    runSequence(
     'clean',
-    [
-      'nunjucks',
-      'sass',
-      'scripts-import',
-      'scripts',
-      'images',
-      'fonts'
-    ],
-    'watch',
-    'connect'
-  );
+        [
+            'nunjucks',
+            'sass',
+            'scripts-import',
+            'scripts',
+            'images',
+            'fonts'
+        ],
+        'watch',
+        'connect'
+    );
 });
 
 // Build task.
@@ -46,7 +46,7 @@ gulp.task('build', function() {
 			'build-scripts',
 			'build-css',
 			'build-fonts',
-			'nunjucks'
+			'build-nunjucks'
 		],
 		'connect',
         'size'
