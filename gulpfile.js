@@ -10,7 +10,7 @@
 global.gulp         = require("gulp");
 var runSequence     = require('run-sequence');
 var requireDir      = require('require-dir');
-
+var path            = require('./gulp/paths.js');
 global.$            = require("gulp-load-plugins")();
 
 global.browserSync  = require("browser-sync");
@@ -51,4 +51,13 @@ gulp.task('build', function() {
 		'connect',
         'size'
 	);
+});
+
+gulp.task('watch', function () {
+    gulp.watch(path.to.nunjucks.watch, {cwd:'./'}, ['nunjucks']);
+    gulp.watch(path.to.sass.watch, {cwd:'./'}, ['sass']);
+    gulp.watch(path.to.scripts.watch, {cwd:'./'}, ['scripts']);
+    gulp.watch(path.to.images.watch, {cwd:'./'}, ['images']);
+    gulp.watch(path.to.assets.watch, {cwd:'./'}, ['assets']);
+    gulp.watch(path.to.fonts.watch, {cwd:'./'}, ['fonts']);
 });
