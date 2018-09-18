@@ -44,7 +44,8 @@ gulp.task('fonts', function () {
 });
 
 gulp.task('images', function() {
-	return gulp.src(path.to.images.source)
+	return gulp
+		.src(path.to.images.source)
 		.pipe(gulp.dest(path.to.images.destination))
 		.pipe(reload({stream: true}));
 });
