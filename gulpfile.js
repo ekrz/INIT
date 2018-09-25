@@ -53,11 +53,24 @@ gulp.task('build', function() {
 	);
 });
 
-gulp.task('watch', function () {
-    gulp.watch(path.to.nunjucks.watch, {cwd:'./'}, ['nunjucks']);
-    gulp.watch(path.to.sass.watch, {cwd:'./'}, ['sass']);
-    gulp.watch(path.to.scripts.watch, {cwd:'./'}, ['scripts']);
-    gulp.watch(path.to.images.watch, {cwd:'./'}, ['images']);
-    gulp.watch(path.to.assets.watch, {cwd:'./'}, ['assets']);
-    gulp.watch(path.to.fonts.watch, {cwd:'./'}, ['fonts']);
+gulp.task('watch', function(){
+    $.watch([path.to.nunjucks.watch], function(event, cb) {
+        gulp.start('nunjucks');
+    });
+    $.watch([path.to.sass.watch], function(event, cb) {
+        gulp.start('sass');
+    });
+    $.watch([path.to.scripts.watch], function(event, cb) {
+        gulp.start('scripts');
+    });
+    $.watch([path.to.images.watch], function(event, cb) {
+        gulp.start('images');
+    });
+    $.watch([path.to.assets.watch], function(event, cb) {
+        gulp.start('assets');
+    });
+    $.watch([path.to.fonts.watch], function(event, cb) {
+        gulp.start('fonts');
+    });
+
 });
