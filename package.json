@@ -1,7 +1,12 @@
 {
   "name": "init-ekrz",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Generate a bootstrap 4 Sass ready project powered by Gulp.",
+  "scripts": {
+    "start": "gulp default",
+    "build": "gulp build",
+    "clean": "gulp clean"
+  },
   "author": {
     "name": "Emmanuel K. Retzepter",
     "email": "hello@retzepter.com",
