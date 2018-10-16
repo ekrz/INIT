@@ -11,8 +11,7 @@ var serverConfig = {
         baseDir: path.to.destination
     },
     // proxy: 'http://site.com'
-    port: 9000,
-    tunnel: 'ekrz'
+    port: 9000
 };
 
 gulp.task('connect', function () {
