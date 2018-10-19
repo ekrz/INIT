@@ -38,7 +38,7 @@ module.exports = {
 			destination: destination + 'images'
 		},
 		nunjucks: {
-			source: [_root + '*.+(html|njk)', _root + 'pages/*.+(html|njk)'],
+			source: [_root + '*.+(html|njk)', _root + 'templates/pages/*.+(html|njk)'],
 			watch: relativeRoot + '**/*.+(html|njk)',
 			templates: _root + 'templates/',
 			destination: destination
