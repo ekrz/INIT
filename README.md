@@ -1,53 +1,115 @@
-# init-ekrz 2.4.0
+# INIT 0.5.0
 
-Generate a bootstrap 4 Sass ready project with Nunjucks templating engine. Powered by Gulp.
+###### a project by Emmanuel Kerjan Retzepter
+
+**INIT** is a boilerplate generator to help you starting templating fast.
+
+It uses Gulp, Bootstrap 4, Sass and Nunjucks engine. This whole project has been built with flexibility in mind so it adapts itself very well to any kind of dev environnement and for various purposes (process SCSS, process NJK templates, optimize images, compress Javascript, compress styles, Hotreload, etc).
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will help you to get the most of **INIT**.
 
-### Clone and go
+### Clone INIT
 
-> To start init, you must have nodeJS (+ npm/yarn) and gulp installed on your machine.
 ```
 > git clone https://github.com/ekrz/init-ekrz.git {your-project}
 > cd {your-project}
+```
+
+### Install the modules
+
+```
 > npm i
+```
+
+### Run Gulp (default)
+
+```
 > gulp
 ```
 
-### Architecture and rules
+This will run the default tasks, allowing you to set up a local server and enabling BrowserSync.
 
-#### modules
-> Try to keep the project linked with nodeJS. Do not load external elements, like plugins that couldn't be properly maintained. Prefer to use npm and its huge library to keep your dependencies up to date.
+Once you're happy to launch your styles and scripts on a live site, it is preferable that you run the second set of tasks from **INIT** : build.
+
+```
+> gulp build
+```
+
+This will remove the source-maps, decrease the size files, allow image optimisation, generate the critical CSS, etc.
+
+## Advanced utilisation and customisation
+
+**INIT** being built to be flexible means you can remove/add tasks or functionalities to your project, if needed.
+
+### BrowserSync proxy
+
+If you work locally on your project but also need to serve your files on a distant server, you might need to activate BrowserSync proxy to enjoy hot reload and others.
+
+To do so, comment out the server element for the proxy option in /gulp/base/connect.js :
+
+```
+var  serverConfig  =  {
+	//server:  {
+	//	baseDir:  path.to.destination
+	//},
+	proxy: 'http://site.com'
+	port:  9000,
+	open:  false
+};
+```
+
+### Serve output to a distant server
+
+You might need to upload your styling or scripts on a distant server, in combination with the BrowserSync proxy configuration.
+
+To do so, you will need to edit the paths in /gulp/paths.js and in the relative tasks.
+
+## **INIT** Architecture and rules
+
+#### Modules
+
+Try to keep the project linked with nodeJS. Do not load external elements, like plugins that couldn't be properly maintained.
+
+Prefer using npm and its huge library to keep your dependencies up to date.
+
+> Example : If you need to include slick carousel, use https://www.npmjs.com/package/slick-carousel instead of an external dependency.
 
 #### Styles
-> The whole architecture is based on ITCSS to allow a great control on the long-run of your project.
+
+**INIT** uses Sass, and an architecture inspired by ITCSS (https://itcss.io/), allowing scalability and a great maintenance of your project on the long run.
+
+> That be said, you can more or less adapt your styling structure to what your project actually requests.
+> Example : not every project will need an "object" section.
 
 #### Nunjucks
-> Use Nunjucks to split your markup code, and unlock great functionalities. This will save you precious time and allow eventual collaborators to take on your project faster.
+
+With the help of Nunjucks, you will be able to deploy your templates faster and unlock new levels of collaboration.
+
+> You can easily share, reuse and maintain components structure with Nunjucks. On the long term, you could have a shareable library available for your team.
 
 #### JavaScript
-> This project use bootstrap 4 and jQuery. Write your JavaScript within /js/site.js, it will automatically compile with jQuery and Boostrap on the output (in a minified version).
 
+**INIT** uses jQuery and Bootstrap 4 Javascript.
+You can write your custom JavaScript under /js/site.js. This will automatically compile with the two formers libraries to an unique and minified JavaScript file.
 
 ## Built With
 
-* [Bootstrap 4](https://github.com/twbs/bootstrap) - The most popular framework for developing projects.
-* [Gulp](https://github.com/gulpjs/gulp) - The streaming build system.
-* [Nunjucks](https://mozilla.github.io/nunjucks/) - A rich and powerful templating language for JavaScript.
-* [Sass](https://github.com/sass/sass) - Sass makes CSS fun again.
+- [Bootstrap 4](https://github.com/twbs/bootstrap) – The most popular framework for developing projects.
 
+- [Gulp](https://github.com/gulpjs/gulp) – The streaming build system.
+
+- [Nunjucks](https://mozilla.github.io/nunjucks/) – A rich and powerful templating language for JavaScript.
+
+- [Sass](https://github.com/sass/sass) – Sass makes CSS fun again.
+
+- [BrowserSync](https://browsersync.io/) – Time-saving synchronised browser testing.
 
 ## Authors
 
-* **Emmanuel K. Retzepter** - *Initial work* - [ekrz](https://github.com/ekrz)
-
+- **Emmanuel Kerjan Retzepter** – [Github](https://github.com/ekrz), [Twitter](https://twitter.com/ekrzzz)
 
 ## License
 
 > This project is licensed under the MIT License.
-
-## Acknowledgments
-
-> Hat tip to anyone who's code was used
