@@ -19,7 +19,7 @@
 
       text-align: center;
 
-      color: blue;
+      color: #FF0000;
       background: #fafafa;
     }
     h1 {
@@ -35,30 +35,40 @@
     a {
       text-decoration: none;
       font-weight: bold;
-      color: blue;
+      color: #FF0000;
     }
     a:hover {
       text-decoration: none;
     }
+    footer span {
+      display:block;
+      margin-top:30px;
+    }
+    footer a,
+    footer span{
+      font-size:10px;
+      opacity:.75;
+    }
   </style>
 
   <header>
+    <img src="images/init-logo.svg" alt="INIT">
     <h1>
-      0.4.2 — init-ekrz
+      0.5.0
     </h1>
   </header>
 
   <main>
     <section>
       <h2>
-        Bootstrap your project with Gulp+Sass+Nunjucks+Boostrap 4.
+        <strong>INIT</strong> is a boilerplate generator to help you starting templating fast.
       </h2>
     </section>
   </main>
 
   <footer>
     <span>Made by
-      <a href="https://www.retzepter.com">ekrz</a>
+      <a href="https://www.retzepter.com">Emmanuel Kerjan Retzepter</a>
     </span>
   </footer>
 {% endblock %}

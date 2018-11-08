@@ -1,7 +1,7 @@
 {
-  "name": "init-ekrz",
-  "version": "0.4.3",
-  "description": "Generate a bootstrap 4 Sass ready project powered by Gulp.",
+  "name": "init",
+  "version": "0.5.0",
+  "description": "INIT is a boilerplate generator to help you starting templating fast.",
   "scripts": {
     "start": "gulp default",
     "build": "gulp build",
