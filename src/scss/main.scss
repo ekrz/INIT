@@ -3,15 +3,15 @@
 
 
 // Overwrite Bootstrap
-@import 'theme/settings/boostrap-custom';
+@import "theme/settings/boostrap-custom";
 
 // Build custom boostrap from node
-@import './node_modules/bootstrap/scss/functions';
-@import './node_modules/bootstrap/scss/variables';
-@import './node_modules/bootstrap/scss/mixins';
+@import "./node_modules/bootstrap/scss/functions";
+@import "./node_modules/bootstrap/scss/variables";
+@import "./node_modules/bootstrap/scss/mixins";
 
-@import './node_modules/bootstrap/scss/bootstrap-reboot';
-@import './node_modules/bootstrap/scss/bootstrap-grid';
+@import "./node_modules/bootstrap/scss/bootstrap-reboot";
+@import "./node_modules/bootstrap/scss/bootstrap-grid";
 
 // Get theme
 
@@ -23,10 +23,10 @@
 // [6] Components ----- Your designed UI elements (inuitcss includes none of these).
 // [7] Utilities ------ Overrides and helper classes.
 
-@import 'theme/settings/include';
-@import 'theme/tools/include';
-@import 'theme/generic/include';
-@import 'theme/elements/include';
-@import 'theme/objects/include';
-@import 'theme/components/include';
-@import 'theme/utilities/include';
+@import "theme/settings/include";
+@import "theme/tools/include";
+@import "theme/generic/include";
+@import "theme/elements/include";
+@import "theme/objects/include";
+@import "theme/components/include";
+@import "theme/utilities/include";
