@@ -6,12 +6,25 @@
 @import "theme/settings/boostrap-custom";
 
 // Build custom boostrap from node
+
+// Essential Bootstrap
 @import "./node_modules/bootstrap/scss/functions";
 @import "./node_modules/bootstrap/scss/variables";
 @import "./node_modules/bootstrap/scss/mixins";
 
 @import "./node_modules/bootstrap/scss/bootstrap-reboot";
 @import "./node_modules/bootstrap/scss/bootstrap-grid";
+
+// Bootstrap components, import with caution.
+@import "./node_modules/bootstrap/scss/buttons";
+@import "./node_modules/bootstrap/scss/forms";
+@import "./node_modules/bootstrap/scss/dropdown";
+@import "./node_modules/bootstrap/scss/nav";
+@import "./node_modules/bootstrap/scss/navbar";
+@import "./node_modules/bootstrap/scss/card";
+@import "./node_modules/bootstrap/scss/modal";
+
+@import "./node_modules/bootstrap/scss/transitions";
 
 // Get theme
 
