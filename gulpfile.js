@@ -2,9 +2,8 @@
 
 
 
-// Default gulp init-ekrz 0.2.0
-// Tasks are splitted under ./gulp/tasks/
-// Run npm install, sit back and relax.
+// !:Tasks are splitted under ./gulp/tasks/
+// ::Run npm install, sit back and relax.
 
 
 global.gulp         = require("gulp");
