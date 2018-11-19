@@ -4,8 +4,10 @@
 
 // @usage - @include truncate(300px); - To truncate the text after 300px in width
 @mixin truncate($width) {
-  max-width: $width;
-  white-space: nowrap;
   overflow: hidden;
+
+  max-width: $width;
+
+  white-space: nowrap;
   text-overflow: ellipsis;
 }
