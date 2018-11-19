@@ -1,0 +1,18 @@
+// Mixin for quick margin (usefull to not forget one of the four values)
+
+// @params{$top} - The margin-top value
+// @params{$right} - The margin-right value
+// @params{$bottom} - The margin-bottom value
+// @params{$left} - The margin-left value
+
+// @usage - @include padding(10px); - To define top, bottom, left and right margin to 10px
+// @usage - @include margin(10px, 15px); - To define top and bottom margin to 10px and left and right margin to 15px
+// @usage - @include margin(10px, 15px, 13px); - To define top margin to 10px, left and right margin to 15px and bottom margin to 13px
+// @usage - @include margin(10px, 5px, 6px, 8px); - To define top margin to 10px, right margin to 5px, bottom margin to 6px and left margin to 8px
+// @usage - @include margin(10px, null, null, null); - To define margin-top only to 10px 
+@mixin margin($top, $right: $top, $bottom: $top, $left: $right) {
+  margin-top: $top;
+  margin-right: $right;
+  margin-bottom: $bottom;
+  margin-left: $left;
+}

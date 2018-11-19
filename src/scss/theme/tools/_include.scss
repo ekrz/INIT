@@ -1,9 +1,13 @@
-@import "functions/px-to-em";
+@import "mixins/fn-px-to-em";
 
-@import "mixins/center";
-@import "mixins/css-triangle";
-@import "mixins/gradient";
-@import "mixins/hardware";
-@import "mixins/pseudo";
-@import "mixins/push-auto";
-@import "mixins/responsive-ratio";
+@import "mixins/mx-center";
+@import "mixins/mx-css-triangle";
+@import "mixins/mx-font";
+@import "mixins/mx-font-size";
+@import "mixins/mx-gradient";
+@import "mixins/mx-hardware";
+@import "mixins/mx-margin";
+@import "mixins/mx-padding";
+@import "mixins/mx-pseudo";
+@import "mixins/mx-push-auto";
+@import "mixins/mx-responsive-ratio";

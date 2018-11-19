@@ -1,0 +1,10 @@
+// Mixin to convert a font-size from px to rem
+
+// @params {$fontsize} - Default to 16px, the value of the fontsize in px we want to convert to rem
+// @params {$linesize} - Default to 22px, the value of the lineheight in px we want to convert to rem
+@mixin font-size($fontsize: 16, $linesize: 22) {
+  font-size: $fontsize + px;
+  font-size: ($fontsize / $baseline) + rem;
+  line-height: $linesize + px;
+  line-height: ($linesize / $baseline) + rem;
+}
