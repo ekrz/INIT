@@ -31,8 +31,8 @@ gulp.task('fontello', function () {
 gulp.task('fontello-sass', ['fontello'], function () {
 	return gulp
 		.src(options.css + 'fontello.css')
-		.pipe($.extReplace('.scss'))
-		.pipe(gulp.dest('src/scss/theme/settings/fontello/'))
+		.pipe($.concat('_s.fontello.scss'))
+		.pipe(gulp.dest('src/scss/theme/settings/'))
 });
 
 // Any other assets from /assets/
