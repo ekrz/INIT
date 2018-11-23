@@ -47,11 +47,11 @@ gulp.task('build', function() {
 			'build-fonts',
 			'build-nunjucks'
 		],
-		'connect',
         'size'
 	);
 });
 
+// Watch task.
 gulp.task('watch', function(){
     $.watch([path.to.nunjucks.watch], function(event, cb) {
         gulp.start('nunjucks');
