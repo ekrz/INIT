@@ -10,7 +10,7 @@ gulp.task('nunjucks', function () {
 	return gulp
     .src(path.to.nunjucks.source)
 		.pipe($.nunjucksRender({
-			path: [path.to.nunjucks.templates]
+			path: [path.to.nunjucks.views]
 		}))
 		.on('error',
 			$.notify.onError(function (error) {
@@ -26,7 +26,7 @@ gulp.task('build-nunjucks', function () {
 	return gulp
     .src(path.to.nunjucks.source)
 		.pipe($.nunjucksRender({
-			path: [path.to.nunjucks.templates]
+			path: [path.to.nunjucks.views]
 		}))
 		.on('error',
 			$.notify.onError(function (error) {
