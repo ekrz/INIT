@@ -1,0 +1,22 @@
+{# 
+
+    !: Layout : Main 
+    ::: Import config, include <head> and <scripts>, navbar and footer.
+
+ #}
+
+
+{% import "../_config.njk" as config %}
+
+
+{% include "../components/_<head>.njk" %}
+<body class="{{body_class}}">
+    {# {% include "../components/_navbar.njk" %} #}
+
+	{% block main %}
+	{% endblock %}
+
+	{# {% include "../components/_footer.njk" %} #}
+	{% include "../components/_<scripts>.njk" %}
+</body>
+</html>
