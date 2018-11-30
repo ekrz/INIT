@@ -1,0 +1,13 @@
+// !: Elements – Pages
+
+body {
+
+  font-family: $font-base;
+
+}
+p {
+  @include font-size(14px, 22px);
+  @include media-breakpoint-up(lg) {
+    @include font-size(18px, 28px);
+  }
+}
