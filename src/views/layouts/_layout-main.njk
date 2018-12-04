@@ -11,12 +11,15 @@
 
 {% include "../components/_<head>.njk" %}
 <body class="{{body_class}}">
-    {# {% include "../components/_navbar.njk" %} #}
 
+    {# NOTE:
+        ::: This template can be used without any Nunjucks knowledge.
+        ::: Complete your template by inserting your markup and content in /templates/my-template.njk
+    !:#}
 	{% block main %}
+
 	{% endblock %}
 
-	{# {% include "../components/_footer.njk" %} #}
 	{% include "../components/_<scripts>.njk" %}
 </body>
 </html>
