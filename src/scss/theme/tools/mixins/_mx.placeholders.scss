@@ -1,0 +1,17 @@
+// Mixin to colourize placeholders
+
+// @params {$colour} - Default to white, the color of the placeholder we want
+@mixin placeholder($color: white) {
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+  &::-moz-placeholder {
+    color: $color;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+  &:-moz-placeholder {
+    color: $color;
+  }
+}
