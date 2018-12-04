@@ -1,0 +1,33 @@
+// Override built-in Boostrap variables
+// ::: Container widths
+// $container-max-widths: (
+//   sm: 540px,
+//   md: 720px,
+//   lg: 960px,
+//   xl: 1300px
+// ) !default;
+
+// ::: Link default
+$link-color:$color-brand;
+$link-hover-decoration: none;
+
+// ::: Nav link padding
+// $nav-link-padding-y: 0 !default;
+// $nav-link-padding-x: 0 !default;
+
+// ::: Navbar link padding
+// $navbar-nav-link-padding-x: 0.75em !default;
+// $navbar-nav-link-padding-x: 0.75em !default;
+
+// ::: Input height
+// $input-height: 50px !default;
+
+// ::: Input radius
+$input-border-radius: $base-radius !default;
+
+// ::: Input border
+// $input-border-width: 0 !default;
+
+// ::: Input padding
+// $input-padding-y: 15px !default;
+// $input-padding-x: 15px !default;

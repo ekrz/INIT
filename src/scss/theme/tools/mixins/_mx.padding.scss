@@ -1,0 +1,18 @@
+// Mixin for quick padding (usefull to not forget one of the four values)
+
+// @params{$top} - The padding-top value
+// @params{$right} - The padding-right value
+// @params{$bottom} - The padding-bottom value
+// @params{$left} - The padding-left value
+
+// @usage - @include padding(10px); - To define top, bottom, left and right padding to 10px
+// @usage - @include padding(10px, 15px); - To define top and bottom padding to 10px and left and right padding to 15px
+// @usage - @include padding(10px, 15px, 13px); - To define top padding to 10px, left and right padding to 15px and bottom padding to 13px
+// @usage - @include padding(10px, 5px, 6px, 8px); - To define top padding to 10px, right padding to 5px, bottom padding to 6px and left padding to 8px
+// @usage - @include padding(10px, null, null, null); - To define padding-top only to 10px 
+@mixin padding($top, $right: $top, $bottom: $top, $left: $right) {
+  padding-top: $top;
+  padding-right: $right;
+  padding-bottom: $bottom;
+  padding-left: $left;
+}
