@@ -1,13 +1,12 @@
 // !: Elements – Links
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 
-  color: $color-link;
+    color: $color-link;
 
-  &:hover,
-  &:focus {
-    color: $color-link-hover;
-  }
+    &:hover,
+    &:focus {
+        color: $color-link-hover;
+    }
 }
-

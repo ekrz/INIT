@@ -1,6 +1,6 @@
 @mixin hardware($backface: true, $perspective: 1000) {
-  perspective: $perspective;
-  @if $backface {
-    backface-visibility: hidden;
-  }
+    perspective: $perspective;
+    @if $backface {
+        backface-visibility: hidden;
+    }
 }
