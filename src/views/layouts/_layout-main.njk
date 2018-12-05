@@ -5,9 +5,7 @@
 
  #}
 
-
 {% import "../_config.njk" as config %}
-
 
 {% include "../components/_<head>.njk" %}
 <body class="{{body_class}}">
@@ -16,10 +14,8 @@
         ::: This template can be used without any Nunjucks knowledge.
         ::: Complete your template by inserting your markup and content in /templates/my-template.njk
     !:#}
-	{% block main %}
+    {% block main %}{% endblock %}
 
-	{% endblock %}
-
-	{% include "../components/_<scripts>.njk" %}
+    {% include "../components/_<scripts>.njk" %}
 </body>
 </html>

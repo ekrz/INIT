@@ -11,8 +11,8 @@
 // @usage - @include padding(10px, 5px, 6px, 8px); - To define top padding to 10px, right padding to 5px, bottom padding to 6px and left padding to 8px
 // @usage - @include padding(10px, null, null, null); - To define padding-top only to 10px 
 @mixin padding($top, $right: $top, $bottom: $top, $left: $right) {
-  padding-top: $top;
-  padding-right: $right;
-  padding-bottom: $bottom;
-  padding-left: $left;
+    padding-top: $top;
+    padding-right: $right;
+    padding-bottom: $bottom;
+    padding-left: $left;
 }

@@ -1,13 +1,13 @@
 @mixin responsive-ratio($x,$y, $pseudo: false) {
-  $padding: unquote( ( $y / $x ) * 100 + "%" );
-  @if $pseudo {
-    &:before {
-      @include pseudo($pos: relative);
+    $padding: unquote( ( $y / $x ) * 100 + "%" );
+    @if $pseudo {
+        &:before {
+            @include pseudo($pos: relative);
 
-      width: 100%;
-      padding-top: $padding;
+            width: 100%;
+            padding-top: $padding;
+        }
+    } @else {
+        padding-top: $padding;
     }
-  } @else {
-    padding-top: $padding;
-  }
 }

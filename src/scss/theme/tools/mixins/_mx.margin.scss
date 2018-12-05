@@ -11,8 +11,8 @@
 // @usage - @include margin(10px, 5px, 6px, 8px); - To define top margin to 10px, right margin to 5px, bottom margin to 6px and left margin to 8px
 // @usage - @include margin(10px, null, null, null); - To define margin-top only to 10px 
 @mixin margin($top, $right: $top, $bottom: $top, $left: $right) {
-  margin-top: $top;
-  margin-right: $right;
-  margin-bottom: $bottom;
-  margin-left: $left;
+    margin-top: $top;
+    margin-right: $right;
+    margin-bottom: $bottom;
+    margin-left: $left;
 }

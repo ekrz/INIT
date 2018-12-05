@@ -23,18 +23,18 @@ $hamburger-active-hover-filter: $hamburger-hover-filter !default;
 // Types (Remove or comment out what you don’t need)
 // ==================================================
 $hamburger-types: (
-  spring
+    spring
 ) !default;
 
 @import "./node_modules/hamburgers/_sass/hamburgers/base";
 @import "./node_modules/hamburgers/_sass/hamburgers/types/spring";
 
 .hamburger {
-  @include media-breakpoint-up(lg) {
-    display: none;
-  }
+    z-index: $zindex-fixed;
 
-  z-index: $zindex-fixed;
+    display: flex;
 
-  display: flex;
+    @include media-breakpoint-up(lg) {
+        display: none;
+    }
 }
