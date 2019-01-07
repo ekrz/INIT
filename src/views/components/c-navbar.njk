@@ -4,61 +4,55 @@
   :: Requires : _navbar.scss, _nav.scss, _buttons.scss, _forms.scss from Bootstrap
 
 #}
-
-
-
 <nav class="c-navbar navbar navbar-expand-lg fixed-top">
-  <div class="container">
-    <a class="navbar-brand mr-auto mr-lg-0" href="homepage.html">
-      <img src="images/logo.svg" alt="Quintas">
-    </a>
-
-    <a class="btn btn-dark mr-4 d-lg-none" href="#" role="button">Contact Us</a>
-
-    <button class="hamburger hamburger--spring p-0 border-0" type="button" data-toggle="menu-offcanvas">
-      <span class="hamburger-box">
-        <span class="hamburger-inner"></span>
-      </span>
-    </button>
-
-    <div class="navbar-collapse offcanvas-collapse" id="offcanvas-navbar">
-      <ul class="navbar-nav mx-auto mr-lg-0">
-        <li class="nav-item active">
-          <a class="nav-link" href="team.html">People <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="services.html">Services</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="testimonials.html">Testimonials</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="news.html">News</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="resources.html">Resources</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Careers</a>
-        </li>
-        <li class="nav-item d-lg-none">
-          <a class="nav-link" href="#">Contact Us</a>
-        </li>
-      </ul>
-
-      <form class="c-navbar__form form-inline my-2 mx-auto d-lg-none">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        <button class="c-navbar__submit btn btn-link" type="submit">
-          <img class="icon icon--white" src="images/icons/icon-search.svg" alt="Search">
-        </button>
-      </form>
-
-      <div class="c-navbar__actions d-none d-lg-block">
-        <a class="btn btn-link btn--search" href="#" role="button">
-          <img class="icon icon--black" src="images/icons/icon-search.svg" alt="Search">
+    <div class="container">
+        <a class="navbar-brand mr-auto mr-lg-0" href="homepage.html">
+            <img src="images/logo.svg" alt="Quintas">
         </a>
-        <a class="btn btn-dark btn--contact" href="#" role="button">Contact Us</a>
-      </div>
+        <a class="btn btn-dark mr-4 d-lg-none" href="#" role="button">Contact Us</a>
+        <button class="hamburger hamburger--spring p-0 border-0" data-toggle="menu-offcanvas" type="button">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
+        <div class="navbar-collapse offcanvas-collapse" id="offcanvas-navbar">
+            <ul class="navbar-nav mx-auto mr-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="team.html">People
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="services.html">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="testimonials.html">Testimonials</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="news.html">News</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="resources.html">Resources</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Careers</a>
+                </li>
+                <li class="nav-item d-lg-none">
+                    <a class="nav-link" href="#">Contact Us</a>
+                </li>
+            </ul>
+            <form class="c-navbar__form form-inline my-2 mx-auto d-lg-none">
+                <input aria-label="Search" class="form-control mr-sm-2" placeholder="Search" type="text"/>
+                <button class="c-navbar__submit btn btn-link" type="submit">
+                    <img alt="Search" class="icon icon--white" src="images/icons/icon-search.svg">
+                </button>
+            </form>
+            <div class="c-navbar__actions d-none d-lg-block">
+                <a class="btn btn-link btn--search" href="#" role="button">
+                    <img alt="Search" class="icon icon--black" src="images/icons/icon-search.svg"></a>
+                <a class="btn btn-dark btn--contact" href="#" role="button">Contact Us</a>
+            </div>
+        </div>
     </div>
-  </div>
 </nav>
+    

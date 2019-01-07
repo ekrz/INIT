@@ -7,7 +7,7 @@
 
 
 <!-- Banner -->
-{% macro new (extraClass, overlay, heading, subheading) %}
+{% macro new (extraClass, heading, subheading) %}
 <section class="banner {{extraClass}}">
    <div class="banner__container">
       <div class="slider">
@@ -16,18 +16,24 @@
             <div class="slider__image">
                <!-- NOTE : 4 images for a happy front-end! -->
                <picture>
+                
                   <source media='(min-width: 1440px)'
-                     srcset='images/background-1.jpg'>
+                     srcset='https://dummyimage.com/1920x500.jpg'>
+
                   <source media='(min-width: 992px)'
-                     srcset='images/background-1.jpg'>
+                     srcset='https://dummyimage.com/1440x500.jpg'>
+
                   <source media='(min-width: 768px)'
-                     srcset='images/background-1.jpg'>
+                     srcset='https://dummyimage.com/992x500.jpg'>
+
                   <source media='(min-width: 0px)'
-                     srcset='images/background-1.jpg'>
-                  <img src='images/background-1.jpg' alt='Quintas Team'>
+                     srcset='https://dummyimage.com/768x500.jpg'>
+
+                  <img src='https://dummyimage.com/1920x500.jpg' alt=''>
+
                </picture>
             </div>
-            {% if overlay %}
+            {% if heading %}
                <div class="slider__container">
                   <div class="slider__overlay">
                      <h1>{{heading}}</h1>

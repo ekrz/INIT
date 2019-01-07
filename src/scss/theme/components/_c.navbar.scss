@@ -84,14 +84,13 @@
     }
     .navbar-collapse {
         display: flex;
+        align-items: center;
 
         @include media-breakpoint-down(md) {
             flex-direction: column;
 
             padding-top: 75px; // Navbar height
         }
-
-        align-items: center;
     }
     .nav-item {
         &.active {
@@ -166,13 +165,12 @@
 
     @include media-breakpoint-up(lg) {
         display: flex;
+        align-items: center;
+        justify-content: center;
 
         margin-left: 25px;
         padding-top: 15px;
         padding-bottom: 15px;
-
-        align-items: center;
-        justify-content: center;
     }
     &::before {
         @include pseudo();

@@ -4,19 +4,18 @@
   :: Requires : /scss/_c.newsletter.scss
   
 #}
-
+{% import "../_config.njk" as config %}
 <footer class="footer">
   <div class="container">
     <div class="row">
       <div class="col-12 col-md-6">
-          <img src="images/logo-tagline-white.svg" alt="Quintas, knowing what counts">
+          <img src="images/logo.svg" alt="">
           <p>Heron House, Blackpool Park, Blackpool, Cork, Ireland. T23 R50R</p>
           <p>
-            <a href="tel:+353 21 4641400">+353 21 4641400</a> 
-            | 
-            <a href="mailto:info@quintas.ie">info@quintas.ie</a> 
+            <a href="tel:+0897069898">+(089)7069898</a>
+            <a href="mailto:test@test.test">test@test.test</a> 
           </p>
-          <p>© 2018 Quintas   |   Built by <a href="https://granite.ie">Granite Digital</a></p>
+          <p>© 2019 {{config.projectTitle}}   |   Built by <a href="https://granite.ie">Granite Digital</a></p>
       </div>
       <div class="col-12 col-md-4 offset-md-2">
         <div class="row">
@@ -44,5 +43,3 @@
     </div>
   </div>
 </footer>
-
-<div id="offcanvas-overlay" class="offcanvas-overlay"></div>
