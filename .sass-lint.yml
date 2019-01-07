@@ -85,6 +85,8 @@ rules:
         - flex-direction
         - flex-order
         - flex-pack
+        - align-items
+        - justify-content
         - flex-align
         - null
         - "-webkit-box-sizing"
