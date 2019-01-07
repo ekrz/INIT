@@ -1,0 +1,240 @@
+// !: INIT Component – Navbar
+
+// Offcanvas limit : md (991px)
+
+@include media-breakpoint-down(md) {
+    .offcanvas-collapse {
+        position: fixed;
+        top: 0; /* Height of navbar */
+        bottom: 0;
+        left: 100%;
+
+        visibility: hidden;
+        overflow-y: auto;
+
+        width: 100%;
+        padding-right: 1rem;
+        padding-left: 1rem;
+
+        transition-timing-function: ease-in-out;
+        transition-duration: 0.3s;
+        transition-property: left, visibility;
+
+        background-color: $color-black;
+    }
+    .offcanvas-collapse.open {
+        left: 0;
+
+        visibility: visible;
+    }
+}
+
+// Custom Navbar styling
+.c-navbar {
+    background-color: $color-white;
+    box-shadow: 0 0 20px 0 rgba($color-black, 0.1);
+
+    @include media-breakpoint-up(lg) {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+    }
+    @include media-breakpoint-up(xl) {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    @include media-breakpoint-down(md) {
+        height: 75px;
+    }
+    @include media-breakpoint-down(xxxs) {
+        .btn {
+            @include font-size(12px);
+
+            padding: 4px;
+        }
+    }
+
+    .navbar-brand {
+        svg,
+        img {
+            width: 100%;
+            max-width: 140px;
+
+            @include media-breakpoint-up(lg) {
+                max-width: 150px;
+            }
+            @include media-breakpoint-up(xl) {
+                max-width: 300px;
+            }
+            @include media-breakpoint-down(xxxs) {
+                max-width: 100px;
+            }
+        }
+    }
+    .navbar-nav {
+        @include media-breakpoint-up(lg) {
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+        @include media-breakpoint-down(md) {
+            width: 100%;
+            max-width: 225px;
+            // padding-right: 50px;
+            // padding-left: 50px;
+        }
+    }
+    .navbar-collapse {
+        display: flex;
+
+        @include media-breakpoint-down(md) {
+            flex-direction: column;
+
+            padding-top: 75px; // Navbar height
+        }
+
+        align-items: center;
+    }
+    .nav-item {
+        &.active {
+            .nav-link {
+                @include media-breakpoint-up(lg) {
+                    font-weight: 600;
+
+                    position: relative;
+
+                    color: $color-brand;
+                    // &:after {
+                    //     @include pseudo;
+                    //     @include center(horizontal);
+
+                    //     bottom: -15px;
+
+                    //     width: 20px;
+                    //     height: 2px;
+
+                    //     background-color: $color-brand;
+                    // }
+                }
+            }
+        }
+    }
+    .nav-link {
+        @include font-size(26px, 46px);
+
+        color: $color-white;
+
+        @include media-breakpoint-up(lg) {
+            @include font-size(14px);
+
+            color: $color-black;
+        }
+        @include media-breakpoint-up(xl) {
+            @include font-size(18px);
+        }
+        &:hover {
+            color: $color-brand;
+        }
+    }
+}
+
+.c-navbar__form {
+    position: relative;
+
+    @include media-breakpoint-down(md) {
+        max-width: 225px;
+    }
+    .form-control {
+        @include font-size(14px);
+        @include placeholder();
+
+        border: 0;
+        background-color: $color-gray;
+
+        @include media-breakpoint-down(md) {
+            padding-right: 35px;
+            padding-left: 10px;
+        }
+    }
+}
+.c-navbar__submit {
+    @include center(vertical);
+
+    position: absolute;
+    right: 20px;
+}
+.c-navbar__actions {
+    position: relative;
+
+    @include media-breakpoint-up(lg) {
+        display: flex;
+
+        margin-left: 25px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+
+        align-items: center;
+        justify-content: center;
+    }
+    &::before {
+        @include pseudo();
+        @include center(vertical);
+
+        width: 2px;
+        height: 60px;
+
+        background-color: $color-gray;
+    }
+    .btn--search {
+        @include media-breakpoint-up(lg) {
+            margin-right: 10px;
+            margin-left: 10px;
+            padding: 10px;
+        }
+    }
+    .btn--contact {
+        @include media-breakpoint-up(lg) {
+            padding: 15px 30px;
+        }
+    }
+}
+.c-navbar__extra {
+    @include font-size(11px, 1);
+
+    position: absolute;
+    right: -5px;
+
+    margin-top: 5px;
+    padding: 5px;
+    a {
+        @include font-size(11px, 1);
+
+        padding: 5px;
+
+        color: $color-white;
+        border-radius: $base-radius;
+        background-color: #343A40;
+    }
+}
+.c-navbar__floating {
+    position: absolute;
+    right: -40px;
+    bottom: -200px;
+
+    padding: 5px;
+
+    transform: rotate(-90deg);
+
+    @include media-breakpoint-down(md) {
+        display: none;
+    }
+
+    a {
+        @include font-size(16px, 1);
+
+        padding: 20px;
+
+        color: $color-white;
+        border-top-left-radius: $base-radius;
+        border-top-right-radius: $base-radius;
+        background-color: $color-brand-highlight;
+    }
+}

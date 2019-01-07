@@ -1,0 +1,42 @@
+{#
+
+  !: INIT Component – Banner
+  :: Requires : /scss/_c.banner.scss + init its slider in /scripts/main.js
+  
+#}
+
+
+<!-- Banner -->
+{% macro new (extraClass, overlay, heading, subheading) %}
+<section class="banner {{extraClass}}">
+   <div class="banner__container">
+      <div class="slider">
+         <!-- If single image -->
+         <div class="slider__item">
+            <div class="slider__image">
+               <!-- NOTE : 4 images for a happy front-end! -->
+               <picture>
+                  <source media='(min-width: 1440px)'
+                     srcset='images/background-1.jpg'>
+                  <source media='(min-width: 992px)'
+                     srcset='images/background-1.jpg'>
+                  <source media='(min-width: 768px)'
+                     srcset='images/background-1.jpg'>
+                  <source media='(min-width: 0px)'
+                     srcset='images/background-1.jpg'>
+                  <img src='images/background-1.jpg' alt='Quintas Team'>
+               </picture>
+            </div>
+            {% if overlay %}
+               <div class="slider__container">
+                  <div class="slider__overlay">
+                     <h1>{{heading}}</h1>
+                     <p>{{subheading}}</p>
+                  </div>
+               </div>
+            {% endif %}
+        </div>
+      </div>
+    </div>
+</section>
+{% endmacro %}

@@ -1,6 +1,16 @@
 "use strict";
 
 $(function() {
+    // ::: Hamburger Toggle
+    $('[data-toggle="menu-offcanvas"]').on("click", function() {
+        $(this).toggleClass("is-active");
+        $(this)
+            .next("#offcanvas-navbar")
+            .toggleClass("open");
+    });
+
+
+    
 	renderInlineSVG();
 });
 

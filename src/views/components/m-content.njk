@@ -1,0 +1,22 @@
+{#
+
+  !: INIT Component – Content
+  
+#}
+
+{% macro new (heading, text) %}
+  <section class="content" style="text-align:center">
+    <div class="container">
+        <h2>{{heading}}</h2>
+        <p>{{text}}</p>
+    </div>
+  </section>
+{% endmacro %}
+
+{% macro freeText () %}
+  <section class="content">
+    <div class="container">
+        {{caller()}}
+    </div>
+  </section>
+{% endmacro %}

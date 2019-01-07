@@ -1,0 +1,21 @@
+{#
+
+  !: Bootstrap component – Card
+  :: Requires : _c.card.scss from Bootstrap
+
+#}
+
+
+
+
+{% macro new(image, date, title, text, link) %}
+<div class="card card--simple">
+    <img class="card-img-top" src="images/{{image}}" alt="">
+    <div class="card-body">
+        <span class="card-date">{{date}}</span>
+        <h5 class="card-title">{{title}}</h5>
+        <p class="card-text">{{text}}</p>
+        <a href="/" class="card-link">{{link}}</a>
+    </div>
+</div>
+{% endmacro %}

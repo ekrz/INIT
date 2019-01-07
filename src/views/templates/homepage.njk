@@ -1,0 +1,26 @@
+{% import "./_config.njk" as config %}
+{% set extra = true %}
+{% import './components/m-banner.njk' as banner %}
+{% import './components/m-content.njk' as content %}
+
+{% include "./components/_head.njk" %}
+<body>
+    {% include './components/c-navbar.njk' %}
+
+    {{banner.new(
+		'banner--large banner--right',
+		true,
+		'Knowing What Counts',
+		'Audit  |  Tax  |  Advisory  |  Wealth'
+	)}}
+
+    {{content.new(
+		'Why Choose Quintas?',
+		'We are one of Irelands leading accountancy firms, offering our clients market leading business and personal financial solutions. Our objective is to enhance your business through our expertise.'
+	)}}
+
+    {% include './components/c-footer.njk' %}
+
+    {% include "./components/_scripts.njk" %}
+</body>
+</html>

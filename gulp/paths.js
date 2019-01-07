@@ -9,6 +9,8 @@ var _root = root + '/src/';
 var relativeRoot = 'src/';
 var destination = root + '/dist/';
 
+// var distantDestination = '/Volumes/Websites-WinDev/';
+// var gdwinRoot = 'yoursite.gdwin.net/'
 
 module.exports = {
 	to: {
@@ -47,7 +49,8 @@ module.exports = {
 			source: _root + 'scss/**/*.scss',
 			watch: relativeRoot + 'scss/**/*.scss',
 			main: _root + 'scss/main.scss',
-			destination: destination + 'styles'
+            destination: destination + 'styles',
+            // gdwin: distantDestination + gdwinRoot + "styles",
 		},
 		scripts: {
 			source: _root + 'scripts/**/*.js',
