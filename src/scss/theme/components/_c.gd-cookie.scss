@@ -1,0 +1,35 @@
+// !: GD Component – Cookie
+
+#stickycookiePolicy,
+#cookiePolicy {
+    position: fixed;
+    z-index: 9999999999;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+
+    text-align: center;
+
+    color: #FFFFFF;
+    background: rgba(0,0,0,0.8);
+}
+
+#stickycookiePolicy a,
+#cookiePolicy a {
+    margin-left: 10px;
+
+    transition: color 0.3s ease;
+    white-space: nowrap;
+    text-decoration: underline;
+
+    color: #FFFFFF;
+}
+
+#stickycookiePolicy a:hover,
+#cookiePolicy a:hover {
+    color: $color-brand;
+}
