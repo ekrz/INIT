@@ -4,7 +4,7 @@ $(function() {
 	renderInlineSVG();
 });
 
-// Replace all SVG images with inline SVG
+// ::: Replace all SVG images with inline SVG
 function renderInlineSVG() {
 	jQuery("img")
 		.filter(function() {
@@ -56,4 +56,18 @@ function renderInlineSVG() {
 				"xml"
 			);
 		});
+}
+// ::: GD - Close Cookie Policy
+function closeCookiePolicy(){
+	jQuery.ajax({
+		type: "GET",
+		url: "index.cfm?action=ajax_removeCookiePolicy",
+		success: function (response) {
+			$("#stickycookiePolicy").fadeOut();
+		},
+		error: function (xhr, ajaxOptions, thrownError) {
+			console.log(thrownError);
+			console.log(xhr.responseText);
+		}
+	});
 }
