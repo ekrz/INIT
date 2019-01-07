@@ -7,7 +7,7 @@
 
 {% import "../_config.njk" as config %}
 
-{% include "../components/_<head>.njk" %}
+{% include "../components/_head.njk" %}
 <body class="{{body_class}}">
 
     {# NOTE:
@@ -16,6 +16,6 @@
     !:#}
     {% block main %}{% endblock %}
 
-    {% include "../components/_<scripts>.njk" %}
+    {% include "../components/_scripts.njk" %}
 </body>
 </html>
