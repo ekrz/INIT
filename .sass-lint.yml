@@ -1,9 +1,9 @@
 options:
   merge-default-rules: false
 files:
-  include: "scss/**/*.s+(a|c)ss"
+  include: 'src/scss/**/*.scss'
   ignore:
-    - "scss/vendors/**/*.*"
+    - 'src/scss/**/vendors/*.scss'
 rules:
   bem-depth: 1
   class-name-format:
