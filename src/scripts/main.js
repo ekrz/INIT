@@ -67,6 +67,7 @@ function renderInlineSVG() {
 			);
 		});
 }
+
 // ::: GD - Close Cookie Policy
 function closeCookiePolicy(){
 	jQuery.ajax({
@@ -80,4 +81,18 @@ function closeCookiePolicy(){
 			console.log(xhr.responseText);
 		}
 	});
+}
+
+// ::: GD - Equalize Height 
+function equalizeHeight(element) {
+    var maxHeight = 0;
+    element.css("height", "");
+    element.each(function () {
+        if ($(this).outerHeight() > maxHeight) {
+            maxHeight = $(this).outerHeight();
+        }
+    });
+    if (maxHeight > 0) {
+        element.css("height", maxHeight);
+    }
 }
