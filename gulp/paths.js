@@ -23,11 +23,12 @@ module.exports = {
 			folder: _root + 'assets/',
 			destination: destination + 'assets'
 		},
-		favicon: {
-			source: _root + 'favicon.png',
-			watch: relativeRoot + 'favicon.png',
-			destination: destination
-		},
+        favicon: {
+            source: _root + '/favicon/**/*.*',
+            watch: relativeRoot + '/favicon/**/*.*',
+            folder : _root + 'favicon/',
+            destination: destination + 'favicon'
+        },
 		fonts: {
 			source: _root + 'fonts/**/*.*',
 			watch: relativeRoot + 'fonts/**/*.*',
