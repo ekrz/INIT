@@ -86,6 +86,7 @@ rules:
         - flex-direction
         - flex-order
         - flex-pack
+        - flex-grow
         - align-items
         - justify-content
         - flex-align
