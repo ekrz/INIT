@@ -1,0 +1,48 @@
+// !: Bootstrap component : Cards
+
+.card--simple {
+    margin-bottom: 1rem;
+
+    text-align: left;
+    .card-text {
+        @include truncate(300px);
+    }
+    .card-title {
+        @include font-size(18px, 1.3);
+    }
+}
+.card-date {
+    @include font-size(12px);
+
+    display: block;
+
+    margin-bottom: 10px;
+}
+.card-title {
+    @include font-size(22px, 1.4);
+}
+.card-text {
+    @include font-size(16px, 1.4);
+}
+.card-link {
+    position: relative;
+
+    display: inline-block;
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    color: $color-black;
+    &::after {
+        position: absolute;
+        top: 5px;
+        right: -25px;
+
+        display: block;
+
+        width: 15px;
+        height: 100%;
+
+        content: url("data:image/svg+xml; utf8, <svg viewBox=\"0 0 22 17\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M13.4062 0.40625L20.8438 7.84375L21.3906 8.5L20.8438 9.15625L13.4062 16.5938L12.0938 15.2812L18.0547 9.375H0.5V7.625H18.0547L12.0938 1.71875L13.4062 0.40625Z\" fill=\"black\"/></svg>");
+    }
+}
