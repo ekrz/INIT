@@ -3,12 +3,16 @@
 
 
 var path = require('../../paths.js');
+var fs = require('fs');
 
 
 // Render Nunjucks + HTML
 gulp.task('nunjucks', function () {
 	return gulp
     .src(path.to.nunjucks.source)
+        .pipe($.data(function(file) {
+            return JSON.parse(fs.readFileSync(path.to.data));
+        }))
 		.pipe($.nunjucksRender({
 			path: [path.to.nunjucks.views]
 		}))

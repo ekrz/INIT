@@ -1,70 +1,17 @@
-{% extends './layouts/_layout-main.njk' %}
+{% import "./_config.njk" as config %}
 
-{% block main %}
-    <style type="text/css">
-        body {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            flex-wrap: wrap;
-            justify-content: center;
+{% import './components/m-content.njk' as content %}
 
-            width: 100%;
-            height: 100vh;
+{% include "./components/_head.njk" %}
+<body>
+    {% include './components/c-navbar.njk' %}
 
-            text-align: center;
+    <section>
+    Init is a boilerplate engine.
+    </section>
 
-            color: #FF0000;
-            background: #fafafa;
-        }
-        h1 {
-            font-size: 3rem;
-        }
-        h2 {
-            font-size: 1rem;
-        }
-        ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        svg {
-            margin-bottom: 20px;
-        }
-        a {
-            text-decoration: none;
-            font-weight: bold;
-            color: #FF0000;
-        }
-        a:hover {
-            text-decoration: none;
-        }
-        footer span {
-            display: block;
-            margin-top: 30px;
-        }
-        footer a,
-        footer span {
-            font-size: 10px;
-            opacity: 0.75;
-        }
-    </style>
+    {% include './components/c-footer.njk' %}
 
-    <header>
-        <img src="images/logo.svg" alt="INIT">
-    </header>
-
-    <main>
-        <section>
-            <h2>
-                <strong>INIT</strong>
-                is a boilerplate generator to help you starting templating fast.
-            </h2>
-        </section>
-    </main>
-
-    <footer>
-        <span>Made by
-            <a href="https://www.retzepter.com">Emmanuel Kerjan Retzepter</a>
-        </span>
-    </footer>
-{% endblock %}
+    {% include "./components/_scripts.njk" %}
+</body>
+</html>

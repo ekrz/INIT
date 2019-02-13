@@ -1,39 +1,39 @@
 {
   "name": "init",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "INIT is a boilerplate generator to help you starting templating fast.",
   "scripts": {
     "start": "gulp default",
-    "build": "gulp build",
     "clean": "gulp clean"
   },
   "author": {
-    "name": "Emmanuel K. Retzepter",
+    "name": "Emmanuel Kerjan Retzepter",
     "email": "hello@retzepter.com",
     "url": "https://retzepter.com/"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com:ekrz/init-ekrz.git"
+    "url": "git://github.com:ekrz/INIT.git"
   },
   "license": "MIT",
   "dependencies": {
-    "bootstrap": "^4.2.1",
-    "flickity": "^2.1.2",
+    "bootstrap": "^4.3.1",
+    "flickity": "^2.2.0",
     "gulp": "^3.9.1",
     "hamburgers": "^1.1.3",
     "jquery": "^3.3.1"
   },
   "devDependencies": {
-    "autoprefixer": "^9.4.6",
+    "autoprefixer": "^9.4.7",
     "browser-sync": "^2.26.3",
     "critical": "^1.3.4",
     "del": "^3.0.0",
     "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.15.0",
+    "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
+    "fs": "0.0.1-security",
     "gulp-cached": "^1.1.1",
     "gulp-changed": "^3.2.0",
     "gulp-changed-in-place": "^2.3.0",
@@ -41,6 +41,7 @@
     "gulp-clone": "^2.0.1",
     "gulp-concat": "^2.6.1",
     "gulp-css-purge": "^3.0.9",
+    "gulp-data": "^1.3.1",
     "gulp-eslint": "^5.0.0",
     "gulp-flatten": "^0.4.0",
     "gulp-fontello": "^0.4.6",
@@ -67,7 +68,7 @@
     "imagemin-webp": "^4.1.0",
     "imagemin-zopfli": "^5.1.0",
     "path": "^0.12.7",
-    "popper.js": "^1.14.6",
+    "popper.js": "^1.14.7",
     "postcss-csso": "^3.0.0",
     "require-dir": "^1.2.0",
     "run-sequence": "^2.2.1"
