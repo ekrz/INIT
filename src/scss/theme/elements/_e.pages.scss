@@ -1,14 +1,7 @@
 // !: Elements – Pages
 
 body {
-    @include font-size(16px);
-
-    font-family: $font-base;
-}
-p {
-    @include font-size(14px);
-
-    @include media-breakpoint-up(lg) {
-        @include font-size(18px);
-    }
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: auto;
 }

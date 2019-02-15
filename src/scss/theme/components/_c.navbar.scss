@@ -1,11 +1,9 @@
 // !: INIT Component – Navbar
 
-// Offcanvas limit : md (991px)
-
 @include media-breakpoint-down(md) {
     .offcanvas-collapse {
         position: fixed;
-        top: 0; /* Height of navbar */
+        top: 0;
         bottom: 0;
         left: 100%;
 
@@ -29,7 +27,6 @@
     }
 }
 
-// Custom Navbar styling
 .c-navbar {
     background-color: $color-white;
     box-shadow: 0 0 20px 0 rgba($color-black, 0.1);
@@ -78,8 +75,6 @@
         @include media-breakpoint-down(md) {
             width: 100%;
             max-width: 225px;
-            // padding-right: 50px;
-            // padding-left: 50px;
         }
     }
     .navbar-collapse {
@@ -89,7 +84,7 @@
         @include media-breakpoint-down(md) {
             flex-direction: column;
 
-            padding-top: 75px; // Navbar height
+            padding-top: 75px;
         }
     }
     .nav-item {
@@ -132,107 +127,5 @@
         &:hover {
             color: $color-brand;
         }
-    }
-}
-
-.c-navbar__form {
-    position: relative;
-
-    @include media-breakpoint-down(md) {
-        max-width: 225px;
-    }
-    .form-control {
-        @include font-size(14px);
-        @include placeholder();
-
-        border: 0;
-        background-color: $color-gray;
-
-        @include media-breakpoint-down(md) {
-            padding-right: 35px;
-            padding-left: 10px;
-        }
-    }
-}
-.c-navbar__submit {
-    @include center(vertical);
-
-    position: absolute;
-    right: 20px;
-}
-.c-navbar__actions {
-    position: relative;
-
-    @include media-breakpoint-up(lg) {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        margin-left: 25px;
-        padding-top: 15px;
-        padding-bottom: 15px;
-    }
-    &::before {
-        @include pseudo();
-        @include center(vertical);
-
-        width: 2px;
-        height: 60px;
-
-        background-color: $color-gray;
-    }
-    .btn--search {
-        @include media-breakpoint-up(lg) {
-            margin-right: 10px;
-            margin-left: 10px;
-            padding: 10px;
-        }
-    }
-    .btn--contact {
-        @include media-breakpoint-up(lg) {
-            padding: 15px 30px;
-        }
-    }
-}
-.c-navbar__extra {
-    @include font-size(11px, 1);
-
-    position: absolute;
-    right: -5px;
-
-    margin-top: 5px;
-    padding: 5px;
-    a {
-        @include font-size(11px, 1);
-
-        padding: 5px;
-
-        color: $color-white;
-        border-radius: $base-radius;
-        background-color: #343A40;
-    }
-}
-.c-navbar__floating {
-    position: absolute;
-    right: -40px;
-    bottom: -200px;
-
-    padding: 5px;
-
-    transform: rotate(-90deg);
-
-    @include media-breakpoint-down(md) {
-        display: none;
-    }
-
-    a {
-        @include font-size(16px, 1);
-
-        padding: 20px;
-
-        color: $color-white;
-        border-top-left-radius: $base-radius;
-        border-top-right-radius: $base-radius;
-        background-color: $color-brand-highlight;
     }
 }

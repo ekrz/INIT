@@ -1,17 +1,26 @@
-{% import "./_config.njk" as config %}
+{% extends "./layouts/_layout.main.njk" %}
 
 {% import './components/m-content.njk' as content %}
 
-{% include "./components/_head.njk" %}
 <body>
-    {% include './components/c-navbar.njk' %}
+    
+    {% block core %}
+        <section class="welcome-in-init">
+            <div class="container">
+                <h1>INIT </h1>
+                <code>{{config.version}}</code>
+                <hr>
+                <p>⚡️ Deploys Boostrap 4 sites fast ⚡️</p>
+                <h2>Smart</h2>
+                <h2>Your check-up actions :</h2>
+                <ul>
+                    <li>Get a colour palette of the project and populate _s.colours.scss</li>
+                    <li>Generate the favicon from the project's logo</li>
+                    <li>Create the container width and custom breakpoints</li>
+                </ul>
+            </div>
+        </section>
+    {% endblock %}
 
-    <section>
-    Init is a boilerplate engine.
-    </section>
-
-    {% include './components/c-footer.njk' %}
-
-    {% include "./components/_scripts.njk" %}
 </body>
 </html>

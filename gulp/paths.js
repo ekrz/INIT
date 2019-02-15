@@ -15,7 +15,9 @@ var destination = root + '/dist/';
 module.exports = {
 	to: {
         root : root,
-        data : _root + 'data/data.json',
+        data : {
+            fontello : _root + 'data' + 'fontello.json'
+        },
 		destination: destination,
 		dist : destination + '**/*.*',
 		assets: {

@@ -1,0 +1,20 @@
+{# !: Layout : Main :! #}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+    {% include "../components/_head.njk" %}
+
+    <body class="{{body_class}}">
+
+        {% include '../components/c-navbar.njk' %}
+        
+        {% block core %}
+        {% endblock %}
+
+        {% include '../components/c-footer.njk' %}
+        {% include "../components/_scripts.njk" %}
+        
+    </body>
+</html>

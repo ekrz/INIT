@@ -1,12 +1,29 @@
 // Override built-in Boostrap variables
-// ::: Container widths
-// $container-max-widths: (
-//   sm: 540px,
-//   md: 720px,
-//   lg: 960px,
-//   xl: 1300px
-// ) !default;
+// ::: Breakpoints
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1440px,
+    xxxl: 1600px,
+    io: 1920px
+);
+// ::: Max-widths containers
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1300px
+) !default;
 
+@function get-breakpoints($key: "md") {
+    @return map-get($container-max-widths, $key);
+}
+
+// ::: Link default
+$font-family-base : $font-base;
 // ::: Link default
 $link-color: $color-brand;
 $link-hover-decoration: none;

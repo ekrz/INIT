@@ -1,20 +1,14 @@
-{#
-
-  !: INIT Component – Banner
-  :: Requires : /scss/_c.banner.scss + init its slider in /scripts/main.js
-  
-#}
+{# !: INIT Component – Banner :! #}
 
 
-<!-- Banner -->
 {% macro new (extraClass, heading, subheading) %}
 <section class="banner {{extraClass}}">
    <div class="banner__container">
       <div class="slider">
-         <!-- If single image -->
+
          <div class="slider__item">
             <div class="slider__image">
-               <!-- NOTE : 4 images for a happy front-end! -->
+               {# ⚡️ Always check the feasability of this with dev & client #}
                <picture>
                 
                   <source media='(min-width: 1440px)'

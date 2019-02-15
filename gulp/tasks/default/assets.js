@@ -1,57 +1,55 @@
-'use strict';
+"use strict";
 
-
-
-var path = require('../../paths.js');
-
+var path = require("../../paths.js");
 
 // Any other assets from /assets/
-gulp.task('assets', function () {
+gulp.task("assets", function() {
 	return gulp
 		.src(path.to.assets.source)
 		.pipe(gulp.dest(path.to.assets.destination))
-		.pipe(reload({stream: true}));
+		.pipe(reload({ stream: true }));
 });
 
 // Fontello Options
 var options = {
-	css: './src/scss/theme/vendors/fontello/',
-	font: 'src/fonts/fontello'
-}
+	css: "./src/scss/theme/vendors/fontello/",
+	font: "src/fonts/fontello"
+};
 
 // Import Fontello font (glyph)
-gulp.task('fontello', function () {
+gulp.task("fontello", function() {
 	return gulp
-		.src(path.to.assets.folder + 'fontello-config.json')
+		.src(path.to.data.fontello)
 		.pipe($.fontello(options))
-		.pipe(gulp.dest(path.to.root))
+		.pipe(gulp.dest(path.to.root));
 });
 
 // Transform fontello output to .scss
-gulp.task('fontello-sass', ['fontello'], function () {
+gulp.task("fontello-sass", ["fontello"], function() {
 	return gulp
-		.src(options.css + 'fontello.css')
-		.pipe($.concat('_s.fontello.scss'))
-		.pipe(gulp.dest('src/scss/theme/settings/'))
+		.src(options.css + "fontello.css")
+		.pipe($.concat("_s.fontello.scss"))
+		.pipe(gulp.dest("src/scss/theme/settings/"));
 });
 
 // Any other assets from /assets/
-gulp.task('fonts', function () {
+gulp.task("fonts", function() {
 	return gulp
 		.src(path.to.fonts.source)
 		.pipe(gulp.dest(path.to.fonts.destination))
-		.pipe(reload({stream: true}));
+		.pipe(reload({ stream: true }));
 });
 
-gulp.task('images', function() {
+gulp.task("images", function() {
 	return gulp
 		.src(path.to.images.source)
 		.pipe(gulp.dest(path.to.images.destination))
-		.pipe(reload({stream: true}));
+		.pipe(reload({ stream: true }));
 });
 
-gulp.task('favicon', function() {
-	return gulp.src(path.to.favicon.source)
+gulp.task("favicon", function() {
+	return gulp
+		.src(path.to.favicon.source)
 		.pipe(gulp.dest(path.to.favicon.destination))
-		.pipe(reload({stream: true}));
+		.pipe(reload({ stream: true }));
 });

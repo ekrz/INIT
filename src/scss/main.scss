@@ -10,17 +10,15 @@
 // [6] Components ----- Your designed UI elements (inuitcss includes none of these).
 // [7] Utilities ------ Overrides and helper classes.
 
-// Load settings
+// ::: Load settings
 
 @import "theme/settings/include";
 
-// Overwrite Bootstrap
+// ::: Overwrite Bootstrap
 
 @import "theme/settings/s.boostrap-custom";
 
-// Build custom boostrap from node
-
-// Essential Bootstrap
+// ::: Essential Bootstrap
 @import "./node_modules/bootstrap/scss/functions";
 @import "./node_modules/bootstrap/scss/variables";
 @import "./node_modules/bootstrap/scss/mixins";
@@ -28,7 +26,7 @@
 @import "./node_modules/bootstrap/scss/bootstrap-reboot";
 @import "./node_modules/bootstrap/scss/bootstrap-grid";
 
-// Bootstrap components, import with caution.
+// ::: Bootstrap components, import with caution.
 @import "./node_modules/bootstrap/scss/buttons";
 @import "./node_modules/bootstrap/scss/forms";
 @import "./node_modules/bootstrap/scss/dropdown";
@@ -42,7 +40,7 @@
 @import "./node_modules/bootstrap/scss/utilities/position";
 @import "./node_modules/bootstrap/scss/transitions";
 
-// Get theme
+// ::: Get theme
 
 @import "theme/tools/include";
 @import "theme/generic/include";

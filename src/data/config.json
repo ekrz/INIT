@@ -1,0 +1,14 @@
+{
+	"config": {
+		"version": "0.5.2",
+		"dev": true,
+		"project": [
+			{
+				"title": "Project Title",
+				"colour": "#1e1e1e"
+			}
+        ],
+        "root" : "/",
+		"stylesheet": "/styles/main.min.css"
+	}
+}

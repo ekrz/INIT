@@ -1,45 +1,7 @@
-{#
+{# !: INIT Component – Newsletter #}
 
-  !: INIT Component – Newsletter
-  :: Requires : /scss/_c.newsletter.scss
-  
-#}
-{% import "../_config.njk" as config %}
 <footer class="footer">
   <div class="container">
-    <div class="row">
-      <div class="col-12 col-md-6">
-          <img src="images/logo.svg" alt="">
-          <p>Heron House, Blackpool Park, Blackpool, Cork, Ireland. T23 R50R</p>
-          <p>
-            <a href="tel:+0897069898">+(089)7069898</a>
-            <a href="mailto:test@test.test">test@test.test</a> 
-          </p>
-          <p>© 2019 {{config.projectTitle}}   |   Built by <a href="https://granite.ie">Granite Digital</a></p>
-      </div>
-      <div class="col-12 col-md-4 offset-md-2">
-        <div class="row">
-          <div class="col-6">
-            <ul class="footer__nav">
-              <li><a href="/">Home</a></li>
-              <li><a href="/">People</a></li>
-              <li><a href="/">Services</a></li>
-              <li><a href="/">Testimonials</a></li>
-              <li><a href="/">News</a></li>
-              <li><a href="/">Resources</a></li>
-              <li><a href="/">Careers</a></li>
-            </ul>
-          </div>
-          <div class="col-6">
-            <ul class="footer__nav">
-              <li><a href="/">Sitemap</a></li>
-              <li><a href="/">Privacy Policy</a></li>
-              <li><a href="/">Terms of Use</a></li>
-              <li><a href="/">Cookie Policy</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+    <p>⚡️Powered by INIT <code>{{config.version}}</code>⚡️</p>
   </div>
 </footer>

@@ -1,30 +1,28 @@
 // !: INIT Component – Hamburger
+// ::: From : https://github.com/jonsuh/hamburgers
 
-// Settings
-// ==================================================
-$hamburger-padding-x: 5px !default;
-$hamburger-padding-y: 5px !default;
-$hamburger-layer-width: 40px !default;
-$hamburger-layer-height: 4px !default;
-$hamburger-layer-spacing: 8px !default;
+// !: Settings
+$hamburger-padding-x: 10px !default;
+$hamburger-padding-y: 15px !default;
+
+$hamburger-layer-width: 20px !default;
+$hamburger-layer-height: 2px !default;
+$hamburger-layer-spacing: 3px !default;
 $hamburger-layer-color: $color-black !default;
 $hamburger-layer-border-radius: 0 !default;
 $hamburger-hover-opacity: 1!default;
 $hamburger-active-layer-color: $color-white !default;
 $hamburger-active-hover-opacity: $hamburger-hover-opacity !default;
 
-// To use CSS filters as the hover effect instead of opacity,
-// set $hamburger-hover-use-filter as true and
-// change the value of $hamburger-hover-filter accordingly.
+// !: To use CSS filters as the hover effect instead of opacity,
+// ::: set $hamburger-hover-use-filter as true and
+// ::: change the value of $hamburger-hover-filter accordingly.
 $hamburger-hover-use-filter: false !default;
 $hamburger-hover-filter: opacity(50%) !default;
 $hamburger-active-hover-filter: $hamburger-hover-filter !default;
 
-// Types (Remove or comment out what you don’t need)
-// ==================================================
-$hamburger-types: (
-    spring
-) !default;
+// !: Type
+$hamburger-types: (spring) !default;
 
 @import "./node_modules/hamburgers/_sass/hamburgers/base";
 @import "./node_modules/hamburgers/_sass/hamburgers/types/spring";

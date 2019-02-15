@@ -1,9 +1,9 @@
 {% if config.dev %}
-    <!-- unminified js (jQuery + bootstrap + custom) -->
-    <script src="/scripts/jquery.js"></script>
-    <script src="/scripts/bootstrap.js"></script>
-    <script src="/scripts/app.min.js"></script>
+    {# !: Unminified Js (jQuery + bootstrap + custom) :! #}
+    <script src="scripts/jquery.js"></script>
+    <script src="scripts/bootstrap.js"></script>
+    <script src="scripts/app.min.js"></script>
 {% else %}
-    <!-- minified js (jQuery + bootstrap + custom) -->
-    <script src="/scripts/app.min.js"></script>
+    {# ⚡️ Minified + Concatenated Js #}
+    <script src="scripts/app.min.js"></script>
 {% endif %}

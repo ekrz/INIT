@@ -1,22 +1,20 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8"/>
-        <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-        <title>{{ config.projectTitle }}</title>
-        <meta name="description" content=""/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <title>{{ config.projectTitle }}</title>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-        <!-- mobile toolbar theming -->
-        <meta name="theme-color" content="{{ config.projectColour }}"/>
-        <meta name="msapplication-navbutton-color" content="{{ config.projectColour }}"/>
-        <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    {# !: Browser Theming :! #}
+    <meta name="theme-color" content="{{ config.projectColour }}"/>
+    <meta name="msapplication-navbutton-color" content="{{ config.projectColour }}"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
 
-        <!--favicon -->
-        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-        <link rel="manifest" href="/favicon/site.webmanifest">
+    {# ⚡️ Favicon Generator : https://favicon.io/favicon-converter/  :! #}
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
 
-        <link rel="stylesheet" href="{{ config.stylesheet }}"/>
-    </head>
+    <link rel="stylesheet" href="{{ config.stylesheet }}"/>
+</head>

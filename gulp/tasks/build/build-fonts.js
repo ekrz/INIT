@@ -1,14 +1,11 @@
-'use strict';
+"use strict";
 
-
-
-var path = require('../../paths.js');
-
+var path = require("../../paths.js");
 
 // Fonts
-gulp.task('build-fonts', function () {
+gulp.task("build-fonts", function() {
 	return gulp
 		.src(path.to.fonts.source)
-	    .pipe($.fontmin())
-		.pipe(gulp.dest(path.to.fonts.destination))
+		.pipe($.fontmin())
+		.pipe(gulp.dest(path.to.fonts.destination));
 });

@@ -1,7 +1,12 @@
 {
-	"test" : [
-        {
-            "test": "test validated"
-        }
-    ]
+	"main": {
+		"child": [
+			{
+				"item": "first pass"
+			},
+			{
+				"item": "second pass"
+			}
+		]
+	}
 }
