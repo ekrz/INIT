@@ -3,38 +3,22 @@
 <nav class="c-navbar navbar navbar-expand-lg fixed-top">
     <div class="container">
         <a class="navbar-brand mr-auto mr-lg-0" href="homepage.html">
-            <img src="images/logo.svg" alt="Quintas">
+            <div class="navbar-brand__main">
+                <img src="images/logo.svg" alt="{{config.project.title}}">
+            </div>
         </a>
-        <button class="hamburger hamburger--spring p-0 border-0" data-toggle="menu-offcanvas" type="button">
-            <span class="hamburger-box">
-                <span class="hamburger-inner"></span>
-            </span>
-        </button>
+
+        {% include "./c-hamburger.njk" %}
+        
         <div class="navbar-collapse offcanvas-collapse" id="offcanvas-navbar">
             <ul class="navbar-nav mx-auto mr-lg-0">
-                <li class="nav-item active">
-                    <a class="nav-link" href="team.html">People
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="services.html">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="testimonials.html">Testimonials</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="news.html">News</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="resources.html">Resources</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Careers</a>
-                </li>
-                <li class="nav-item d-lg-none">
-                    <a class="nav-link" href="#">Contact Us</a>
-                </li>
+                {% for item in menu.main %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{item.link}}.html">
+                            {{item.name}}
+                        </a>
+                    </li>
+                {% endfor %}
             </ul>
         </div>
     </div>

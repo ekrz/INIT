@@ -1,69 +1,22 @@
 // !: INIT Component – Navbar
 
-@include media-breakpoint-down(md) {
-    .offcanvas-collapse {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 100%;
-
-        visibility: hidden;
-        overflow-y: auto;
-
-        width: 100%;
-        padding-right: 1rem;
-        padding-left: 1rem;
-
-        transition-timing-function: ease-in-out;
-        transition-duration: 0.3s;
-        transition-property: left, visibility;
-
-        background-color: $color-black;
-    }
-    .offcanvas-collapse.open {
-        left: 0;
-
-        visibility: visible;
-    }
-}
-
 .c-navbar {
+    height: $navbar-height-mobile;
+
     background-color: $color-white;
     box-shadow: 0 0 20px 0 rgba($color-black, 0.1);
 
     @include media-breakpoint-up(lg) {
-        padding-top: 0.75rem;
-        padding-bottom: 0.75rem;
-    }
-    @include media-breakpoint-up(xl) {
-        padding-top: 0;
-        padding-bottom: 0;
-    }
-    @include media-breakpoint-down(md) {
-        height: 75px;
-    }
-    @include media-breakpoint-down(xxxs) {
-        .btn {
-            @include font-size(12px);
-
-            padding: 4px;
-        }
+        height: $navbar-height-desktop;
     }
 
     .navbar-brand {
         svg,
         img {
-            width: 100%;
-            max-width: 140px;
+            height: $navbar-height-mobile - 20;
 
-            @include media-breakpoint-up(lg) {
-                max-width: 150px;
-            }
-            @include media-breakpoint-up(xl) {
-                max-width: 300px;
-            }
-            @include media-breakpoint-down(xxxs) {
-                max-width: 100px;
+            @include media-breakpoint-up(md) {
+                height: $navbar-height-desktop - 30;
             }
         }
     }
@@ -112,7 +65,9 @@
         }
     }
     .nav-link {
-        @include font-size(26px, 46px);
+        @include font-size(26px,1);
+
+        font-weight: 600;
 
         color: $color-white;
 

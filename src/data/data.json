@@ -1,12 +1,33 @@
 {
-	"main": {
-		"child": [
-			{
-				"item": "first pass"
-			},
-			{
-				"item": "second pass"
-			}
-		]
-	}
+    "menu": {
+        "main": [
+            {
+                "name": "Home",
+                "link": "/"
+            },
+            {
+                "name": "Menu item",
+                "link": "/"
+            },
+            {
+                "name": "Menu item",
+                "link": "/"
+            },
+            {
+                "name": "Menu item",
+                "link": "/"
+            },
+            {
+                "name": "Menu item",
+                "link": "/"
+            },
+            {
+                "name": "Menu item",
+                "link": "/"
+            }
+        ]
+    },
+    "footer": {
+        "footnote": "⚡️Powered by INIT"
+    }
 }

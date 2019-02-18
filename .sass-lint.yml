@@ -3,7 +3,7 @@ options:
 files:
   include: 'src/scss/**/*.scss'
   ignore:
-    - 'src/scss/**/granite/*.scss'
+    - 'src/scss/**/Granite/*.scss'
     - 'src/scss/**/vendors/*.scss'
 rules:
   bem-depth: 1

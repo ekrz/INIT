@@ -1,0 +1,29 @@
+// !: INIT Component – Offcanvas
+
+
+@include media-breakpoint-down(md) {
+    .offcanvas-collapse {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 100%;
+
+        visibility: hidden;
+        overflow-y: auto;
+
+        width: 100%;
+        padding-right: 1rem;
+        padding-left: 1rem;
+
+        transition-timing-function: ease-in-out;
+        transition-duration: 0.3s;
+        transition-property: left, visibility;
+
+        background-color: $color-black;
+    }
+    .offcanvas-collapse.open {
+        left: 0;
+
+        visibility: visible;
+    }
+}

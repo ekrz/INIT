@@ -1,6 +1,12 @@
 // !: Elements – Pages
 
 body {
+    padding-top: $navbar-height-mobile + 15;
+
+    @include media-breakpoint-up(lg) {
+        padding-top: $navbar-height-desktop + 50;
+    }
+
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: auto;

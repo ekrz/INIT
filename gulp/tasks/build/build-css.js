@@ -30,11 +30,13 @@ gulp.task("build-sass", function() {
 gulp.task("build-css-purge", ["build-sass"], function() {
 	return gulp
 		.src(path.to.sass.destination + "/main.min.css")
-		.pipe(
-			$.purgecss({
-				content: [path.to.nunjucks.destination + "/*.html"]
-			})
-		)
+        .pipe($.purgecss({
+            content: [
+                path.to.nunjucks.destination + '/*.html'
+            ],
+            whitelist: ['dot'],
+            whitelistPatterns: [/carousel\-/, /flickity\-/, /slider\-/]
+        }))
 		.pipe($.postcss(plugins))
 		.pipe($.cssPurge())
 		.pipe(gulp.dest(path.to.sass.destination));
@@ -54,4 +56,4 @@ gulp.task("build-css-critical", ["build-css-purge"], function() {
 		.pipe(gulp.dest(path.to.destination));
 });
 
-gulp.task("build-css", ["build-css-critical"]);
+gulp.task("build-css", ["build-css-purge"]);

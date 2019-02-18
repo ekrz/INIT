@@ -1,11 +1,13 @@
 // !: INIT Components
-@import "_c.hamburger";
-@import "_c.navbar";
+@import "Navbar/_c.hamburger";
+@import "Navbar/_c.offcanvas";
+@import "Navbar/_c.navbar";
+
 @import "_c.footer";
 
 // !: Bootstrap Components
 @import "_c.card";
 
 // !: Granite Components
-@import "granite/_c.gd-cookie";
-@import "granite/_c.gd-nojs";
+@import "Granite/_c.gd-cookie";
+@import "Granite/_c.gd-nojs";

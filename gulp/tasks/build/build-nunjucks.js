@@ -3,7 +3,7 @@
 var path = require("../../paths.js");
 var fs = require("fs");
 
-gulp.task("nunjucks", function() {
+gulp.task("build-nunjucks", function() {
     return gulp
         .src(path.to.nunjucks.source)
         .pipe(
@@ -27,6 +27,7 @@ gulp.task("nunjucks", function() {
                 return error.message;
             })
         )
+        .pipe($.jsbeautifier())
         .pipe(gulp.dest(path.to.nunjucks.destination))
         .pipe(reload({ stream: true }));
 });
