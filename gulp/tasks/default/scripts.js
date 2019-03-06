@@ -28,7 +28,8 @@ gulp.task("scripts", function() {
 			$.notify.onError(function(error) {
 				return error.message;
 			})
-		)
+        )
+        .pipe($.babel())
 		.pipe($.concat("app.min.js"))
 		.pipe(gulp.dest(path.to.scripts.destination))
 		.pipe(reload({ stream: true }));
