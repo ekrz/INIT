@@ -60,7 +60,7 @@ gulp.task('prod', ['set-prod-node-env'], function() {
            "images",
            "nunjucks", 
            "sass",
-           "scripts", 
+           "scripts-build", 
            "fonts"
        ],
        "watch",

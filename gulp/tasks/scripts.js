@@ -2,13 +2,21 @@
 
 var path = require("../paths.js");
 
+var scriptsBuild = [
+	"node_modules/jquery/dist/jquery.js",
+	"node_modules/bootstrap/dist/js/bootstrap.js",
+	"node_modules/flickity/dist/flickity.pkgd.js",
+	path.to.scripts.source
+];
+var scriptsImport = [
+	"node_modules/jquery/dist/jquery.js",
+	"node_modules/bootstrap/dist/js/bootstrap.js",
+	"node_modules/flickity/dist/flickity.pkgd.js"
+];
+
 gulp.task("scripts-import", function() {
 	return gulp
-		.src([
-			"node_modules/jquery/dist/jquery.js",
-			"node_modules/bootstrap/dist/js/bootstrap.js",
-			"node_modules/flickity/dist/flickity.pkgd.js"
-		])
+		.src(scriptsImport)
 		.pipe(gulp.dest(path.to.scripts.destination));
 });
 
@@ -19,7 +27,6 @@ gulp.task("eslint", function() {
 		.pipe($.eslint.format());
 });
 
-// JavaScript
 gulp.task("scripts", function() {
 	return gulp
 		.src(path.to.scripts.source)
@@ -35,14 +42,9 @@ gulp.task("scripts", function() {
 		.pipe(reload({ stream: true }));
 });
 
-// JavaScript
 gulp.task("scripts-build", function() {
 	return gulp
-		.src([
-			"node_modules/jquery/dist/jquery.js",
-			"node_modules/bootstrap/dist/js/bootstrap.js",
-			path.to.scripts.source
-		])
+		.src(scriptsBuild)
 		.on(
 			"error",
 			$.notify.onError(function(error) {

@@ -5,15 +5,22 @@ const csso = require("postcss-csso");
 const autoprefixer = require("autoprefixer");
 
 // Post-css plugins
-var plugins = [
-	autoprefixer({
-		browsers: ["last 2 versions"]
-    }),
-    csso({
-        restructure: false,
-        debug: true
-    })
-];
+var plugins = {
+	"dev": [
+		autoprefixer({
+			browsers: ["last 2 versions"]
+		}),
+	],
+	"prod": [
+		autoprefixer({
+			browsers: ["last 2 versions"]
+		}),
+		csso({
+			restructure: false,
+			debug: true
+		})
+	]
+}
 
 gulp.task("sass-lint", function() {
 	return gulp
@@ -34,10 +41,9 @@ gulp.task("sass", ["sass-lint"], function() {
 				return error.message;
 			})
         )
-        .pipe($.rename({suffix:'.min'}) )
-        // TODO: Different settings for config.env === 'production'/config.env === 'development' on post-css
-        .pipe($.if(config.env === 'production', $.postcss(plugins)))
-        .pipe($.if(config.env === 'development', $.postcss(plugins)))
+		.pipe($.rename({suffix:'.min'}) )
+		.pipe($.if(config.env === 'production', $.postcss(plugins.prod)))
+		.pipe($.if(config.env === 'development', $.postcss(plugins.dev)))
         .pipe($.if(config.env === 'production', $.purgecss({
             content: [
                 path.to.nunjucks.destination + '/*.html'
@@ -45,7 +51,6 @@ gulp.task("sass", ["sass-lint"], function() {
             whitelist: ['dot'],
             whitelistPatterns: [/carousel\-/, /flickity\-/, /slider\-/]
         })))
-        .pipe($.if(config.env === 'production', $.postcss(plugins)))
         .pipe($.if(config.env === 'production', $.cssPurge()))
 		.pipe($.if(config.env === 'development', $.sourcemaps.write('.')))
 		.pipe(gulp.dest(path.to.sass.destination))
