@@ -1,7 +1,6 @@
 "use strict";
 
 var path = require("../paths.js");
-const critical = require("critical").stream;
 const csso = require("postcss-csso");
 const autoprefixer = require("autoprefixer");
 
@@ -51,19 +50,4 @@ gulp.task("sass", ["sass-lint"], function() {
 		.pipe($.if(config.env === 'development', $.sourcemaps.write('.')))
 		.pipe(gulp.dest(path.to.sass.destination))
 		.pipe(reload({ stream: true }));
-});
-
-
-// Generate Critical-path CSS
-gulp.task("critical", ["nunjucks", "sass"], function() {
-	return gulp
-		.src(path.to.nunjucks.destination + "/*.html")
-		.pipe(
-			critical({
-				base: path.to.nunjucks.destination,
-				inline: false,
-				css: path.to.sass.destination + "/main.min.css"
-			})
-		)
-		.pipe(gulp.dest(path.to.destination));
 });
