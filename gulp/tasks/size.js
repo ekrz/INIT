@@ -1,6 +1,6 @@
 "use strict";
 
-var path = require("../../paths.js");
+var path = require("../paths.js");
 
 // Display a report of the size and Gzipped size of the project
 gulp.task("size", function() {

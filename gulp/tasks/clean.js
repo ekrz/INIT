@@ -1,6 +1,6 @@
 "use strict";
 
-var path = require("../../paths.js");
+var path = require("../paths.js");
 var del = require("del");
 var cache = require("gulp-cached");
 

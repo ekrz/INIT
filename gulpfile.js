@@ -1,44 +1,70 @@
 "use strict";
 
-// !:Tasks are splitted under ./gulp/tasks/
-// ::: Run npm install, sit back and relax.
+/* 
+
+!: Basic commands :!
+::: `npm install' => install dependencies
+::: `gulp`        => starts gulp default tasks for development (compile, hotreload, ...)
+::: `gulp prod`   => starts gulp default tasks for production (dev + optimise, compress, ...)
+
+*/
+
 
 global.gulp = require("gulp");
 var runSequence = require("run-sequence");
 var requireDir = require("require-dir");
+
 var path = require("./gulp/paths.js");
+
+var extend = require('extend');
+var parseArgs = require('minimist');
 global.$ = require("gulp-load-plugins")();
 
 global.browserSync = require("browser-sync");
 global.reload = browserSync.reload;
+global.config = extend({
+   env: process.env.NODE_ENV
+}, parseArgs(process.argv.slice(2)));
 
-// Require all tasks.
 requireDir("./gulp/tasks", { recurse: true });
 
-// Default task.
-gulp.task("default", function() {
-    runSequence(
-        "clean",
-        ["nunjucks", "sass", "scripts-import", "scripts", "images", "fonts"],
-        "watch",
-        "connect"
-    );
+gulp.task('set-dev-node-env', function() {
+   return process.env.NODE_ENV = config.env = 'development';
+});
+gulp.task('set-prod-node-env', function() {
+   return process.env.NODE_ENV = config.env = 'production';
 });
 
-// Build task.
-gulp.task("build", function() {
-    runSequence(
-        "clean",
-        [
-            "build-images",
-            "build-scripts",
-            "build-css",
-            "build-fonts",
-            "build-nunjucks"
-        ],
-        "size"
-    );
-});
+gulp.task('default', ['set-dev-node-env'], function() {
+   runSequence(
+       "clean",
+       [
+           "nunjucks", 
+           "sass", 
+           "scripts-import", 
+           "scripts", 
+           "images",
+           "fonts"
+       ],
+       "watch",
+       "connect"
+   );
+});    
+
+gulp.task('prod', ['set-prod-node-env'], function() {
+   runSequence(
+       "clean",
+       [
+           "images",
+           "nunjucks", 
+           "sass",
+           "scripts", 
+           "fonts"
+       ],
+       "watch",
+       "connect"
+   );
+});    
 
 // Watch task.
 gulp.task("watch", function() {

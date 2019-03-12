@@ -1,6 +1,6 @@
 {
   "name": "init",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "INIT is a boilerplate generator to help you starting templating fast.",
   "scripts": {
     "start": "gulp default",
@@ -48,6 +48,7 @@
     "gulp-flatten": "^0.4.0",
     "gulp-fontello": "^0.5.1",
     "gulp-fontmin": "^0.7.4",
+    "gulp-if": "^2.0.2",
     "gulp-imagemin": "^5.0.3",
     "gulp-jsbeautifier": "^3.0.0",
     "gulp-load-plugins": "^1.5.0",

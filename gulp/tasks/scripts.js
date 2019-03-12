@@ -1,6 +1,6 @@
 "use strict";
 
-var path = require("../../paths.js");
+var path = require("../paths.js");
 
 gulp.task("scripts-import", function() {
 	return gulp
@@ -33,4 +33,24 @@ gulp.task("scripts", function() {
 		.pipe($.concat("app.min.js"))
 		.pipe(gulp.dest(path.to.scripts.destination))
 		.pipe(reload({ stream: true }));
+});
+
+// JavaScript
+gulp.task("scripts-build", function() {
+	return gulp
+		.src([
+			"node_modules/jquery/dist/jquery.js",
+			"node_modules/bootstrap/dist/js/bootstrap.js",
+			path.to.scripts.source
+		])
+		.on(
+			"error",
+			$.notify.onError(function(error) {
+				return error.message;
+			})
+        )
+        .pipe($.babel())
+		.pipe($.concat("app.min.js"))
+		.pipe($.uglify())
+		.pipe(gulp.dest(path.to.scripts.destination));
 });

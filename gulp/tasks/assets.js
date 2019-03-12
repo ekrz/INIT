@@ -1,6 +1,6 @@
 "use strict";
 
-var path = require("../../paths.js");
+var path = require("../paths.js");
 
 // Any other assets from /assets/
 gulp.task("assets", function() {
@@ -30,21 +30,6 @@ gulp.task("fontello-sass", ["fontello"], function() {
 		.src(options.css + "fontello.css")
 		.pipe($.concat("_s.fontello.scss"))
 		.pipe(gulp.dest("src/scss/theme/settings/"));
-});
-
-// Any other assets from /assets/
-gulp.task("fonts", function() {
-	return gulp
-		.src(path.to.fonts.source)
-		.pipe(gulp.dest(path.to.fonts.destination))
-		.pipe(reload({ stream: true }));
-});
-
-gulp.task("images", function() {
-	return gulp
-		.src(path.to.images.source)
-		.pipe(gulp.dest(path.to.images.destination))
-		.pipe(reload({ stream: true }));
 });
 
 gulp.task("favicon", function() {
