@@ -31,10 +31,10 @@ These instructions will help you to get the most of **INIT**.
 
 This will run the default tasks, allowing you to set up a local server and enabling BrowserSync.
 
-Once you're happy to launch your styles and scripts on a live site, it is preferable that you run the second set of tasks from **INIT** : build.
+Once you're happy to launch your styles and scripts on a live site, it is preferable that you run the second set of tasks from **INIT** : prod.
 
 ```
-> gulp build
+> gulp prod
 ```
 
 This will remove the source-maps, decrease the size files, allow image optimisation, generate the critical CSS, etc.
