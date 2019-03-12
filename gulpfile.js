@@ -1,6 +1,6 @@
 "use strict";
 
-/* 
+/*
 
 !: Basic commands :!
 ::: `npm install' => install dependencies
@@ -9,25 +9,25 @@
 
 */
 
-
+// ::: Variables & Globals :::
 global.gulp = require("gulp");
 var runSequence = require("run-sequence");
 var requireDir = require("require-dir");
-
 var path = require("./gulp/paths.js");
-
 var extend = require('extend');
 var parseArgs = require('minimist');
-global.$ = require("gulp-load-plugins")();
 
+global.$ = require("gulp-load-plugins")();
 global.browserSync = require("browser-sync");
 global.reload = browserSync.reload;
 global.config = extend({
    env: process.env.NODE_ENV
 }, parseArgs(process.argv.slice(2)));
 
+// ::: Variables & Globals :::
 requireDir("./gulp/tasks", { recurse: true });
 
+// ::: Environments triggers :::
 gulp.task('set-dev-node-env', function() {
    return process.env.NODE_ENV = config.env = 'development';
 });
@@ -35,6 +35,7 @@ gulp.task('set-prod-node-env', function() {
    return process.env.NODE_ENV = config.env = 'production';
 });
 
+// ::: Development tasks :::
 gulp.task('default', ['set-dev-node-env'], function() {
    runSequence(
        "clean",
@@ -49,8 +50,9 @@ gulp.task('default', ['set-dev-node-env'], function() {
        "watch",
        "connect"
    );
-});    
+});
 
+// ::: Production tasks :::
 gulp.task('prod', ['set-prod-node-env'], function() {
    runSequence(
        "clean",
@@ -66,7 +68,7 @@ gulp.task('prod', ['set-prod-node-env'], function() {
    );
 });    
 
-// Watch task.
+// ::: Tasks watcher :::
 gulp.task("watch", function() {
     $.watch([path.to.nunjucks.watch], function(event, cb) {
         gulp.start("nunjucks");
