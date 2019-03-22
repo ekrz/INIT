@@ -8,7 +8,6 @@ const imageminGiflossy = require("imagemin-giflossy");
 
 // Images (/images/) as webp
 gulp.task("images", function() {
-	var cloneSink = $.clone.sink();
 	return gulp
 		.src(path.to.images.source)
 		.pipe($.if(config.env === 'production', 
@@ -50,8 +49,5 @@ gulp.task("images", function() {
 				})
 			])
 		))
-		.pipe($.if(config.env === 'production', cloneSink))
-		.pipe($.if(config.env === 'production', $.webp()))
-		.pipe($.if(config.env === 'production', cloneSink.tap()))
 		.pipe(gulp.dest(path.to.images.destination));
 });

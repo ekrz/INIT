@@ -1,4 +1,4 @@
-# INIT 0.5.5
+# INIT 0.5.6
 
 ###### a project by Emmanuel Kerjan Retzepter
 
