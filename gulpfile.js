@@ -68,6 +68,20 @@ gulp.task('prod', ['set-prod-node-env'], function() {
    );
 });    
 
+// ::: Netlify tasks :::
+gulp.task('netlify', ['set-prod-node-env'], function() {
+   runSequence(
+       "clean",
+       [
+           "images",
+           "nunjucks", 
+           "sass",
+           "scripts-build", 
+           "fonts"
+       ]
+   );
+});    
+
 // ::: Tasks watcher :::
 gulp.task("watch", function() {
     $.watch([path.to.nunjucks.watch], function(event, cb) {
