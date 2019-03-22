@@ -48,7 +48,7 @@ gulp.task("sass", ["sass-lint"], function() {
             content: [
                 path.to.nunjucks.destination + '/*.html'
             ],
-            whitelist: ['dot'],
+            whitelist: ['dot', 'tbody'],
             whitelistPatterns: [/carousel\-/, /selectric\-/, /flickity\-/, /slider\-/]
         })))
         .pipe($.if(config.env === 'production', $.cssPurge()))
