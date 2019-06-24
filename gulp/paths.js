@@ -16,7 +16,7 @@ module.exports = {
 	to: {
         root : root,
         data : {
-            fontello : _root + 'data' + 'fontello.json'
+            fontello : _root + 'data/' + 'fontello.json'
         },
 		destination: destination,
 		dist : destination + '**/*.*',
