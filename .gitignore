@@ -18,6 +18,7 @@
 /contentFiles
 /svn.zip
 /pages/plugins/
+.vscode/
 
 # Dependency directories#
 #########################
