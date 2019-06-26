@@ -6,7 +6,7 @@ const autoprefixer = require("autoprefixer");
 // Post-css plugins
 var plugins = [
 	autoprefixer({
-		browsers: ["last 2 versions"]
+		overrideBrowserslist: ["last 2 versions"]
 	})
 ];
 
