@@ -8,12 +8,12 @@ const autoprefixer = require("autoprefixer");
 var plugins = {
 	"dev": [
 		autoprefixer({
-			browsers: ["last 2 versions"]
+			overrideBrowserslist: ["last 2 versions"]
 		}),
 	],
 	"prod": [
 		autoprefixer({
-			browsers: ["last 2 versions"]
+			overrideBrowserslist: ["last 2 versions"]
 		}),
 		csso({
 			restructure: false,
