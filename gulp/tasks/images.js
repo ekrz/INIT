@@ -51,3 +51,10 @@ gulp.task("images", function() {
 		))
 		.pipe(gulp.dest(path.to.images.destination));
 });
+
+// Images Netlify
+gulp.task("images-netlify", function() {
+	return gulp
+		.src(path.to.images.source)
+		.pipe(gulp.dest(path.to.images.destination));
+});

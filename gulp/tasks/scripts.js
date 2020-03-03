@@ -3,15 +3,15 @@
 var path = require("../paths.js");
 
 var scriptsBuild = [
-	"node_modules/jquery/dist/jquery.js",
-	"node_modules/bootstrap/dist/js/bootstrap.js",
-	"node_modules/flickity/dist/flickity.pkgd.js",
+	"./node_modules/jquery/dist/jquery.js",
+	"./node_modules/bootstrap/dist/js/bootstrap.js",
+	"./node_modules/flickity/dist/flickity.pkgd.js",
 	path.to.scripts.source
 ];
 var scriptsImport = [
-	"node_modules/jquery/dist/jquery.js",
-	"node_modules/bootstrap/dist/js/bootstrap.js",
-	"node_modules/flickity/dist/flickity.pkgd.js"
+	"./node_modules/jquery/dist/jquery.js",
+	"./node_modules/bootstrap/dist/js/bootstrap.js",
+	"./node_modules/flickity/dist/flickity.pkgd.js"
 ];
 
 gulp.task("scripts-import", function() {

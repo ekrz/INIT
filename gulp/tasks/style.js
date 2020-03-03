@@ -44,14 +44,14 @@ gulp.task("sass", ["sass-lint"], function() {
 		.pipe($.rename({suffix:'.min'}) )
 		.pipe($.if(config.env === 'production', $.postcss(plugins.prod)))
 		.pipe($.if(config.env === 'development', $.postcss(plugins.dev)))
-        .pipe($.if(config.env === 'production', $.purgecss({
-            content: [
-                path.to.nunjucks.destination + '/*.html'
-            ],
-            whitelist: ['dot', 'tbody'],
-            whitelistPatterns: [/carousel\-/, /selectric\-/, /flickity\-/, /slider\-/]
-        })))
-        .pipe($.if(config.env === 'production', $.cssPurge()))
+        // .pipe($.if(config.env === 'production', $.purgecss({
+        //     content: [
+        //         path.to.nunjucks.destination + '/*.html'
+        //     ],
+        //     whitelist: ['dot', 'tbody', 'is-active', 'open'],
+        //     whitelistPatterns: [/carousel\-/, /selectric\-/, /flickity\-/, /slider\-/]
+        // })))
+        // .pipe($.if(config.env === 'production', $.cssPurge()))
 		.pipe($.if(config.env === 'development', $.sourcemaps.write('.')))
 		.pipe(gulp.dest(path.to.sass.destination))
 		.pipe(reload({ stream: true }));

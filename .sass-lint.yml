@@ -3,7 +3,7 @@ options:
 files:
   include: 'src/scss/**/*.scss'
   ignore:
-    - 'src/scss/**/granite/*.scss'
+    - 'src/scss/**/Granite/*.scss'
     - 'src/scss/**/vendors/**/*.scss'
 rules:
   bem-depth: 1
@@ -343,4 +343,8 @@ rules:
         - "filter:progid:DXImageTransform.Microsoft.gradient"
         - "-ms-filter:\\''progid:DXImageTransform.Microsoft.gradient"
         - text-shadow
+        - mask
+        - mask-image
+        - mask-repeat
+        - mask-size
       ignore-custom-properties: true

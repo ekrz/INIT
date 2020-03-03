@@ -45,7 +45,8 @@ gulp.task('default', ['set-dev-node-env'], function() {
            "scripts-import", 
            "scripts", 
            "images",
-           "fonts"
+           "fonts",
+           "favicon"
        ],
        "watch",
        "connect"
@@ -73,11 +74,13 @@ gulp.task('netlify', ['set-prod-node-env'], function() {
    runSequence(
        "clean",
        [
-           "images",
-           "nunjucks", 
+           "images-netlify",
+           "nunjucks",
            "sass",
-           "scripts-build", 
-           "fonts"
+           "scripts-import", 
+           "scripts", 
+           "fonts",
+           "assets"
        ]
    );
 });    
