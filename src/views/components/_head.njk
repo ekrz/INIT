@@ -1,13 +1,13 @@
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-    <title>{{ config.projectTitle }}</title>
+    <title>{{ config.project[0].title }}</title>
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     {# !: Browser Theming :! #}
-    <meta name="theme-color" content="{{ config.projectColour }}"/>
-    <meta name="msapplication-navbutton-color" content="{{ config.projectColour }}"/>
+    <meta name="theme-color" content="{{ config.project[0].colour }}"/>
+    <meta name="msapplication-navbutton-color" content="{{ config.project[0].colour }}"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
 
     {# ⚡️ Favicon Generator : https://favicon.io/favicon-converter/  :! #}

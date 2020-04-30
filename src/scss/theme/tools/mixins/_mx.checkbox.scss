@@ -1,0 +1,104 @@
+// Mixin for pure CSS styled checkboxes input
+
+// @params{$size}                       - size of the input
+// @params{$backgroundColor}            - initial background colour
+// @params{$borderColor}                - initial border colour
+// @params{$selectedBackgroundColor}    - when checked – input's colour
+// @params{$selectedBorderColor}        - when checked – input's border colour
+// @params{$checkColor}                 - input's checker colour
+// @params{$valign}                     - checker's alignement within the input
+// @params{$rounded}                    - 3 options : circle, rounded, none
+
+// @structure - copy this structure for a seemless integration.
+/* :::::::::::::::
+<label class="custom-checkbox form-check-label" for="checkboxID">
+    <input id="checkboxID" type="checkbox" class="custom-checkbox__item" checked />
+    <i></i>
+    <span>{{Your label message}}</span>
+</label>
+::::::::::::::: */
+
+// @usage - @include css-checkbox(330px, $checkColor: yellow, $selectedBackgroundColor: #2c3e50, $valign: bottom, $rounded: circle);
+
+@mixin css-checkbox(
+    $size: "16px",
+    $backgroundColor: transparent,
+    $borderColor: #FFFFFF,
+    $selectedBackgroundColor: #000000,
+    $selectedBorderColor: #FFFFFF,
+    $checkColor: #FFFFFF,
+    $valign: "middle",
+    $rounded: "") {
+    display: none;
+
+    &:checked + i {
+        border-color: #{$selectedBorderColor};
+        background: #{$selectedBackgroundColor};
+
+        &:hover:after {
+            opacity: 1;
+        }
+
+        &:after {
+            opacity: 1;
+            border-color: #{$checkColor};
+        }
+    }
+
+    + i {
+        box-sizing: border-box;
+        &:before,
+        &:after {
+            box-sizing: border-box;
+        }
+    }
+    + i {
+        font-size: #{$size};
+
+        position: relative;
+        top: -1px;
+
+        display: inline-block;
+
+        width: #{$size * 1.25};
+        height: #{$size * 1.25};
+
+        cursor: pointer;
+        transition: background 200ms ease;
+        vertical-align: #{$valign};
+
+        border: 1px solid $borderColor;
+        background: $backgroundColor;
+
+        @if $rounded == "circle" {
+            border-radius: 10em;
+        } @else if $rounded == "rounded" {
+            border-radius: 0.2em;
+        } @else {
+            border-radius: 0;
+        }
+
+        &:hover:after {
+            opacity: 0.2;
+        }
+
+        &:after {
+            position: absolute;
+            top: calc(50% - 1px);
+            left: 50%;
+
+            width: 0.68em;
+            height: 0.4em;
+
+            content: "";
+            transform: translate(-50%, -50%) translateZ(1px) rotate(-45deg);
+
+            opacity: 0;
+            border: 0.15em solid transparent;
+            border-top: none;
+            border-right: none;
+            outline: 1px solid transparent; // hack to prevent antialias atrifacts in firefox
+            background: rgba(0, 0, 0, 0);
+        }
+    }
+}

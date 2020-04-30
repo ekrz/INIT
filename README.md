@@ -13,8 +13,8 @@ These instructions will help you to get the most of **INIT**.
 ### Clone INIT
 
 ```
-> git clone https://github.com/ekrz/init-ekrz.git {your-project}
-> cd {your-project}
+> git clone https://github.com/ekrz/init-ekrz.git {{your-project}}
+> cd {{your-project}}
 ```
 
 ### Install the modules
@@ -22,6 +22,28 @@ These instructions will help you to get the most of **INIT**.
 ```
 > npm i
 ```
+
+### Delete the .git/ folder and initialise git again
+
+This will get rid of the INIT git history that we don't need.
+
+```
+> rm -rf .git/
+> git init
+```
+
+### Hook up the new repo
+
+```
+> git remote add origin git@bitbucket.org:granitedigital-bitbucket/{{your-project}}.git
+```
+
+Then push the changes
+
+```
+> git push -u origin master
+```
+
 
 ### Run Gulp (default)
 

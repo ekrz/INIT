@@ -1,0 +1,10 @@
+// !: Elements – Input Checkboxes
+
+.custom-checkbox {
+    .custom-checkbox__item {
+        @include css-checkbox(18px, $selectedBackgroundColor: transparent);
+    }
+    span {
+        margin-left: 10px;
+    }
+}
