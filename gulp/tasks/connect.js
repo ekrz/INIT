@@ -17,7 +17,7 @@ var serverConfig = {
 	// proxy: 'http://site.com'
 	port: 9000,
 	open: false,
-	notify: false
+	// notify: false
 };
 
 gulp.task("connect", function() {

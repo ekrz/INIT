@@ -1,10 +1,16 @@
-# INIT 0.5.7
+# INIT 0.6.0
 
 ###### a project by Emmanuel Kerjan Retzepter
 
 **INIT** is a boilerplate generator to help you starting templating fast.
 
 It uses Gulp, Bootstrap 4, Sass and Nunjucks engine. This whole project has been built with flexibility in mind so it adapts itself very well to any kind of dev environnement and for various purposes (process SCSS, process NJK templates, optimize images, compress Javascript, compress styles, Hotreload, etc).
+## Latest updates 
+
+- Bootstrap `4.5.0`
+- Fix BrowserSync Sourcemaps issues (rollback `2.21.0`)
+- Update dependencies & npm audit
+- New commands with `npm run` (e.g. `npm run prod`, `npm run netlify`)
 
 ## Getting Started
 
